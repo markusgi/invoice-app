@@ -2,7 +2,7 @@ version: '3'
 
 services:
   backend:
-    image: invoice-local:latest
+    image: registry.gitlab.propulsion-home.ch/full-stack/batch-13-aug-2020/final-projects/invoice-app/invoice-app:latest
     restart: always
     env_file:
       - ./envs/dev.env
