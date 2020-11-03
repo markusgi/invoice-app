@@ -33,6 +33,11 @@ INSTALLED_APPS = [
 
     #own
     'users',
+    'restaurants',
+    'revenues',
+    'invoices',
+    'articles',
+    'tags',
 ]
 
 MIDDLEWARE = [
