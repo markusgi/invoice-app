@@ -14,6 +14,7 @@ authurls = [
 urlpatterns = [
     path('backend/api/auth/', include(authurls)),
     path('backend/api/admin/', admin.site.urls),
+    path('backend/api/users/', include('users.urls')),
 ]
 
 if settings.DEBUG:

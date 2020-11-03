@@ -16,27 +16,33 @@ class User(AbstractUser):
     first_name = models.CharField(
         verbose_name='first name',
         max_length=200,
-        blank=True,
+        blank=True
     )
     last_name = models.CharField(
         verbose_name='last name',
         max_length=200,
-        blank=True,
+        blank=True
     )
     location = models.CharField(
         verbose_name='location',
         max_length=200,
-        blank=True,
+        blank=True
     )
-    #phone = PhoneField(
-     #   blank=True,
-    #    help_text='Contact phone number'
-    #)
+    phone = models.CharField(
+        blank=True,
+        help_text='Contact phone number',
+        max_length=20
+    )
     date_joined = models.DateTimeField(
         auto_now_add=True
     )
     profile_picture = models.ImageField(
         upload_to='',
+        blank=True
+    )
+    description = models.TextField(
+        max_length=100,
+        verbose_name='description',
         blank=True
     )
 
