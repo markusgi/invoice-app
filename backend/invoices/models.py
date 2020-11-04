@@ -7,7 +7,7 @@ from restaurants.models import Restaurant
 class Invoice(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    date = models.DateTimeField()  # WIP (Lina: I'm not sure this would work.)
+    date = models.DateField()
     shop = models.CharField(max_length=50)
     restaurant = models.ForeignKey(to=Restaurant, verbose_name='restaurant', related_name='invoices',
                                    on_delete=models.CASCADE)
