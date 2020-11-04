@@ -19,3 +19,8 @@ export const Container = styled.div`
 	height: 800px;
 	background-color: #fff;
 `;
+
+export const PieChartWrapper = styled.div`
+	border: 3px solid black;
+	background-color: pink;
+`;
