@@ -6,15 +6,15 @@ import searchIcon from '../../../assets/images/searchIcon.png';
 import bellIcon from '../../../assets/images/bellIcon.png';
 import userIcon from '../../../assets/images/userIcon.png';
 
-const Navbar = () => {
-	const [active, setActive] = useState('dashboard');
+const Navbar = ( {props} ) => {
+	const [active, setActive] = useState(props);
 
 	return (
 		<Fragment>
 			<NavbarWrapper>
                 <NavbarTopWrapper>
                     <NavbarLeft>
-                        <Link to='/dashboard'>
+                        <Link onClick={() => setActive('dashboard')} to='/dashboard'>
                             <img className='logo' src={logo} alt='logo' />
                         </Link>
                     </NavbarLeft>
@@ -27,26 +27,22 @@ const Navbar = () => {
                             Dashboard
                         </Link>
                         <Link
-                            className={active === 'search' ? 'searchLink active' : 'searchLink'}
-                            onClick={() => setActive('search')}
+                            className={active === 'data' ? 'dataLink active' : 'dataLink'}
+                            onClick={() => setActive('data')}
                             to='/data'
                         >
                             Data
                         </Link>
                         <Link
-                            className={
-                                active === 'profile' ? 'profileLink active' : 'profileLink'
-                            }
-                            onClick={() => setActive('profile')}
+                            className={active === 'analysis' ? 'analysisLink active' : 'analysisLink'}
+                            onClick={() => setActive('analysis')}
                             to='/analysis'
                         >
                             Analysis
                         </Link>
                         <Link
-                            className={
-                                active === 'profile' ? 'profileLink active' : 'profileLink'
-                            }
-                            onClick={() => setActive('profile')}
+                            className={active === 'settings' ? 'settingsLink active' : 'settingsLink'}
+                            onClick={() => setActive('settings')}
                             to='/settings'
                         >
                             Settings
@@ -66,6 +62,7 @@ const Navbar = () => {
 
                 </NavbarTopWrapper>
 				
+                {active === 'dashboard' ? 
                 <NavbarBottom>
                     <Link
 						className={active === 'home' ? 'timeLink active' : 'timeLink'}
@@ -103,6 +100,9 @@ const Navbar = () => {
 						From - To
 					</Link>
                 </NavbarBottom>
+                :
+                <p>Not in dashboard</p>
+                        }
 			</NavbarWrapper>
 		</Fragment>
 	);

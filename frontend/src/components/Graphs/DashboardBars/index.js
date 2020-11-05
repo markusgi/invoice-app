@@ -1,8 +1,8 @@
 import React from 'react';
-import { GraphContainerMain, Container } from './style';
+import { GraphContainer } from './style';
 // import React, { PureComponent } from 'react';
 
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 const data = [
   {
@@ -31,7 +31,7 @@ const data = [
 const DashboardBarsChart = () => {
 
   	return (
-		<Container>
+		<GraphContainer>
             <BarChart
                 width={500}
                 height={300}
@@ -48,7 +48,7 @@ const DashboardBarsChart = () => {
                 <Bar dataKey="pv" stackId="a" fill="#8884d8" />
                 <Bar dataKey="uv" stackId="a" fill="#82ca9d" />
             </BarChart>
-		</Container>
+		</GraphContainer>
     	
     );
 };

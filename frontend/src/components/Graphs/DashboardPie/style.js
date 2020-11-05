@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { colors } from "../../../style/Theme";
 
 export const GraphContainerMain = styled.div`
 	width: 100%;
@@ -10,17 +11,41 @@ export const GraphContainerMain = styled.div`
 	/* background-color: red; */
 `;
 
-export const Container = styled.div`
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	padding: 10px;
-	width: 800px;
-	height: 800px;
-	background-color: #fff;
+export const LeftContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    min-width: 270px;
+
+	.leftColumn {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		min-width:  150px;
+	}
+	.rightColumn {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		align-items: flex-end;
+	}
 `;
 
+
 export const PieChartWrapper = styled.div`
-	border: 3px solid black;
-	background-color: pink;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border-top: 2px solid ${colors.blue};
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border-bottom: 2px solid ${colors.blue};
+
+    .piechart {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+		min-width: 550px;
+		justify-content: center;
+		padding-left: 100px;
+    }
 `;
