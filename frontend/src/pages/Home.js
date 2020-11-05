@@ -7,7 +7,7 @@ const Home = () => {
 
 	useEffect(() => {
 		history.push("/dashboard")
-	}, []);
+	}, [history]);
 
 	return (
 		<Fragment>

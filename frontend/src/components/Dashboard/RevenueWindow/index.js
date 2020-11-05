@@ -18,7 +18,7 @@ const RevenueDashboard = () => {
 			setRevenues(data);
 		};
 		getData();
-    }, []);
+    }, [setRevenues]);
 
 
     const getCurrentDate = () => {
@@ -30,7 +30,7 @@ const RevenueDashboard = () => {
 
 
     const helperRevenueTotal = (rev, start="2020-01-01", end=getCurrentDate()) => {
-        console.log(rev, start, end);
+        // console.log(rev, start, end);
         let sum = 0
         rev.forEach(element => {
             if (element.date >= start && element.date <= end){

@@ -8,13 +8,12 @@ import store from './store';
 import Routes from './routes';
 
 ReactDOM.render(
-  <Provider store={store}>
-      <ThemeProvider theme={theme}>
-          <GlobalStyle />
-          <Routes />
-      </ThemeProvider>
-
-  </Provider>,
+    <Provider store={store}>
+        <ThemeProvider theme={theme}>
+            <GlobalStyle />
+            <Routes />
+        </ThemeProvider>
+    </Provider>,
   document.getElementById('root')
 );
 

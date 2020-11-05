@@ -67,7 +67,7 @@ const Navbar = ( {props} ) => {
                     <Link
 						className={active === 'home' ? 'timeLink active' : 'timeLink'}
 						onClick={() => setActive('home')}
-						to='/'
+						to='/dashboard'
 					>
 						Year
 					</Link>
