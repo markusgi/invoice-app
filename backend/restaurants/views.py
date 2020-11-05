@@ -1,19 +1,19 @@
 from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveUpdateDestroyAPIView
 
-from restaurants.serializers import RestaurantSerializer
+from restaurants.serializers import RestaurantSerializer, SmallRestaurantSerializer
 from restaurants.models import Restaurant
 
 
 # List all restaurants: api/restaurants/
 class RestaurantListAPIView(ListAPIView):
     queryset = Restaurant.objects.all()
-    serializer_class = RestaurantSerializer
+    serializer_class = SmallRestaurantSerializer
 
 
 # Create a restaurant: api/restaurants/new/
 class RestaurantCreateAPIView(CreateAPIView):
     queryset = Restaurant.objects.all()
-    serializer_class = RestaurantSerializer
+    serializer_class = SmallRestaurantSerializer
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -22,7 +22,7 @@ class RestaurantCreateAPIView(CreateAPIView):
 # List all restaurants created by me: api/restaurants/me/
 class RestaurantListMeAPIView(ListAPIView):
     queryset = Restaurant.objects.all()
-    serializer_class = RestaurantSerializer
+    serializer_class = SmallRestaurantSerializer
 
     def get_queryset(self):
         restaurants = Restaurant.objects.filter(author=self.request.user)
