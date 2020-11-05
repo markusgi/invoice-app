@@ -1,6 +1,26 @@
 import styled from 'styled-components';
 
-const Btn = styled.button`
+
+export const YellowButton = styled.button`
+    height: 55px;
+    width: 130px;
+    background-color: #efba46;
+    border-radius: 18px;
+    border: solid 2px #efba46;
+    box-sizing: border-box;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    color: #234e6f;
+    text-align: center;
+    :hover {
+    	border: solid 2px #234E6F;
+	    transition: linear 0.5s;
+	 	}
+`;
+
+
+export const Btn = styled.button`
 	appearance: none;
 	outline: none;
 	font-size: ${props => props.theme.fontMedium};
@@ -65,5 +85,3 @@ const Btn = styled.button`
 		}
 	}}
 `;
-
-export default Btn;

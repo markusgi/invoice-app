@@ -1,14 +1,24 @@
 import styled from 'styled-components';
+import { colors, fontSizes } from './Theme';
 
-const Form = styled.input`
-	background-color: #fff;
-	border-radius: 4px;
-	padding: 1.2rem;
-	font-size: ${props => props.theme.fontMedium};
+export const InvoiceForm = styled.form`
+	display: flex;
+    flex-direction: column;
+	align-items: flex-start;
+    width: 100%;
+    border-top: 2px solid ${colors.blue};
+    padding-top: 5px;
+`;
+
+export const NiceInput = styled.input`
+	background-color: ${colors.white};
+	border-radius: 8px;
+	padding: 0.8rem;
+	font-size: ${fontSizes.normal};
 	height: 46px;
-	width: 30%;
+	width: 140px;
 	z-index: 1;
-	border: none;
+	border: 1px solid ${colors.blue};
 	outline: none;
 	position: relative;
 
@@ -83,5 +93,3 @@ const Form = styled.input`
 		}
 	}}
 `;
-
-export default Form;
