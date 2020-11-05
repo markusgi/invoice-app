@@ -5,5 +5,5 @@ urlpatterns = [
     path('', RevenueListAPIView.as_view()),
     path('new/', RevenueCreateAPIView.as_view()),
     path('<int:id>/', RevenueRetrieveUpdateDestroyAPIView.as_view()),
-    path('<str:start_date>/<str:end_date>/<str:tag>', RevenuePeriodListAPIView.as_view()),
+    path('date/<str:start_date>/<str:end_date>/', RevenuePeriodListAPIView.as_view()),
 ]
