@@ -11,10 +11,22 @@ authurls = [
     path('token/verify/', jwt_views.TokenVerifyView.as_view(), name='token_refresh'),
 ]
 
+api_patterns = [
+    path('auth/', include(authurls)),
+    path('users/', include('users.urls')),
+    path('restaurants/', include('restaurants.urls')),
+    path('revenues/', include('revenues.urls')),
+    path('invoices/', include('invoices.urls')),
+    path('articles/', include('articles.urls')),
+    path('tags/', include('tags.urls')),
+
+    # path('docs/', include_docs_urls(title='Django Template', schema_url='/', permission_classes=[])),
+
+]
+
 urlpatterns = [
-    path('backend/api/auth/', include(authurls)),
+    path('backend/api/', include(api_patterns)),
     path('backend/api/admin/', admin.site.urls),
-    path('backend/api/users/', include('users.urls')),
 ]
 
 if settings.DEBUG:
