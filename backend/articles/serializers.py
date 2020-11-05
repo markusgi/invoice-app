@@ -12,7 +12,6 @@ class ArticleSerializer(serializers.ModelSerializer):
     total_price = serializers.SerializerMethodField()
     date = serializers.SerializerMethodField()
 
-    # @staticmethod
     def get_total_price(self, obj):
         return obj.quantity * obj.price
 

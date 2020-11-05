@@ -9,7 +9,6 @@ from tags.models import Tag
 class Article(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    # date = models.DateField()
     item = models.CharField(max_length=50)
     quantity = models.FloatField(null=True, blank=True)
     price = models.FloatField(null=True, blank=True)

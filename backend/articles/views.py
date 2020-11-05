@@ -36,7 +36,7 @@ class ArticleTagListAPIView(ListAPIView):
         return Article.objects.filter(tag__id=tag_id).order_by("-created")
 
 
-# List articles during the specific period: /api/articles/<int:start_date>/<int:end_date>/
+# List articles during the specific period: /api/articles/date/<int:start_date>/<int:end_date>/
 class ArticlePeriodListAPIView(ListAPIView):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
@@ -48,7 +48,7 @@ class ArticlePeriodListAPIView(ListAPIView):
 
 
 # List articles during the specific period with tag id:
-# /api/articles/<int:start_date>/<int:end_date>/tag/<int:tag_id>/
+# /api/articles/date/<int:start_date>/<int:end_date>/tag/<int:tag_id>/
 class ArticlePeriodTagListAPIView(ListAPIView):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer

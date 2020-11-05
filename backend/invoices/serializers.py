@@ -20,10 +20,6 @@ class InvoiceSerializer(serializers.ModelSerializer):
         return obj.articles.all().count()
 
     def get_total_amount(self, obj):
-        # result = Invoice.objects.filter(id=obj.id).aggregate(Sum('articles__price'))
-        # if result is None:
-        #     return 0
-        # return result["articles__price__sum"]
 
         total_amount = 0
         for article in obj.articles.all():
