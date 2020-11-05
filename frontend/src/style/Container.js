@@ -1,9 +1,13 @@
-import styled from 'styled-components';
+import { colors, fontSizes } from "../style/Theme";
+import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.section`
+	margin: auto;
+	overflow: hidden;
+	padding: 0 2rem;
 	width: 100%;
-	margin-right: auto;
-	margin-left: auto;
+
+
 	@media (min-width: 576px) {
 		.container {
 			max-width: 540px;
@@ -24,148 +28,107 @@ export const Container = styled.div`
 			max-width: 1140px;
 		}
 	}
+`;
 
-	${props => {
-		if (props.bestRated) {
-			return `
-			width: 90%;
-			margin: 50px auto;
+export const StandardWindow = styled.section`
+	// max-width: 1380px;
+	background-color: ${colors.white};
+	border-radius: 10px;
+	margin: 15px;
+	padding: 20px;
+	color: ${colors.blue};
+
+
+	${props =>
+		props.Revenues &&
+		css`
 			display: flex;
-			justify-content: center;
-			flex-wrap: wrap; 
-			`;
-		}
-	}}
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: flex-start;
 
-	${props => {
-		if (props.Search) {
-			return `
-			width: 90%;
-			margin: 0 auto;
+			div {
+				display: flex;
+				flex-direction: row;
+				width: 100%;
+
+				.left {
+					display: flex;
+					flex-direction: column;
+					align-items: flex-start;
+					width: 150px;
+				}
+				.right {
+					display: flex;
+					flex-direction: column;
+					width: 100%;
+					align-items: flex-end;
+				}
+			}
+
+			h2 {
+				width: 100%;
+				border-bottom: 2px solid ${colors.blue};
+				margin-bottom: 10px;
+			}
+		`}
+
+	${props =>
+		props.Invoices &&
+		css`
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+
+			h2 {
+				width: 100%;
+				border-bottom: 2px solid ${colors.blue};
+			}
+		`}
+
+	${props =>
+		props.PieChart &&
+		css`
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			h2 {
+				width: 40%;
+				border-bottom: 2px solid ${colors.blue};
+			}
+		`}
+
+`
+
+export const MainBodyContainer = styled.div`
+	display: flex;
+	flex-direction: row;
+
+	${props => 
+		props.Main &&
+		css`
 			display: flex;
 			flex-direction: row;
-			justify-content: center;
-			flex-wrap: wrap;
-			`;
-		}
-	}}
-	
-	${props => {
-		if (props.restaurantProfile) {
-			return `
-			width: 90%;
-			margin: 0 auto;
-			.reviews-info {
-				margin: 20px 0;
-				width: 100%;
-				display: flex;
-				flex-direction: row;
-				text-align: center;
-			}
-			.reviews-profile-page {
-				width: 50%;
-			}
-			.filter-section {
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-			}
-			
-			.info-profile-page {
-				width: 50%;
-			}
-			`;
-		}
-	}}
+			border: 2px solid blue;
+	`}
 
-	${props => {
-		if (props.userProfile) {
-			return `
-			width: 90%;
-			margin: 0 auto;
-			.user-profile-content {
-				width: 100%;
-				display: flex;
-				flex-direction: row;
-				text-align: center;
-				/* min-height: 700px; */
-			}
+	${props => 
+		props.LeftColumn &&
+		css`
+			display: flex;
+			flex-direction: column;
+			border: 2px solid blue;
+			min-width: 350px;
+	`}
 
-
-			.active {
-				border-left: 3px solid ${props.theme.orangeMain};
-				color: ${props => props.theme.linkActive};
-			}
-
-			/* left side */
-			.user-menu {
-				background: #fff;
-				width: 20%;
-				position: relative;
-				top: -130px;
-				z-index: 1;
-				.avatar {
-					width: 100%;
-				}
-			}
-
-			.user-details-left {
-				width: 100%;
-				text-align: left;
-				img {
-					width: 100%;
-					height: 40%;
-				}
-				h3 {
-					padding: 20px 10px;
-				}
-			}
-
-			.menu-option {
-				padding: 12px 20px;
-				display: flex;
-				flex-direction: row;
-				align-items: center;
-				cursor: pointer;
-				font-size: ${props.theme.fontNormal};
-				border-bottom: 1px solid rgb(0,0,0,.45);
-				img{
-					width: 25px;
-				}
-				p {
-					margin-left: 15px;
-				}
-			}
-
-			.menu-option:nth-child(1){
-				border-top: 1px solid rgb(0,0,0,.45);
-			}
-
-			/* main content */
-			.user-content {
-				width: 50%;
-				text-align: left;
-			}
-
-			/* right-side */
-			.user-info {
-				width: 30%;
-				padding: 12px 15px;
-				text-align: left;
-				
-				div:nth-child(2){
-					padding-top: 30px;
-				}
-
-				div {
-					padding: 12px 10px;
-				}
-
-				div p {
-					margin: 12px 0;
-				}
-			} 
-		`;
-		}
-	}}
+	${props => 
+		props.RightColumn &&
+		css`
+			display: flex;
+			flex-direction: column;
+			border: 2px solid blue;
+			width: 100%;
+	`}
 `;
