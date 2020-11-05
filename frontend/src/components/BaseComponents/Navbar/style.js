@@ -1,5 +1,5 @@
 import { colors, fontSizes } from "../../../style/Theme";
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const NavbarWrapper = styled.nav`
 	width: 100%;
@@ -38,8 +38,9 @@ export const NavbarTop = styled.nav`
 	height: 100%;
 
 	.dashboardLink,
-	.searchLink,
-	.profileLink {
+	.dataLink,
+	.analysisLink,
+	.settingsLink {
 		display: flex;
 		align-items: center;
 		font-size: ${fontSizes.large};
@@ -51,15 +52,15 @@ export const NavbarTop = styled.nav`
 	}
 
 	.dashboardLink:hover,
-	.searchLink:hover,
-	.profileLink:hover {
+	.dataLink:hover,
+	.analysisLink:hover,
+	.settingsLink:hover {
 		border-bottom: 3px solid ${colors.yellow};
 		transition: linear .09s;
 	}
 
 	.active {
 		border-bottom: 3px solid ${colors.yellow};
-		// color: ${props => props.theme.linkActive};
 	}
 `;
 
@@ -70,7 +71,10 @@ export const NavbarBottom = styled.nav`
 	justify-content: space-between;
 	height: 50px;
 
-	.timeLink:hover,
+	.timeLink:hover {
+		background-color: ${colors.blue};
+		border-radius: 7px;
+	}
 	.timeLink {
 		display: flex;
 		justify-content: center;

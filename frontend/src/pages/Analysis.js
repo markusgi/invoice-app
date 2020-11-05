@@ -6,7 +6,7 @@ const Analysis = () => {
 
 	return (
 		<Fragment>
-			<Navbar />
+			<Navbar props={"analysis"} />
             <h1>a nice title</h1>
 		</Fragment>
 	);

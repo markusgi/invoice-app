@@ -10,7 +10,7 @@ export const GraphContainerMain = styled.div`
 	/* background-color: red; */
 `;
 
-export const Container = styled.div`
+export const GraphContainer = styled.div`
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;

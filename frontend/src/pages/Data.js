@@ -6,7 +6,7 @@ const Data = () => {
 
 	return (
 		<Fragment>
-            <Navbar />
+            <Navbar props={"data"} />
             <h1>a nice title</h1>
 		</Fragment>
 	);

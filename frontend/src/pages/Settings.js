@@ -6,7 +6,7 @@ const Settings = () => {
 
 	return (
 		<Fragment>
-			<Navbar />
+			<Navbar props={"settings"} />
             <h1>a nice title</h1>
 		</Fragment>
 	);

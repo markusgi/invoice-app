@@ -1,16 +1,25 @@
 import React, { Fragment } from 'react';
-import { InvoiceTableCSS } from '../../style/Table';
+import { InvoiceTableCSS, TitleDiv } from './style';
 
 const InvoiceTable = () => {
 
     return (
         <Fragment>
             <h2>Invoices</h2>
-            <h3>Year no.</h3>
-            <h3>Year total</h3>
-            <h3>Month no.</h3>
-            <h3>Month total</h3>
-            <br></br>
+            <TitleDiv>
+                <div className="leftColumn">
+                    <h3>Year no.</h3>
+                    <h3>Year total</h3>
+                    <h3>Month no.</h3>	
+                    <h3>Month total</h3>	
+                </div>
+                <div className="rightColumn">
+                    <h3>321</h3>
+                    <h3>32'324'323</h3>
+                    <h3>32</h3>
+                    <h3>42'124</h3>
+                </div>
+            </TitleDiv>
             <InvoiceTableCSS>
                 <tr>
                     <th>Date</th>

@@ -1,4 +1,4 @@
-import { colors, fontSizes } from "../style/Theme";
+import { colors } from "../style/Theme";
 import styled, { css } from 'styled-components';
 
 export const Container = styled.section`
@@ -31,75 +31,12 @@ export const Container = styled.section`
 `;
 
 export const StandardWindow = styled.section`
-	// max-width: 1380px;
 	background-color: ${colors.white};
 	border-radius: 10px;
 	margin: 15px;
 	padding: 20px;
 	color: ${colors.blue};
-
-
-	${props =>
-		props.Revenues &&
-		css`
-			display: flex;
-			flex-direction: column;
-			align-items: flex-start;
-			justify-content: flex-start;
-
-			div {
-				display: flex;
-				flex-direction: row;
-				width: 100%;
-
-				.left {
-					display: flex;
-					flex-direction: column;
-					align-items: flex-start;
-					width: 150px;
-				}
-				.right {
-					display: flex;
-					flex-direction: column;
-					width: 100%;
-					align-items: flex-end;
-				}
-			}
-
-			h2 {
-				width: 100%;
-				border-bottom: 2px solid ${colors.blue};
-				margin-bottom: 10px;
-			}
-		`}
-
-	${props =>
-		props.Invoices &&
-		css`
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-
-			h2 {
-				width: 100%;
-				border-bottom: 2px solid ${colors.blue};
-			}
-		`}
-
-	${props =>
-		props.PieChart &&
-		css`
-			display: flex;
-			align-items: center;
-			justify-content: center;
-
-			h2 {
-				width: 40%;
-				border-bottom: 2px solid ${colors.blue};
-			}
-		`}
-
+	max-height: 500px;
 `
 
 export const MainBodyContainer = styled.div`
@@ -111,7 +48,10 @@ export const MainBodyContainer = styled.div`
 		css`
 			display: flex;
 			flex-direction: row;
-			border: 2px solid blue;
+			max-width: 1440px;
+			margin: auto;
+			/* margin-left: 30px;
+			margin-right: 30px; */
 	`}
 
 	${props => 
@@ -119,7 +59,6 @@ export const MainBodyContainer = styled.div`
 		css`
 			display: flex;
 			flex-direction: column;
-			border: 2px solid blue;
 			min-width: 350px;
 	`}
 
@@ -128,7 +67,6 @@ export const MainBodyContainer = styled.div`
 		css`
 			display: flex;
 			flex-direction: column;
-			border: 2px solid blue;
 			width: 100%;
 	`}
 `;
