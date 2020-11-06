@@ -7,7 +7,7 @@ import Spinner from '../components/BaseComponents/Spinner';
 import DashboardPieChart from '../components/Graphs/DashboardPie';
 import DashboardBarsChart from '../components/Graphs/DashboardBars';
 import Navbar from '../components/BaseComponents/Navbar';
-import InvoiceTable from '../components/Dashboard/Tables';
+import InvoiceTable from '../components/Dashboard/InvoicesWindow';
 import RevenueDashboard from '../components/Dashboard/RevenueWindow';
 import KPITable from '../components/Dashboard/KPI';
 

@@ -1,11 +1,20 @@
-import { colors } from "../../../style/Theme";
-import styled from 'styled-components';
+import { colors, fontSizes } from "../../../style/Theme";
+import styled, { css } from 'styled-components';
 
 export const InvoiceTableCSS = styled.table`
+    font-size: ${fontSizes.small};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black;
 
-    table, th, td {
-        
-    }
+	${props => 
+		props.Main &&
+		css`
+			background-color: pink;
+	`}
+
+
 `;
 
 export const TitleDiv = styled.div`

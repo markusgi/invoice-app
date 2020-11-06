@@ -65,10 +65,12 @@ export const NavbarTop = styled.nav`
 `;
 
 export const NavbarBottom = styled.nav`
-	width: 40%;
+	/* width: 50%; */
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: center;
+	font-size: ${fontSizes.normal};
+	margin-top: 5px;
 	height: 50px;
 
 	.timeLink:hover {
@@ -77,6 +79,7 @@ export const NavbarBottom = styled.nav`
 	}
 	.timeLink {
 		display: flex;
+		margin-left: 20px;
 		justify-content: center;
 		align-items: center;
 		font-size: ${fontSizes.normal};
@@ -85,6 +88,11 @@ export const NavbarBottom = styled.nav`
 		height: 100%;
 		border-bottom: 3px solid transparent;
 		min-width: 80px;
+	}
+
+	.active {
+		background-color: ${colors.blue};
+		border-radius: 7px;
 	}
 
 `;
