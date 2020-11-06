@@ -28,7 +28,9 @@ const data = [
   },
 ];
 
-const DashboardBarsChart = () => {
+const DashboardBarsChart = ( { props } ) => {
+
+  console.log(props)
 
   	return (
 		<GraphContainer>
