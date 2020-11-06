@@ -66,44 +66,112 @@ const Navbar = ( {props} ) => {
                 {active === 'dashboard' ? 
                 <NavbarBottom>
                     <Link
-						className={active === 'home' ? 'timeLink active' : 'timeLink'}
-						onClick={() => setActive('year')}
-						// to='/dashboard'
+						className={activeSub === 'year' ? 'timeLink active' : 'timeLink'}
+						onClick={() => setActiveSub('year')}
 					>
 						Year
 					</Link>
                     <Link
-						className={active === 'home' ? 'timeLink active' : 'timeLink'}
-						onClick={() => setActive('6')}
-						to='/'
+						className={activeSub === '6' ? 'timeLink active' : 'timeLink'}
+						onClick={() => setActiveSub('6')}
 					>
 						6 Months
 					</Link>
                     <Link
-						className={active === 'home' ? 'timeLink active' : 'timeLink'}
-						onClick={() => setActive('3')}
-						to='/'
+						className={activeSub === '3' ? 'timeLink active' : 'timeLink'}
+						onClick={() => setActiveSub('3')}
 					>
 						3 Months
 					</Link>
                     <Link
-						className={active === 'home' ? 'timeLink active' : 'timeLink'}
-						onClick={() => setActive('1')}
-						to='/'
+						className={activeSub === '1' ? 'timeLink active' : 'timeLink'}
+						onClick={() => setActiveSub('1')}
 					>
 						Last Month
 					</Link>
                     <Link
-						className={active === 'home' ? 'timeLink active' : 'timeLink'}
-						onClick={() => setActive('from')}
-						to='/'
+						className={activeSub === '0' ? 'timeLink active' : 'timeLink'}
+						onClick={() => setActiveSub('0')}
+					>
+						This Month
+					</Link>
+                    <Link
+						className={activeSub === 'from' ? 'timeLink active' : 'timeLink'}
+						onClick={() => setActiveSub('from')}
 					>
 						From - To
 					</Link>
                 </NavbarBottom>
-                :
-                <p>Not in dashboard</p>
-                        }
+                : null }
+                
+                {active === 'data' ? 
+                    <NavbarBottom>
+                        <Link
+                            className={activeSub === 'new' ? 'timeLink active' : 'timeLink'}
+                            onClick={() => setActiveSub('new')}
+                        >
+                            New Invoice
+                        </Link>
+                        <Link
+                            className={activeSub === '6' ? 'timeLink active' : 'timeLink'}
+                            onClick={() => setActiveSub('6')}
+                        >
+                            Import
+                        </Link>
+                        <Link
+                            className={activeSub === '3' ? 'timeLink active' : 'timeLink'}
+                            onClick={() => setActiveSub('3')}
+                        >
+                            Edit
+                        </Link>
+                    </NavbarBottom>
+                    : null }
+
+                {active === 'analysis' ? 
+                    <NavbarBottom>
+                        <Link
+                            className={activeSub === 'filter' ? 'timeLink active' : 'timeLink'}
+                            onClick={() => setActiveSub('filter')}
+                        >
+                            Filter
+                        </Link>
+                        <Link
+                            className={activeSub === 'graph' ? 'timeLink active' : 'timeLink'}
+                            onClick={() => setActiveSub('graph')}
+                        >
+                            Graphs
+                        </Link>
+                    </NavbarBottom>
+                    : null }
+
+                {active === 'settings' ?
+                    <NavbarBottom>
+                        <Link
+                            className={activeSub === 'user' ? 'timeLink active' : 'timeLink'}
+                            onClick={() => setActiveSub('user')}
+                        >
+                            User Profile
+                        </Link>
+                        <Link
+                            className={activeSub === 'restaurant' ? 'timeLink active' : 'timeLink'}
+                            onClick={() => setActiveSub('restaurant')}
+                        >
+                            Restaurant Profile
+                        </Link>
+                        <Link
+                            className={activeSub === 'tags' ? 'timeLink active' : 'timeLink'}
+                            onClick={() => setActiveSub('tags')}
+                        >
+                            Tags
+                        </Link>
+                        <Link
+                            className={activeSub === 'info' ? 'timeLink active' : 'timeLink'}
+                            onClick={() => setActiveSub('info')}
+                        >
+                            Information
+                        </Link>
+                    </NavbarBottom>
+                    : null }    
 			</NavbarWrapper>
 		</Fragment>
 	);
