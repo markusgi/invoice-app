@@ -7,7 +7,8 @@ import bellIcon from '../../../assets/images/bellIcon.png';
 import userIcon from '../../../assets/images/userIcon.png';
 
 const Navbar = ( {props} ) => {
-	const [active, setActive] = useState(props);
+    const [active, setActive] = useState(props);
+    const [activeSub, setActiveSub] = useState('year');
 
 	return (
 		<Fragment>
@@ -66,35 +67,35 @@ const Navbar = ( {props} ) => {
                 <NavbarBottom>
                     <Link
 						className={active === 'home' ? 'timeLink active' : 'timeLink'}
-						onClick={() => setActive('home')}
-						to='/dashboard'
+						onClick={() => setActive('year')}
+						// to='/dashboard'
 					>
 						Year
 					</Link>
                     <Link
 						className={active === 'home' ? 'timeLink active' : 'timeLink'}
-						onClick={() => setActive('home')}
+						onClick={() => setActive('6')}
 						to='/'
 					>
 						6 Months
 					</Link>
                     <Link
 						className={active === 'home' ? 'timeLink active' : 'timeLink'}
-						onClick={() => setActive('home')}
+						onClick={() => setActive('3')}
 						to='/'
 					>
 						3 Months
 					</Link>
                     <Link
 						className={active === 'home' ? 'timeLink active' : 'timeLink'}
-						onClick={() => setActive('home')}
+						onClick={() => setActive('1')}
 						to='/'
 					>
 						Last Month
 					</Link>
                     <Link
 						className={active === 'home' ? 'timeLink active' : 'timeLink'}
-						onClick={() => setActive('home')}
+						onClick={() => setActive('from')}
 						to='/'
 					>
 						From - To

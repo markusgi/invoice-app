@@ -1,4 +1,9 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import getAllAction from '../store/actions/getAll';
+import Spinner from '../components/BaseComponents/Spinner';
+
 import DashboardPieChart from '../components/Graphs/DashboardPie';
 import DashboardBarsChart from '../components/Graphs/DashboardBars';
 import Navbar from '../components/BaseComponents/Navbar';
@@ -9,7 +14,19 @@ import KPITable from '../components/Dashboard/KPI';
 import { StandardWindow, MainBodyContainer } from '../style/Container';
 
 
+
 const Dashboard = () => {
+    const dispatch = useDispatch();
+	const [AllInfo, setAllInfo] = useState([]);
+	
+	useEffect(() => {
+        const getData = async () => {
+            const data = await dispatch(getAllAction());
+			setAllInfo(data);
+		};
+		getData();
+    }, [setAllInfo]);
+
 
 	return (
 		<Fragment>
@@ -18,27 +35,48 @@ const Dashboard = () => {
 				<MainBodyContainer LeftColumn>
 
 					<StandardWindow>
-						<RevenueDashboard />
+						{AllInfo.length !== 0 ?
+						<RevenueDashboard props={ AllInfo } />
+						:
+						<Spinner />
+						}	
 					</StandardWindow>
 
 					<StandardWindow>
-						<InvoiceTable />
+						{AllInfo.length !== 0 ?
+						<InvoiceTable props={ AllInfo } />
+						:
+						<Spinner />
+						}	
 					</StandardWindow>
 
 					<StandardWindow>
-						<KPITable />
+						{AllInfo.length !== 0 ?
+						<KPITable props={ AllInfo } />
+						:
+						<Spinner />
+						}	
 					</StandardWindow>
 					
 				</MainBodyContainer>
 				<MainBodyContainer RightColumn>
 
 					<StandardWindow>
-						<DashboardPieChart />
+						{AllInfo.length !== 0 ?
+						<DashboardPieChart props={ AllInfo } />
+						:
+						<Spinner />
+						}	
+					</StandardWindow>
+					
+					<StandardWindow>
+						{AllInfo.length !== 0 ?
+						<DashboardBarsChart props={ AllInfo } />
+						:
+						<Spinner />
+						}	
 					</StandardWindow>
 
-					<StandardWindow>
-						<DashboardBarsChart />
-					</StandardWindow>
 				</MainBodyContainer>
 			</MainBodyContainer>
 		</Fragment>

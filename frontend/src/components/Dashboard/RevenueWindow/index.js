@@ -1,24 +1,28 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 
-import getRevenuesAction from '../../../store/actions/getRevenues';
+// import getRevenuesAction from '../../../store/actions/getRevenues';
 
 import { TitleDiv } from './style';
 
 
 
-const RevenueDashboard = () => {
-    const dispatch = useDispatch();
+const RevenueDashboard = ( { props } ) => {
+    // const dispatch = useDispatch();
     const [Revenues, setRevenues] = useState([]);
     // console.log(Revenues)
 
+    // useEffect(() => {
+    //     const getData = async () => {
+    //         const data = await dispatch(getRevenuesAction());
+	// 		setRevenues(data);
+	// 	};
+	// 	getData();
+    // }, [setRevenues]);
+
     useEffect(() => {
-        const getData = async () => {
-            const data = await dispatch(getRevenuesAction());
-			setRevenues(data);
-		};
-		getData();
-    }, [setRevenues]);
+        setRevenues(props.revenues);
+    }, [setRevenues])
 
 
     const getCurrentDate = () => {
