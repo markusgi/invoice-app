@@ -71,7 +71,7 @@ const DashboardPieChart = ( { props } ) => {
 					</div>
 
 					<div className="rightColumn">
-					{pieData.map((entry) => <h3 key={entry.id}>{entry.value}</h3>)}
+						{pieData.map((entry) => <h3 key={entry.id}>{entry.value}</h3>)}
 					</div>
 				</LeftContainer>
 
