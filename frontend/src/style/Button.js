@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const YellowButton = styled.button`
     height: 55px;
-    width: 130px;
+    min-width: 140px;
     background-color: #efba46;
     border-radius: 18px;
     border: solid 2px #efba46;
