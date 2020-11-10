@@ -24,7 +24,7 @@ const Analysis = () => {
 	});
 	const [filteredData, setfilteredData] = useState([]);
 	const token = useSelector(state => state.user.token)
-	console.log(filteredData)
+	// console.log(filteredData)
 
 
 	useEffect(() => {

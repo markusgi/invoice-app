@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState,  } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import getAllAction from '../store/actions/getAll';
 import Spinner from '../components/BaseComponents/Spinner';
@@ -19,10 +19,12 @@ const Dashboard = () => {
     const dispatch = useDispatch();
 	const [AllInfo, setAllInfo] = useState([]);
 
+	const token = useSelector(state => state.user.token)
+
 	
 	useEffect(() => {
         const getData = async () => {
-            const data = await dispatch(getAllAction());
+            const data = await dispatch(getAllAction(token));
 			setAllInfo(data);
 		};
 		getData();

@@ -45,6 +45,7 @@ export const PieChartWrapper = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
+	min-height: 400px;
     border-top: 2px solid ${colors.blue};
     padding-bottom: 5px;
     padding-top: 5px;
@@ -57,5 +58,10 @@ export const PieChartWrapper = styled.div`
 		min-width: 550px;
 		justify-content: center;
 		padding-left: 100px;
+		border: 3px solid black;
+
+		.daPie {
+			border: 3px solid red;
+		}
     }
 `;

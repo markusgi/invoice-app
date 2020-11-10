@@ -13,13 +13,15 @@ const filterReducer = (state = initialState, action) => {
 		case 'SET_TIMEFRAME': {
 			const newState = { ...state };
 			newState.timeFrameStart = action.payload;
+			if (newState.timeFrameStart === '2'){
+				newState.timeFrameEnd = '1';
+			}
+			else {
+				newState.timeFrameEnd = '0';
+			}
+
 			return newState;
 		}
-		// case 'SET_TIMEFRAME': {
-		// 	const newState = { ...state };
-		// 	newState.timeFrameStart = action.payload;
-		// 	return newState;
-		// }
 		default:
 			return state;
 	}

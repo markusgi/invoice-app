@@ -1,7 +1,7 @@
 import { SET_USER, SET_TOKEN } from '../actions/actionTypes';
 
 const initialState = {
-	token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjA0OTk5MTIxLCJqdGkiOiI5MzdiZGNlMDljNjc0MzhhYjAwZGUxMjdhYzc0N2JmYyIsInVzZXJfaWQiOjF9.H9BFHc0ftTlRUlT47Bw_G7Z2z947hUQ8Ue-X8xohd6M",
+	token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjA1NDM0MzYxLCJqdGkiOiI5MTY2MTBkMDNjZGU0YWNiOTYxYzk5Njk2MmFhOTUyZSIsInVzZXJfaWQiOjF9.RSsWyHlSTsuJ8Cmj-0raDP5465KcUS1BGDhJwKoUKqQ",
 	user: null,
 };
 

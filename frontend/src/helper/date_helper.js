@@ -10,6 +10,10 @@ const getDate = (arg) => {
             let res = new Date(new Date().getFullYear() - 1, 0, 1);
             return res.toISOString().slice(0, 10);
         }
+        case '0': {
+            let res = new Date(new Date());
+            return res.toISOString().slice(0, 10)
+        }
         case '1': {
             let res = new Date(new Date().getFullYear(), new Date().getMonth(), 1);
             return res.toISOString().slice(0, 10)

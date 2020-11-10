@@ -12,7 +12,7 @@ import userIcon from '../../../assets/images/userIcon.png';
 
 const Navbar = ( {props} ) => {
     const [active, setActive] = useState(props);
-    const [activeSub, setActiveSub] = useState('3');
+    const [activeSub, setActiveSub] = useState('12');
     const dispatch = useDispatch();
 
 	useEffect(() => {
