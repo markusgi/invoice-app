@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState,  } from 'react';
 import { useDispatch } from 'react-redux';
 
 import getAllAction from '../store/actions/getAll';
@@ -18,6 +18,7 @@ import { StandardWindow, MainBodyContainer } from '../style/Container';
 const Dashboard = () => {
     const dispatch = useDispatch();
 	const [AllInfo, setAllInfo] = useState([]);
+
 	
 	useEffect(() => {
         const getData = async () => {
@@ -25,7 +26,7 @@ const Dashboard = () => {
 			setAllInfo(data);
 		};
 		getData();
-    }, [setAllInfo]);
+    }, [setAllInfo, dispatch]);
 
 
 	return (

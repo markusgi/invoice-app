@@ -16,10 +16,10 @@ const InvoiceTable = ( { props } ) => {
                     <h3>Month total</h3>	
                 </div>
                 <div className="rightColumn">
-                    <h3>{props.invoices.filter(inv => {return inv.date >= getDate('this_year')}).length}</h3>
-                    <h3>{props.invoices.filter(inv => {return inv.date >= getDate('this_year')}).reduce((sum, current) => { return sum + current.total_amount}, 0)}</h3>
-                    <h3>{props.invoices.filter(inv => {return inv.date >= getDate('this_month')}).length}</h3>
-                    <h3>{props.invoices.filter(inv => {return inv.date >= getDate('this_month')}).reduce((sum, current) => { return sum + current.total_amount}, 0)}</h3>
+                    <h3>{props.invoices.filter(inv => {return inv.date >= getDate('12')}).length}</h3>
+                    <h3>{props.invoices.filter(inv => {return inv.date >= getDate('12')}).reduce((sum, current) => { return sum + current.total_amount}, 0)}</h3>
+                    <h3>{props.invoices.filter(inv => {return inv.date >= getDate('1')}).length}</h3>
+                    <h3>{props.invoices.filter(inv => {return inv.date >= getDate('1')}).reduce((sum, current) => { return sum + current.total_amount}, 0)}</h3>
                 </div>
             </TitleDiv>
             <InvoiceTableCSS>

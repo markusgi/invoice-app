@@ -1,4 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+
 import { PieChartWrapper, LeftContainer } from './style';
 import getDate from '../../../helper/date_helper';
 
@@ -29,15 +31,16 @@ const renderCustomizedLabel = ({
 };
 
 const DashboardPieChart = ( { props } ) => {
-	const [timeframe, setTimeframe] = useState('year');
 	const [pieData, setPieData] = useState(dummydata);
+	 
+	let currentTimeFrame = useSelector(state => state.filter.timeFrameStart)
 
 	useEffect(() => {
 		let data = [];
 
         const getData = () => {
-			props.invoices.filter(inv => {return inv.date >= getDate('this_year')}).map(inv => {
-				inv.articles.map(art => {
+			props.invoices.filter(inv => {return inv.date >= getDate(currentTimeFrame)}).map(inv => {
+				return inv.articles.map(art => {
 					const found = data.some(element => element.name === art.tag.title)
 					if (!found){
 						data.push({
@@ -57,7 +60,7 @@ const DashboardPieChart = ( { props } ) => {
 		}
 		getData();
 		setPieData(data)
-    }, [setTimeframe]);
+    }, [currentTimeFrame, props.invoices]);
 
   	return (
 	  	<Fragment>
@@ -68,12 +71,27 @@ const DashboardPieChart = ( { props } ) => {
 				<LeftContainer>
 					<div className="leftColumn">
 						{pieData.map((entry) => <h3 key={entry.name}>{entry.name}</h3>)}
+						<div>
+							<h3>Total</h3>
+						</div>
+
 					</div>
 
 					<div className="rightColumn">
 						{pieData.map((entry) => <h3 key={entry.id}>{entry.value}</h3>)}
+						<div>
+							<h3>{pieData.reduce((sum, current) => { return sum + current.value}, 0)}</h3>
+						</div>
 					</div>
 				</LeftContainer>
+				{/* {/* <LeftContainer>
+					<div className="leftColumn">
+						<h3>Total</h3>
+					</div>
+					<div className="rightColumn">
+	  					<h3>{pieData.reduce((sum, current) => { return sum + current.value}, 0)}</h3>
+					</div>
+				</LeftContainer> */}
 
 				<div className="piechart">
 					<PieChart width={380} height={400}>

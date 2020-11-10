@@ -21,12 +21,22 @@ export const LeftContainer = styled.div`
 		flex-direction: column;
 		align-items: flex-start;
 		min-width:  150px;
+		
+		div {
+			margin-top: 10px;
+			border-top: 2px solid ${colors.blue};
+			width: 240px;
+		}
 	}
 	.rightColumn {
 		display: flex;
 		flex-direction: column;
 		width: 100%;
 		align-items: flex-end;
+		div {
+			margin-top: 10px;
+			border-top: 2px solid ${colors.blue};
+		}
 	}
 `;
 

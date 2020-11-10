@@ -1,4 +1,8 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { timeAction } from '../../../store/actions/actionTypes';
+
 import { Link } from 'react-router-dom';
 import { NavbarWrapper, NavbarTopWrapper, NavbarLeft, NavbarTop, BtnsWrapper, NavbarBottom } from './style';
 import logo from '../../../assets/images/logo-5aid-white.png';
@@ -8,7 +12,12 @@ import userIcon from '../../../assets/images/userIcon.png';
 
 const Navbar = ( {props} ) => {
     const [active, setActive] = useState(props);
-    const [activeSub, setActiveSub] = useState('year');
+    const [activeSub, setActiveSub] = useState('3');
+    const dispatch = useDispatch();
+
+	useEffect(() => {
+        dispatch(timeAction(activeSub));
+    }, [activeSub, dispatch]);
 
 	return (
 		<Fragment>
@@ -66,8 +75,8 @@ const Navbar = ( {props} ) => {
                 {active === 'dashboard' ? 
                 <NavbarBottom>
                     <Link
-						className={activeSub === 'year' ? 'timeLink active' : 'timeLink'}
-						onClick={() => setActiveSub('year')}
+						className={activeSub === '12' ? 'timeLink active' : 'timeLink'}
+						onClick={() => setActiveSub('12')}
 					>
 						Year
 					</Link>
@@ -84,14 +93,14 @@ const Navbar = ( {props} ) => {
 						3 Months
 					</Link>
                     <Link
-						className={activeSub === '1' ? 'timeLink active' : 'timeLink'}
-						onClick={() => setActiveSub('1')}
+						className={activeSub === '2' ? 'timeLink active' : 'timeLink'}
+						onClick={() => setActiveSub('2')}
 					>
 						Last Month
 					</Link>
                     <Link
-						className={activeSub === '0' ? 'timeLink active' : 'timeLink'}
-						onClick={() => setActiveSub('0')}
+						className={activeSub === '1' ? 'timeLink active' : 'timeLink'}
+						onClick={() => setActiveSub('1')}
 					>
 						This Month
 					</Link>
