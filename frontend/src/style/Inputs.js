@@ -20,15 +20,14 @@ export const EmailAddress = styled.input`
 export const FormGroup = styled.div`
   position:relative;
   display: inline-block;
-  
-  margin: 20px;
+  margin-top: 20px;
 `;
 
 
 export const Input2 = styled.input`
 	    
     height: 55px;
-    width: 370px;
+    max-width: 68%;
 
     border-radius: 18px;
     border: solid 2px #4D7593;
