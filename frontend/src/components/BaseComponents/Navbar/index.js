@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { timeAction } from '../../../store/actions/actionTypes';
+import getDate from '../../../helper/date_helper';
 
 import { Link } from 'react-router-dom';
 import { NavbarWrapper, NavbarTopWrapper, NavbarLeft, NavbarTop, BtnsWrapper, NavbarBottom } from './style';
@@ -10,13 +11,16 @@ import searchIcon from '../../../assets/images/searchIcon.png';
 import bellIcon from '../../../assets/images/bellIcon.png';
 import userIcon from '../../../assets/images/userIcon.png';
 
+import DateModal from './modalDate';
+
 const Navbar = ( {props} ) => {
     const [active, setActive] = useState(props);
     const [activeSub, setActiveSub] = useState('12');
+    const [ activeModal, setActiveModal ] = useState(false);
     const dispatch = useDispatch();
 
 	useEffect(() => {
-        dispatch(timeAction(activeSub));
+        dispatch(timeAction(getDate(activeSub), getDate('0')));
     }, [activeSub, dispatch]);
 
 	return (
@@ -105,13 +109,17 @@ const Navbar = ( {props} ) => {
 						This Month
 					</Link>
                     <Link
-						className={activeSub === 'from' ? 'timeLink active' : 'timeLink'}
-						onClick={() => setActiveSub('from')}
+						className={activeModal ? 'timeLink active' : 'timeLink'}
+						onClick={() => {
+                            setActiveModal(!activeModal)
+                            setActiveSub('from')
+                        }}
 					>
 						From - To
 					</Link>
                 </NavbarBottom>
                 : null }
+                {activeModal ? <DateModal /> : null}
                 
                 {active === 'data' ? 
                     <NavbarBottom>

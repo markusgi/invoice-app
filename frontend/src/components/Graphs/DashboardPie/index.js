@@ -1,8 +1,7 @@
-import React, { Fragment, useEffect, useState, PureComponent } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { PieChartWrapper, LeftContainer } from './style';
-import getDate from '../../../helper/date_helper';
 
 import {PieChart, Pie, Cell, Legend, Sector } from "recharts";
 
@@ -15,20 +14,6 @@ const dummydata = [
 ];
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#523234'];
-
-const RADIAN = Math.PI / 180;
-const renderCustomizedLabel = ({
-  cx, cy, midAngle, innerRadius, outerRadius, percent, index,
-}) => {
-	const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-	const x = cx + radius * Math.cos(-midAngle * RADIAN);
-	const y = cy + radius * Math.sin(-midAngle * RADIAN);
-	return (
-    <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
-      {`${(percent * 100).toFixed(0)}%`}
-    </text>
-  );
-};
 
 const renderActiveShape = (props) => {
 	const RADIAN = Math.PI / 180;
@@ -69,9 +54,9 @@ const renderActiveShape = (props) => {
 		  />
 		  <path d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`} stroke={fill} fill="none" />
 		  <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none" />
-		  <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="#333">{`PV ${value}`}</text>
+		  <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="#333">{`CHF ${value}`}</text>
 		  <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} dy={18} textAnchor={textAnchor} fill="#999">
-			{`(Rate ${(percent * 100).toFixed(2)}%)`}
+			{`${(percent * 100).toFixed(2)}%`}
 		  </text>
 		</g>
 	  );
@@ -87,7 +72,6 @@ const DashboardPieChart = ( { props } ) => {
 	let currentTimeFrameEnd = useSelector(state => state.filter.timeFrameEnd)
 
 	
-	
 	const onPieEnter = (data, index) => {
 		setactiveIndex(index)
 	};
@@ -96,7 +80,7 @@ const DashboardPieChart = ( { props } ) => {
 		let data = [];
 
         const getData = () => {
-			props.invoices.filter(inv => {return inv.date >= getDate(currentTimeFrameStart) && inv.date <= getDate(currentTimeFrameEnd)}).map(inv => {
+			props.invoices.filter(inv => {return inv.date >= currentTimeFrameStart && inv.date <= currentTimeFrameEnd}).map(inv => {
 				return inv.articles.map(art => {
 					const found = data.some(element => element.name === art.tag.title)
 					if (!found){
@@ -113,7 +97,7 @@ const DashboardPieChart = ( { props } ) => {
 		}
 		getData();
 		setPieData(data)
-    }, [currentTimeFrameStart, props.invoices]);
+    }, [currentTimeFrameStart, currentTimeFrameEnd, props.invoices]);
 
   	return (
 	  	<Fragment>
@@ -139,17 +123,16 @@ const DashboardPieChart = ( { props } ) => {
 				</LeftContainer>
 
 				<div className="piechart">
-					<PieChart width={600} height={400} className="daPie">
-						<Legend verticalAlign="right" height={46}/>
+					<PieChart width={600} height={450} >
+						<Legend verticalAlign="right" height={36}/>
 						<Pie
 							activeShape={renderActiveShape}
 							activeIndex={activeIndex}
 							data={pieData}
-							cx={200}
-							cy={200}
-							// labelLine={false}
-							// label={renderCustomizedLabel}
-							outerRadius={160}
+							cx={290}
+							cy={230}
+							innerRadius={70}
+							outerRadius={150}
 							fill="#8884d8"
 							dataKey="value"
 							onMouseEnter={onPieEnter}

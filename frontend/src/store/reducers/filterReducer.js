@@ -1,25 +1,24 @@
-// import { timeAction } from '../actions/actionTypes';
+import getDate from '../../helper/date_helper';
 
 const initialState = {
-	timeFrameStart: '12',
-	timeFrameEnd: '0',
+	timeFrameStart: getDate('12'),
+	timeFrameEnd: getDate('0'),
     tag: null,
     articleName: null,
-    invoiceNr: null,
+	invoiceNr: null,
 };
 
 const filterReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case 'SET_TIMEFRAME': {
 			const newState = { ...state };
-			newState.timeFrameStart = action.payload;
-			if (newState.timeFrameStart === '2'){
-				newState.timeFrameEnd = '1';
+			newState.timeFrameStart = action.payload[0];
+			if (action.payload[0] === getDate('2')){
+				newState.timeFrameEnd = getDate('1');
 			}
 			else {
-				newState.timeFrameEnd = '0';
+				newState.timeFrameEnd = action.payload[1];
 			}
-
 			return newState;
 		}
 		default:

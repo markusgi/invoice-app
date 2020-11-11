@@ -30,7 +30,7 @@ const data = [
 
 const DashboardBarsChart = ( { props } ) => {
 
-  console.log(props)
+
 
   	return (
 		<GraphContainer>

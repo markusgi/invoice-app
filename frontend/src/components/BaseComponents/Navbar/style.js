@@ -110,3 +110,30 @@ export const BtnsWrapper = styled.div`
 	}
 
 `;
+
+export const DateModalDiv = styled.div`
+	margin-top: 0;
+	padding-left: 60px;
+	width: 198px;
+	min-height: 155px;
+	border: 2px solid ${colors.blue};
+	border-radius: 10px;
+	background-color: ${colors.white};
+	position: relative;
+	top: 6px;
+	left: 350px;
+	z-index: 2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	.dates {
+		width: 220px;
+		margin-left: 13px;
+		margin-top: 17px;
+		margin-bottom: 0;
+	}
+
+`;
+
