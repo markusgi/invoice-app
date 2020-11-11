@@ -1,4 +1,5 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState, Component } from 'react';
+
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getFilteredAction } from '../store/actions/getFilteredAction';
@@ -8,9 +9,10 @@ import Spinner from '../components/BaseComponents/Spinner';
 import MainList from '../components/Analysis/MainList';
 import Navbar from '../components/BaseComponents/Navbar';
 
-import { FormGroup, Label2, Input2 } from '../style/Inputs'
+import FiltersWindow from '../components/Analysis/Filters';
 import { StandardWindow, MainBodyContainer, TitleDiv } from '../style/Container';
-import { YellowButton } from '../style/Button';
+
+
 
 
 const Analysis = () => {
@@ -24,7 +26,6 @@ const Analysis = () => {
 	});
 	const [filteredData, setfilteredData] = useState([]);
 	const token = useSelector(state => state.user.token)
-	// console.log(filteredData)
 
 
 	useEffect(() => {
@@ -46,28 +47,7 @@ const Analysis = () => {
 						<h2>Filters</h2>
 						<TitleDiv>
 							<div className="leftColumn">
-								<FormGroup>
-									<Label2>Date</Label2>
-									<Input2 type="text" />
-								</FormGroup>
-								<FormGroup>
-									<Label2>Tag</Label2>
-									<Input2 type="text" />
-								</FormGroup>
-								<FormGroup>
-									<Label2>Article</Label2>
-									<Input2 type="text" />
-								</FormGroup>
-								<FormGroup>
-									<Label2>Supplier</Label2>
-									<Input2 type="text" />
-								</FormGroup>
-								<div className="filterButton">
-									<YellowButton style={{"width": "100%"}}>
-										Apply Filter
-									</YellowButton>
-								</div>
-
+								<FiltersWindow />
 							</div>
 
 						</TitleDiv>

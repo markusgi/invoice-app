@@ -28,7 +28,7 @@ const Dashboard = () => {
 			setAllInfo(data);
 		};
 		getData();
-    }, [setAllInfo, dispatch]);
+    }, [setAllInfo, dispatch, token]);
 
 
 	return (
@@ -74,7 +74,7 @@ const Dashboard = () => {
 					
 					<StandardWindow>
 						{AllInfo.length !== 0 ?
-						<DashboardBarsChart props={ AllInfo } />
+						<DashboardBarsChart allInfo={ AllInfo } />
 						:
 						<Spinner />
 						}	

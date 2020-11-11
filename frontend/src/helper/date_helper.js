@@ -30,8 +30,13 @@ const getDate = (arg) => {
             let res = new Date(new Date().getFullYear(), new Date().getMonth() - 5, 1);
             return res.toISOString().slice(0, 10)
         }
+        case 'from': {
+            let res = new Date(new Date());
+            return res.toISOString().slice(0, 10)
+        }
 		default:
-			return;
+            return
+			// return arg.toISOString().slice(0, 10)
     }
 
 }

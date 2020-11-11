@@ -58,10 +58,5 @@ export const PieChartWrapper = styled.div`
 		min-width: 550px;
 		justify-content: center;
 		padding-left: 100px;
-		border: 3px solid black;
-
-		.daPie {
-			border: 3px solid red;
-		}
     }
 `;
