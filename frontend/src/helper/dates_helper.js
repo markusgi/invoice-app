@@ -12,10 +12,11 @@ const getDates = (timeFrameStart, timeFrameEnd, yearly = false) => {
             case '0': {
                 if (yearly) {
                     date = new Date(new Date().getFullYear() + 1, 0, 1);
+                    // date: 2021.1.1
                 } else {
                     date = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+                    // date: 2020.12.1
                 }
-                
                 break;
             }
             case '1': {
@@ -53,7 +54,6 @@ const getDates = (timeFrameStart, timeFrameEnd, yearly = false) => {
         getDate(timeFrameStart, true),
         getDate(timeFrameEnd, true)
     ]
-
 }
 
 export default getDates;
