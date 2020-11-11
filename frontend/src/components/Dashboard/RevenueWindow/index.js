@@ -1,45 +1,10 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-
-import getRevenuesAction from '../../../store/actions/getRevenues';
+import React, { Fragment } from 'react';
 
 import { TitleDiv } from './style';
+import getDate from '../../../helper/date_helper';
 
-
-
-const RevenueDashboard = () => {
-    const dispatch = useDispatch();
-    const [Revenues, setRevenues] = useState([]);
-    // console.log(Revenues)
-
-    useEffect(() => {
-        const getData = async () => {
-            const data = await dispatch(getRevenuesAction());
-			setRevenues(data);
-		};
-		getData();
-    }, []);
-
-
-    const getCurrentDate = () => {
-        const timeElapsed = Date.now();
-        const today = new Date(timeElapsed);
-        const res = today.toISOString();
-        return res.slice(0, 10)
-    }
-
-
-    const helperRevenueTotal = (rev, start="2020-01-01", end=getCurrentDate()) => {
-        console.log(rev, start, end);
-        let sum = 0
-        rev.forEach(element => {
-            if (element.date >= start && element.date <= end){
-                sum += element.revenue
-            }
-        })
-        return sum
-    }
-
+const RevenueDashboard = ( { props } ) => {
+    
 
     return (
         <Fragment>
@@ -51,9 +16,9 @@ const RevenueDashboard = () => {
                     <h3>This Month</h3>	
                 </div>
                 <div className="rightColumn">
-                    <h3>{Revenues.length !== 0 ? helperRevenueTotal(Revenues) : "No Data"}</h3>
-                    <h3>{Revenues.length !== 0 ? helperRevenueTotal(Revenues, "2020-10-01", "2020-10-31") : "No Data"}</h3>
-                    <h3>{Revenues.length !== 0 ? helperRevenueTotal(Revenues, "2020-11-01") : "No Data"}</h3>
+                    <h3>{props.revenues.filter(rev => {return rev.date >= getDate('12')}).reduce((sum, current) => { return sum + current.revenue}, 0)}</h3>
+                    <h3>{props.revenues.filter(rev => {return rev.date >= getDate('2')}).reduce((sum, current) => { return sum + current.revenue}, 0)}</h3>
+                    <h3>{props.revenues.filter(rev => {return rev.date >= getDate('1')}).reduce((sum, current) => { return sum + current.revenue}, 0)}</h3>
                 </div>
             </TitleDiv>
         </Fragment>

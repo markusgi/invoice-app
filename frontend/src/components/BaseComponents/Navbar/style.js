@@ -65,10 +65,12 @@ export const NavbarTop = styled.nav`
 `;
 
 export const NavbarBottom = styled.nav`
-	width: 40%;
+	/* width: 50%; */
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: center;
+	font-size: ${fontSizes.normal};
+	margin-top: 5px;
 	height: 50px;
 
 	.timeLink:hover {
@@ -77,6 +79,7 @@ export const NavbarBottom = styled.nav`
 	}
 	.timeLink {
 		display: flex;
+		margin-left: 20px;
 		justify-content: center;
 		align-items: center;
 		font-size: ${fontSizes.normal};
@@ -85,6 +88,11 @@ export const NavbarBottom = styled.nav`
 		height: 100%;
 		border-bottom: 3px solid transparent;
 		min-width: 80px;
+	}
+
+	.active {
+		background-color: ${colors.blue};
+		border-radius: 7px;
 	}
 
 `;
@@ -102,3 +110,30 @@ export const BtnsWrapper = styled.div`
 	}
 
 `;
+
+export const DateModalDiv = styled.div`
+	margin-top: 0;
+	padding-left: 60px;
+	width: 198px;
+	min-height: 155px;
+	border: 2px solid ${colors.blue};
+	border-radius: 10px;
+	background-color: ${colors.white};
+	position: relative;
+	top: 6px;
+	left: 350px;
+	z-index: 2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	.dates {
+		width: 220px;
+		margin-left: 13px;
+		margin-top: 17px;
+		margin-bottom: 0;
+	}
+
+`;
+

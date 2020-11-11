@@ -36,7 +36,7 @@ export const StandardWindow = styled.section`
 	margin: 15px;
 	padding: 20px;
 	color: ${colors.blue};
-	max-height: 500px;
+	/* max-height: 500px; */
 `
 
 export const MainBodyContainer = styled.div`
@@ -69,4 +69,35 @@ export const MainBodyContainer = styled.div`
 			flex-direction: column;
 			width: 100%;
 	`}
+`;
+
+export const TitleDiv = styled.div`
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    /* border-top: 2px solid ${colors.blue}; */
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border-bottom: 2px solid ${colors.blue};
+
+    .leftColumn {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 285px;
+
+		.filterButton {
+			display: flex;
+			min-height: 120px;
+			width: 100%;
+			justify-content: center;
+			align-items: flex-end;
+		}
+    }
+    .rightColumn {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-end;
+    }
 `;
