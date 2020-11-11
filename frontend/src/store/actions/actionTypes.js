@@ -17,3 +17,10 @@ export const filterAction = (filters) => {
         payload: filters,
     };
 };
+
+export const subWindowAction = (activeSubWindow) => {
+    return {
+        type: "SET_SUBWINDOW",
+        payload: activeSubWindow,
+    };
+};

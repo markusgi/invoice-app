@@ -1,4 +1,4 @@
-import { colors, fontSizes } from "../../../style/Theme";
+// import { colors, fontSizes } from "../../style/Theme";
 import styled, { css } from 'styled-components';
 
 export const groupStyles = styled.div`
