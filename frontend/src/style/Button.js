@@ -12,6 +12,7 @@ export const YellowButton = styled.button`
     font-size: 20px;
     color: ${colors.blueDark};
     text-align: center;
+    transition: linear 0.5s;
     :hover {
     	border: solid 2px ${colors.blueDark};
 	    transition: linear 0.5s;
