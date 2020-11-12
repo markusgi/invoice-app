@@ -19,13 +19,15 @@ export const EmailAddress = styled.input`
 export const FormGroup = styled.div`
   //width: 100%;
   position:relative;
-  display: inline-block;
+  //display: inline-block;
+  display: flex;
   margin-top: 20px;
 `;
 
 
 export const Input2 = styled.input`
     height: 55px;
+    width: 100%;
     border-radius: 18px;
     border: solid 2px ${colors.gray};
     box-sizing: border-box;
@@ -34,6 +36,7 @@ export const Input2 = styled.input`
     font-size: 20px;
     color: ${colors.blueDark};
     padding-left: 20px;
+    transition: linear 0.5s;
     :focus{
       outline: none;
       border: solid 2px ${colors.blue};
