@@ -7,6 +7,10 @@ const getDate = (arg) => {
             // res: 2020.01.01
             break;
         }
+        case 'last_year': {
+            date = new Date(new Date().getFullYear() - 1, 0, 1);
+            break;
+        }
         case '0': {
             date = new Date();
             // res: 2020.11.10(today)
@@ -15,12 +19,6 @@ const getDate = (arg) => {
         case '1': {
             date = new Date(new Date().getFullYear(), new Date().getMonth(), 1);
             // res: 2020.11.01
-            break;
-        }
-        case 'last_month_end': {
-            date = new Date(new Date().getFullYear(), new Date().getMonth() - 1, 0);
-            console.log('res last month: ', date);
-            // res: 2020.10.31
             break;
         }
         case '2': {
@@ -37,6 +35,10 @@ const getDate = (arg) => {
             date = new Date(new Date().getFullYear(), new Date().getMonth() - 5, 1);
             // res: 2020.06.01
             break;
+        }
+        case 'from': {
+            let res = new Date(new Date());
+            return res.toISOString().slice(0, 10)
         }
     }
     return date.toISOString().slice(0, 10);

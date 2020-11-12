@@ -63,11 +63,14 @@ const Dashboard = () => {
 
           <StandardWindow>
             {AllInfo.length !== 0 ? (
-              <>
-                {/* <DashboardBarsChart allInfo={AllInfo} withRevenue={false} /> */}
-                {/* <DashboardBarsChart allInfo={AllInfo} withRevenue={true} /> */}
-				<DashboardBarsChart allInfo={AllInfo} />
-              </>
+                <DashboardBarsChart allInfo={AllInfo} withRevenue={false} />
+            ) : (
+              <Spinner />
+            )}
+          </StandardWindow>
+          <StandardWindow>
+            {AllInfo.length !== 0 ? (
+                <DashboardBarsChart allInfo={AllInfo} withRevenue={true} />
             ) : (
               <Spinner />
             )}
