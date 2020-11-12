@@ -1,23 +1,23 @@
-
+import { colors } from "../style/Theme";
 import styled from 'styled-components';
 
 export const EmailAddress = styled.input`
     margin: 20px;
     height: 55px;
     width: 370px;
-    
     border-radius: 18px;
-    border: solid 2px #4D7593;
+    border: solid 2px ${colors.gray};
     box-sizing: border-box;
     font-style: normal;
     font-weight: bold;
     font-size: 20px;
-    color: #234e6f;
+    color: ${colors.blueDark};
     padding-left: 20px;
 `;
 
 
 export const FormGroup = styled.div`
+  //width: 100%;
   position:relative;
   display: inline-block;
   margin-top: 20px;
@@ -25,43 +25,45 @@ export const FormGroup = styled.div`
 
 
 export const Input2 = styled.input`
-	    
     height: 55px;
-    max-width: 68%;
-
     border-radius: 18px;
-    border: solid 2px #4D7593;
+    border: solid 2px ${colors.gray};
     box-sizing: border-box;
     font-style: normal;
     font-weight: bold;
     font-size: 20px;
-    color: #234e6f;
+    color: ${colors.blueDark};
     padding-left: 20px;
+    :focus{
+      outline: none;
+      border: solid 2px ${colors.blue};
+      transition: linear 0.5s;
+      + label{
+        color: ${colors.blue};
+        outline: none;
+      }
+    }
 `;
 
 export const Label2 = styled.label`
-    background: #fff;
+    background: ${colors.white};
     position: absolute;
-    left: 10px;
+    left: 18px;
     top: -10px;
-    padding: 0 10px;
-    color: #4D7593;
-    
+    padding: 0 5px;
+    color: ${colors.gray};
     font-size: 14px;
 `;
 
 
 export const Password = styled.input`
-    margin: 20px;
     height: 55px;
-    width: 370px;
-
     border-radius: 18px;
-    border: solid 2px #4D7593;
+    border: solid 2px ${colors.gray};
     box-sizing: border-box;
     font-style: normal;
     font-weight: bold;
-    font-size: 20px;
-    color: #234e6f;
-    padding-left: 20px;
+    font-size: 14px;
+    color: ${colors.blueDark};
+    //padding-left: 20px;
 `;

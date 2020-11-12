@@ -1,41 +1,17 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const GlobalStyle = createGlobalStyle`
-	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
-
-    *{
-        margin: 0;
-        padding: 0;
-		box-sizing: border-box;
-		font-family: 'Poppins', sans-serif;
-		font-style: normal;
-		font-weight: 350;
-	} 
-
-	body {
-		background-color: #C6D3DE;
-		font-family: 'Poppins';
-		/*max-width: 1600px;*/
-		margin: 0 auto;
-		height: 100vh;
-	}
-
-	a {
-		text-decoration: none;
-	}
-`;
-
 export const colors = {
     white: '#FFF',
 	black: '#000',
 	gray: '#C6D3DE',
-	
+
 	dimGray: 'rgba(0, 0, 0, .55)',
 	// gradientBtn: 'linear-gradient(90deg, #ff64ba 0%, #7478f6)',
 
 	blueDark: "#234E6F",
 	blue: "#4D7593",
 	blueLight: '#F6F7FB',
+	blueLightBackground: '#E9EDF0',
 
 	yellowDark: '#EFBA46',
 	yellow: '#FFC74D',
@@ -50,6 +26,31 @@ export const colors = {
 	turkisLight: '#E6FAFA',
 	violet: '#BC67FE',
 };
+
+export const GlobalStyle = createGlobalStyle`
+	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
+    *{
+        margin: 0;
+        padding: 0;
+		box-sizing: border-box;
+		font-family: 'Poppins', sans-serif;
+		font-style: normal;
+		font-weight: 350;
+	} 
+
+	body {
+		background-color: ${colors.blueLightBackground};
+		/*font-family: 'Poppins';*/
+		/*max-width: 1600px;*/
+		margin: 0 auto;
+		height: 100vh;
+	}
+
+	a {
+		text-decoration: none;
+	}
+`;
 
 export const fontSizes = {
 	small: '.8rem',
