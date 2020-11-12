@@ -1,7 +1,8 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { timeAction } from '../../../store/actions/actionTypes';
+import { timeAction, subWindowAction } from '../../../store/actions/actionTypes';
+import getDate from '../../../helper/date_helper';
 
 import { Link } from 'react-router-dom';
 import { NavbarWrapper, NavbarTopWrapper, NavbarLeft, NavbarTop, BtnsWrapper, NavbarBottom } from './style';
@@ -10,14 +11,24 @@ import searchIcon from '../../../assets/images/searchIcon.png';
 import bellIcon from '../../../assets/images/bellIcon.png';
 import userIcon from '../../../assets/images/userIcon.png';
 
+import DateModal from './modalDate';
+
 const Navbar = ( {props} ) => {
     const [active, setActive] = useState(props);
     const [activeSub, setActiveSub] = useState('12');
+    const [ activeModal, setActiveModal ] = useState(false);
+    const [ activeSubWindow, setActiveSubWindow ] = useState(useSelector(state => state.subWindow.window));
     const dispatch = useDispatch();
 
+    useEffect(() => {
+        dispatch(subWindowAction(activeSubWindow));
+    }, [activeSubWindow, dispatch]);
+
+
 	useEffect(() => {
-        dispatch(timeAction(activeSub));
+        dispatch(timeAction(getDate(activeSub), getDate('0')));
     }, [activeSub, dispatch]);
+
 
 	return (
 		<Fragment>
@@ -38,21 +49,29 @@ const Navbar = ( {props} ) => {
                         </Link>
                         <Link
                             className={active === 'data' ? 'dataLink active' : 'dataLink'}
-                            onClick={() => setActive('data')}
+                            onClick={() => {
+                                setActive('data')
+                                setActiveSubWindow('new')}}
                             to='/data'
                         >
                             Data
                         </Link>
                         <Link
                             className={active === 'analysis' ? 'analysisLink active' : 'analysisLink'}
-                            onClick={() => setActive('analysis')}
+                            onClick={() => {
+                                setActiveSubWindow('filter')
+                                setActive('analysis')
+                            }}
                             to='/analysis'
                         >
                             Analysis
                         </Link>
                         <Link
                             className={active === 'settings' ? 'settingsLink active' : 'settingsLink'}
-                            onClick={() => setActive('settings')}
+                            onClick={() => {
+                                setActiveSubWindow('userInfo')
+                                setActive('settings')
+                            }}
                             to='/settings'
                         >
                             Settings
@@ -105,33 +124,39 @@ const Navbar = ( {props} ) => {
 						This Month
 					</Link>
                     <Link
-						className={activeSub === 'from' ? 'timeLink active' : 'timeLink'}
-						onClick={() => setActiveSub('from')}
+						className={activeSubWindow === 'from' ? 'timeLink active' : 'timeLink'}
+						onClick={() => {
+                            setActiveModal(!activeModal)
+                            setActiveSubWindow('from')
+                            setActiveSub('from')
+                        }}
 					>
 						From - To
 					</Link>
                 </NavbarBottom>
                 : null }
+
+                {activeModal ? <DateModal /> : null}
                 
                 {active === 'data' ? 
                     <NavbarBottom>
                         <Link
-                            className={activeSub === 'new' ? 'timeLink active' : 'timeLink'}
-                            onClick={() => setActiveSub('new')}
+                            className={activeSubWindow === 'new' ? 'timeLink active' : 'timeLink'}
+                            onClick={() => setActiveSubWindow('new')}
                         >
                             New Invoice
                         </Link>
                         <Link
-                            className={activeSub === '6' ? 'timeLink active' : 'timeLink'}
-                            onClick={() => setActiveSub('6')}
-                        >
-                            Import
-                        </Link>
-                        <Link
-                            className={activeSub === '3' ? 'timeLink active' : 'timeLink'}
-                            onClick={() => setActiveSub('3')}
+                            className={activeSubWindow === 'edit' ? 'timeLink active' : 'timeLink'}
+                            onClick={() => setActiveSubWindow('edit')}
                         >
                             Edit
+                        </Link>
+                        <Link
+                            className={activeSubWindow === 'upload' ? 'timeLink active' : 'timeLink'}
+                            onClick={() => setActiveSubWindow('upload')}
+                        >
+                            Upload
                         </Link>
                     </NavbarBottom>
                     : null }
@@ -139,14 +164,14 @@ const Navbar = ( {props} ) => {
                 {active === 'analysis' ? 
                     <NavbarBottom>
                         <Link
-                            className={activeSub === 'filter' ? 'timeLink active' : 'timeLink'}
-                            onClick={() => setActiveSub('filter')}
+                            className={activeSubWindow === 'filter' ? 'timeLink active' : 'timeLink'}
+                            onClick={() => setActiveSubWindow('filter')}
                         >
                             Filter
                         </Link>
                         <Link
-                            className={activeSub === 'graph' ? 'timeLink active' : 'timeLink'}
-                            onClick={() => setActiveSub('graph')}
+                            className={activeSubWindow === 'graphs' ? 'timeLink active' : 'timeLink'}
+                            onClick={() => setActiveSubWindow('graphs')}
                         >
                             Graphs
                         </Link>
@@ -156,28 +181,22 @@ const Navbar = ( {props} ) => {
                 {active === 'settings' ?
                     <NavbarBottom>
                         <Link
-                            className={activeSub === 'user' ? 'timeLink active' : 'timeLink'}
-                            onClick={() => setActiveSub('user')}
+                            className={activeSubWindow === 'userInfo' ? 'timeLink active' : 'timeLink'}
+                            onClick={() => setActiveSubWindow('userInfo')}
                         >
                             User Profile
                         </Link>
                         <Link
-                            className={activeSub === 'restaurant' ? 'timeLink active' : 'timeLink'}
-                            onClick={() => setActiveSub('restaurant')}
+                            className={activeSubWindow === 'resInfo' ? 'timeLink active' : 'timeLink'}
+                            onClick={() => setActiveSubWindow('resInfo')}
                         >
                             Restaurant Profile
                         </Link>
                         <Link
-                            className={activeSub === 'tags' ? 'timeLink active' : 'timeLink'}
-                            onClick={() => setActiveSub('tags')}
+                            className={activeSubWindow === 'tags' ? 'timeLink active' : 'timeLink'}
+                            onClick={() => setActiveSubWindow('tags')}
                         >
                             Tags
-                        </Link>
-                        <Link
-                            className={activeSub === 'info' ? 'timeLink active' : 'timeLink'}
-                            onClick={() => setActiveSub('info')}
-                        >
-                            Information
                         </Link>
                     </NavbarBottom>
                     : null }    
