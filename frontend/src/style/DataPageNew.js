@@ -21,6 +21,7 @@ export const TopLeft = styled.div`
   //margin: 0 15px 0 0;
   display: flex;
   justify-content: space-between;
+  gap: 30px;
 `
 
 export const TopRight = styled.div`
