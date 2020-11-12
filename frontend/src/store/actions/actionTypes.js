@@ -11,10 +11,10 @@ export const timeAction = (start, end) => {
     };
 };
 
-export const filterAction = (filters) => {
+export const filterAction = (start, end, tag, shop, article) => {
     return {
         type: "SET_FILTER",
-        payload: filters,
+        payload: [start, end, tag, shop, article],
     };
 };
 

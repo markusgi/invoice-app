@@ -6,7 +6,7 @@ export const InvoiceTableCSS = styled.table`
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 3px solid black;
+    /* border: 3px solid black; */
 
 	${props => 
 		props.Main &&

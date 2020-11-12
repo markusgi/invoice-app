@@ -75,7 +75,7 @@ export const TitleDiv = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
-    /* border-top: 2px solid ${colors.blue}; */
+    border-top: 2px solid ${colors.blue};
     padding-bottom: 5px;
     padding-top: 5px;
     border-bottom: 2px solid ${colors.blue};
@@ -84,7 +84,10 @@ export const TitleDiv = styled.div`
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        width: 285px;
+        /* width: 180px; */
+		max-width: 280px;
+		width: 100%;
+
 
 		.filterButton {
 			display: flex;

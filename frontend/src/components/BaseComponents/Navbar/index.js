@@ -22,7 +22,7 @@ const Navbar = ( {props} ) => {
 
     useEffect(() => {
         dispatch(subWindowAction(activeSubWindow));
-    }, [activeSubWindow, dispatch]);
+    }, [activeSubWindow, activeSub, dispatch]);
 
 
 	useEffect(() => {

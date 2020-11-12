@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import { useDispatch } from 'react-redux';
-import { timeAction } from '../../../store/actions/actionTypes'
+import { timeAction } from '../../../store/actions/actionTypes';
 
 import "react-datepicker/dist/react-datepicker.css";
 

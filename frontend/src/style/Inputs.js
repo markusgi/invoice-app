@@ -27,8 +27,8 @@ export const FormGroup = styled.div`
 export const Input2 = styled.input`
 	    
     height: 55px;
-    max-width: 68%;
-
+    /* max-width: 100%; */
+    width: 100%;
     border-radius: 18px;
     border: solid 2px #4D7593;
     box-sizing: border-box;
