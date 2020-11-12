@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react';
 import { StandardWindow, TitleDiv } from '../../style/Container';
-
 import { NiceInput, InvoiceForm } from '../../style/Form';
-
 import { Password, EmailAddress, FormGroup, Label2, Input2 } from '../../style/Inputs';
+import {YellowButton} from "../../style/Button";
+import { TopGroup, TopLeft, TopRight, MiddleGroup, BottomGroup, SpaceLeft, SpaceRight, CheckPriceDiv, CheckDiv, PriceDiv, YellowButtonStyle } from "../../style/DataPageNew";
 
 const NewInvoice = () => {
 
-    let emailOnChangeHandler;
+    // let emailOnChangeHandler;
 
 
     return (
@@ -18,40 +18,59 @@ const NewInvoice = () => {
                 </TitleDiv>
  
                 <form>
-                    <FormGroup>
-                        <Label2 for="Date">Date</Label2>
-                        <Input2 type="text" name="Date" id="Date" />
-                    </FormGroup>
-                    <FormGroup>
+                    <TopGroup>
+                        <TopLeft>
+                            <FormGroup>
+                                <Input2 type="text" name="Date" id="Date" />
+                                <Label2 for="Date">Date</Label2>
+                            </FormGroup>
+                            <FormGroup>
+                                <Input2 type="text" name="InvoiceNo" id="InvoiceNo" />
+                                <Label2 for="InvoiceNo">Invoice No.</Label2>
+                            </FormGroup>
+                        </TopLeft>
+                        <TopRight>
+                            <FormGroup style={{width: "100%"}}>
+                                <Input2 style={{width: "100%"}} type="text" name="Shop" id="Shop" />
+                                <Label2 for="Shop">Shop / Supplier</Label2>
+                            </FormGroup>
+                        </TopRight>
+                    </TopGroup>
 
-                        <Label2 for="Shop">Shop / Supplier</Label2>
-                        <Input2 type="text" name="Shop" id="Shop" />
-                    </FormGroup>
+                    <MiddleGroup>
+                        <FormGroup>
+                            <Input2 type="text" name="Item" id="Item" />
+                            <Label2 for="Item">Item</Label2>
+                        </FormGroup>
+                        <FormGroup>
+                            <Input2 type="text" name="Quantity" id="Quantity" />
+                            <Label2 for="Quantity">Quantity</Label2>
+                        </FormGroup>
+                        <FormGroup>
+                            <Input2 type="text" name="Price" id="Price" />
+                            <Label2 for="Price">Price</Label2>
+                        </FormGroup>
+                        <FormGroup>
+                            <Input2 type="text" name="Tag" id="Tag" />
+                            <Label2 for="Tag">Tag</Label2>
+                        </FormGroup>
+                    </MiddleGroup>
 
-                    <label for="invoice">Invoice</label>
-                    <NiceInput type="text" name="invoice" id="invoice" />
+                    <BottomGroup>
+                        <SpaceLeft/>
+                        <SpaceRight>
+                            <CheckPriceDiv>
+                                <CheckDiv>Check total price</CheckDiv>
+                                <PriceDiv>38.85</PriceDiv>
+                            </CheckPriceDiv>
+                            <YellowButtonStyle>
+                                Save changes
+                            </YellowButtonStyle>
+                        </SpaceRight>
+                    </BottomGroup>
 
-                    <label for="item">Item</label>
-                    <NiceInput type="text" name="item" id="item" />
-
-                    <label for="quantity">Quantity</label>
-                    <NiceInput type="text" name="quantity" id="quantity" />
-
-                    <label for="price">Price</label>
-                    <NiceInput type="text" name="price" id="price" />
-
-                    <label for="tag">Tag</label>
-                    <NiceInput type="text" name="tag" id="tag" />
-                    
                 </form>
-
-                <FormGroup>
-                    <Label2>First Name</Label2>
-                    <Input2 type="text" />
-                </FormGroup>
-
             </StandardWindow>
-
         </Fragment>
     );
 };
