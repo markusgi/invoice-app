@@ -26,7 +26,7 @@ const Navbar = ( {props} ) => {
 
 
 	useEffect(() => {
-        dispatch(timeAction(getDate(activeSub), getDate('0')));
+        dispatch(timeAction(getDate(activeSub), getDate('0'), activeSub));
     }, [activeSub, dispatch]);
 
 

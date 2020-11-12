@@ -1,6 +1,56 @@
 
 
-const getDates = (timeFrameStart, timeFrameEnd, yearly = false) => {
+const getDates = (activeSub) => {
+    let yearly = activeSub == "12";
+
+    let isoDate = (date) => date.toISOString().slice(0, 10);
+
+    let date = new Date();
+
+    switch(activeSub) {
+        case '12': {
+            return [
+                isoDate(new Date(date.getFullYear(), 0, 1)),
+                isoDate(new Date(date.getFullYear() + 1, 0, 1)),
+                isoDate(new Date(date.getFullYear() - 1, 0, 1)),
+                isoDate(new Date(date.getFullYear(), 0, 1)),
+            ];
+        }
+        case '6': {
+            return [
+                isoDate(new Date(date.getFullYear(), date.getMonth() - 5, 1)),
+                isoDate(new Date(date.getFullYear(), date.getMonth() + 1, 0)),
+                isoDate(new Date(date.getFullYear() - 1, date.getMonth() - 5, 1)),
+                isoDate(new Date(date.getFullYear() - 1, date.getMonth() + 1, 0)),
+            ];
+        }
+        case '3': {
+            return [
+                isoDate(new Date(date.getFullYear(), date.getMonth() - 2, 1)),
+                isoDate(new Date(date.getFullYear(), date.getMonth() + 1, 0)),
+                isoDate(new Date(date.getFullYear() - 1, date.getMonth() - 2, 1)),
+                isoDate(new Date(date.getFullYear() - 1, date.getMonth() + 1, 0)),
+            ];
+        }
+        case '2': {
+            return [
+                isoDate(new Date(date.getFullYear(), date.getMonth() - 1, 1)),
+                isoDate(new Date(date.getFullYear(), date.getMonth() + 1, 0)),
+                isoDate(new Date(date.getFullYear() - 1, date.getMonth() - 1, 1)),
+                isoDate(new Date(date.getFullYear() - 1, date.getMonth() + 1, 0)),
+            ];
+        }
+        case '1': {
+            return [
+                isoDate(new Date(date.getFullYear(), date.getMonth(), 1)),
+                isoDate(new Date(date.getFullYear(), date.getMonth() + 1, 0)),
+                isoDate(new Date(date.getFullYear() - 1, date.getMonth(), 1)),
+                isoDate(new Date(date.getFullYear() - 1, date.getMonth() + 1, 0)),
+            ];
+        }
+    }
+    
+    /*
     const getDate = (timeFrame, isLastYear = false) => {
         var date = new Date();
         switch(timeFrame){
@@ -53,7 +103,7 @@ const getDates = (timeFrameStart, timeFrameEnd, yearly = false) => {
         getDate(timeFrameEnd),
         getDate(timeFrameStart, true),
         getDate(timeFrameEnd, true)
-    ]
+    ]*/
 }
 
 export default getDates;

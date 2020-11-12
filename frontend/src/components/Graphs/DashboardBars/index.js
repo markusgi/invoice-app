@@ -1,4 +1,5 @@
 import React, { PureComponent, useState, useEffect, Fragment } from "react";
+import { act } from "react-dom/test-utils";
 import { useSelector } from "react-redux";
 import {
   BarChart,
@@ -135,22 +136,26 @@ let getLegendData = (groupedData, stackId) => {
 };
 
 // static jsfiddleUrl = 'https://jsfiddle.net/alidingling/9hjfkp73/';
-const DashboardBarsChart = ({ allInfo, withRevenue }) => {
+const DashboardBarsChart = (props) => {
+  let { allInfo, withRevenue } = props;
   // const DashboardBarsChart = ({ allInfo }) => {
   console.log("allInfo: ", allInfo);
 
+  /*
   let currentTimeFrameStart = useSelector(
     (state) => state.filter.timeFrameStart
   ); // '12'
   let currentTimeFrameEnd = useSelector((state) => state.filter.timeFrameEnd); //
+    console.log("start", currentTimeFrameStart)
+  console.log("end", currentTimeFrameEnd)
+  */
 
-  let groupByYear = currentTimeFrameStart == "12" && currentTimeFrameEnd == "0";
+  let activeSub = useSelector((state) => state.filter.activeSub);
+  console.log("activeSub", activeSub);
 
-  let [startDate, endDate, startDateLastYear, endDateLastYear] = getDates(
-    currentTimeFrameStart,
-    currentTimeFrameEnd,
-    groupByYear
-  );
+  let groupByYear = activeSub == "12";
+
+  let [startDate, endDate, startDateLastYear, endDateLastYear] = getDates(activeSub);
 
   console.log("getDates() result ####################");
   console.log(startDate);
@@ -227,7 +232,7 @@ const DashboardBarsChart = ({ allInfo, withRevenue }) => {
 
     setData(arrayData);
     console.log("arrayData: ", arrayData);
-  }, [currentTimeFrameStart, currentTimeFrameEnd]);
+  }, [activeSub]);
 
   console.log("legend", legend);
 
