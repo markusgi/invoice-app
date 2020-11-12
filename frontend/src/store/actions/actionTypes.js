@@ -4,10 +4,10 @@ export const SET_TOKEN = 'SET_TOKEN';
 // export const SET_TIMEFRAME = 'SET_TIMEFRAME';
 
 
-export const timeAction = (start, end) => {
+export const timeAction = (start, end, activeSub) => {
     return {
         type: "SET_TIMEFRAME",
-        payload: [start, end],
+        payload: [start, end, activeSub],
     };
 };
 
