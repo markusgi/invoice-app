@@ -230,6 +230,8 @@ const DashboardBarsChart = (props) => {
     bar = bar.concat(getBarData(lastData, "a"));
     bar = bar.concat(getBarData(currentData, groupByYear ? "a" : "b"));
     setBar(bar);
+    console.log('bar: ', bar);
+
 
     // merge the data
     let mergedData = currentData;
