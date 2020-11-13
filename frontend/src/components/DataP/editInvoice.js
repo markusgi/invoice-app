@@ -52,7 +52,7 @@ const EditInvoice = () => {
                                     <Input2 type="text" name="Shop" id="Shop" />
                                     <Label2 for="Shop">Shop / Supplier</Label2>
                                 </FormGroupRight>
-                                <img src={SearchIcon} alt={"Search Icon"} />
+                                <img src={GotoIcon} alt={"Goto Icon"} />
                             </DataRight>
                         </ResultsData>
                     </SearchResults>
