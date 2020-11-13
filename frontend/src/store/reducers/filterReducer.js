@@ -3,6 +3,7 @@ import getDate from '../../helper/date_helper';
 const initialState = {
 	timeFrameStart: getDate('12'),
 	timeFrameEnd: getDate('0'),
+	activeSub: '12',
     tag: null,
     shop: null,
 	article: null,
@@ -19,6 +20,8 @@ const filterReducer = (state = initialState, action) => {
 			else {
 				newState.timeFrameEnd = action.payload[1];
 			}
+			newState.activeSub = action.payload[2];
+
 			return newState;
 		}
 		case 'SET_FILTER': {

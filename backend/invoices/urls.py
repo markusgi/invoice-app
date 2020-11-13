@@ -9,4 +9,5 @@ urlpatterns = [
     path('date/<str:start_date>/<str:end_date>/', InvoicePeriodListAPIView.as_view()),
     path('latest/<int:number>/', InvoiceLatestListAPIView.as_view()),
     path('highest/<int:number>/', InvoiceHighestListAPIView.as_view()),
+
 ]
