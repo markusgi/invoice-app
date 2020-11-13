@@ -44,7 +44,7 @@ const test = [
   },
 ];
 
-let getGroupedData = (invoices, from, until, groupByYear) => {
+let getGroupedData = (invoices, from, until, groupByYear, colorByTagname) => {
   var groupedData = {};
 
   let filteredInvoices = invoices.filter((invoice) => {
@@ -66,14 +66,31 @@ let getGroupedData = (invoices, from, until, groupByYear) => {
 
     for (let article of invoice.articles) {
       let tagName = article.tag.title + year;
-      // let tagName = article.tag.title;
-      // console.log('tagName: ', tagName.substring(0, tagName.length-4));
+
+      colorByTagname[tagName] = article.tag.color;
+
       if (groupedData[dateKey][tagName] == undefined) {
         groupedData[dateKey][tagName] = article.total_price;
       } else {
         groupedData[dateKey][tagName] += article.total_price;
       }
     }
+    // for (let article of invoice.articles) {
+    //   let tagName = article.tag.title + year;
+    //   if (groupedData[dateKey][tagName] == undefined) {
+    //     groupedData[dateKey][tagName] = {};
+    //   }
+    //   if (groupedData[dateKey][tagName]['sum'] == undefined) {
+    //     groupedData[dateKey][tagName]['sum'] = article.total_price;
+    //   } else {
+    //     groupedData[dateKey][tagName]['sum'] += article.total_price;
+    //   }
+    //   if (groupedData[dateKey][tagName]['color'] == undefined) {
+    //     groupedData[dateKey][tagName]['color'] = article.tag.color;
+    //   } else {
+    //     groupedData[dateKey][tagName]['color'] += article.tag.color;
+    //   }
+    // }
   }
   console.log("groupedData: ", groupedData);
   return groupedData;
@@ -110,7 +127,9 @@ let addRevenueTag = (groupedData, revenues, from, until, groupByYear) => {
 //  }
 //}
 
-let getLegendData = (groupedData, stackId) => {
+
+let getBarData = (groupedData, stackId) => {
+
   let uniqueNames = new Set();
   for (let dataKey in groupedData) {
     for (let tagname in groupedData[dataKey]) {
@@ -119,20 +138,19 @@ let getLegendData = (groupedData, stackId) => {
   }
 
   let sortedNames = Array.from(uniqueNames).sort();
-
-  let colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#523234"];
-  let legendData = [];
+  console.log('sortedNames: ', sortedNames);
+  
+  let barData = [];
   var i = 0;
   for (let element of sortedNames) {
-    legendData.push({
+    barData.push({
       name: element,
-      stack: stackId,
-      color: colors[i % colors.length],
+      stack: stackId
     });
     i++;
   }
-  console.log("legendData: ", legendData);
-  return legendData;
+  console.log("barData: ", barData);
+  return barData;
 };
 
 // static jsfiddleUrl = 'https://jsfiddle.net/alidingling/9hjfkp73/';
@@ -151,6 +169,7 @@ const DashboardBarsChart = (props) => {
   */
 
   let activeSub = useSelector((state) => state.filter.activeSub);
+  
   console.log("activeSub", activeSub);
 
   let groupByYear = activeSub == "12";
@@ -164,22 +183,27 @@ const DashboardBarsChart = (props) => {
   console.log(endDateLastYear);
 
   const [data, setData] = useState(test);
-  const [legend, setLegend] = useState([]);
+  const [bar, setBar] = useState([]);
+
+  const [colorByTagname, setColorByTagname] = useState({});
 
   useEffect(() => {
     let data = test;
 
+    let colorByTagname = {};
     let currentData = getGroupedData(
       allInfo.invoices,
       startDate,
       endDate,
-      groupByYear
+      groupByYear,
+      colorByTagname
     );
     let lastData = getGroupedData(
       allInfo.invoices,
       startDateLastYear,
       endDateLastYear,
-      groupByYear
+      groupByYear,
+      colorByTagname
     );
     console.log("currentData: ", currentData);
     console.log("lastData: ", lastData);
@@ -201,11 +225,11 @@ const DashboardBarsChart = (props) => {
       );
     }
 
-    // create the legend
-    let legend = [];
-    legend = legend.concat(getLegendData(lastData, "a"));
-    legend = legend.concat(getLegendData(currentData, groupByYear ? "a" : "b"));
-    setLegend(legend);
+    // create the bar data
+    let bar = [];
+    bar = bar.concat(getBarData(lastData, "a"));
+    bar = bar.concat(getBarData(currentData, groupByYear ? "a" : "b"));
+    setBar(bar);
 
     // merge the data
     let mergedData = currentData;
@@ -221,7 +245,6 @@ const DashboardBarsChart = (props) => {
     }
 
     console.log("mergedData", mergedData);
-
     let arrayData = [];
     for (let dataKey of Object.keys(mergedData).sort()) {
       arrayData.push({ name: dataKey, ...mergedData[dataKey] });
@@ -231,18 +254,35 @@ const DashboardBarsChart = (props) => {
     console.log("arrayData", arrayData);
 
     setData(arrayData);
+    setColorByTagname(colorByTagname);
     console.log("arrayData: ", arrayData);
   }, [activeSub]);
 
-  console.log("legend", legend);
+  console.log("bar", bar);
+
+  let legendByValue = {};
+  
+  for(let tagname in colorByTagname) {
+    let shortTagname = tagname.substring(0, tagname.length - 4);
+    legendByValue[shortTagname] = {
+      color: colorByTagname[tagname],
+      dataKey: tagname,
+      type: 'rect',
+      value: shortTagname
+    };
+  }
+  console.log('legendByValue: ', legendByValue);
+
+  let legendPayload = Object.values(legendByValue);
+  console.log('legendPayload: ', legendPayload);
 
   return (
     <Fragment>
       {withRevenue ? <h2>Revenues</h2> : <h2>Expenses</h2>}
       <BarChartWrapper>
         <BarChart
-          width={500}
-          height={300}
+          width={600}
+          height={400}
           data={data}
           margin={{
             top: 20,
@@ -250,6 +290,8 @@ const DashboardBarsChart = (props) => {
             left: 20,
             bottom: 5,
           }}
+          barGap={5} 
+          barCategoryGap="10%"
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis
@@ -262,11 +304,11 @@ const DashboardBarsChart = (props) => {
           />
           <YAxis label={{ value: "CHF", angle: -90, position: "left" }} />
           <Tooltip />
-          <Legend />
+          <Legend payload={legendPayload} wrapperStyle={{paddingBottom: "10px", paddingTop: "10px"}} />
           {
             // legend.map(l => <Bar dataKey={l.name} stackId={l.stack} fill={withRevenue ? '#8884d8' : 'red'} />)
-            legend.map((l) => (
-              <Bar dataKey={l.name} stackId={l.stack} fill={l.color} />
+            bar.map((l) => (
+              <Bar dataKey={l.name} stackId={l.stack} fill={colorByTagname[l.name]} />
             ))
           }
         </BarChart>
