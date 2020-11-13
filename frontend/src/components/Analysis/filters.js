@@ -106,7 +106,7 @@ const FiltersAnalysis = () => {
                                 </FormGroup>
 
                                 <FormGroup style={{display:"flex", justifyContent:"center", width:"100%"}}>
-                                    <YellowButton type="submit">
+                                    <YellowButton type="submit" style={{width:"200px"}}>
                                         Apply Filter
                                     </YellowButton>
                                 </FormGroup>
@@ -136,8 +136,8 @@ const FiltersAnalysis = () => {
                 <StandardWindow>
                     <FormGroup style={{display:"flex", flexDirection:"row"}}>
                         <Label2 for="search">Search</Label2>
-                        <Input2 type="text" name="search" id="search" style={{marginRight:"20px"}} />
-                        <YellowButton type="submit">
+                        <Input2 type="text" name="search" id="search" style={{marginRight:"30px"}} />
+                        <YellowButton type="submit" style={{width:"200px"}}>
                             Search
                         </YellowButton>
                     </FormGroup>
@@ -156,8 +156,7 @@ const FiltersAnalysis = () => {
                     <StandardWindow>
                         <h2>Analysis</h2>
                         <TitleDiv>
-                            <h3>Please Select an Entry</h3>
-                            <SpecificTable />
+                            <SpecificTable props={filteredData}/>
                         </TitleDiv>
                     </StandardWindow>
                 </MainBodyContainer>

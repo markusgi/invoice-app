@@ -32,13 +32,14 @@ export const ResultsContainer = styled.div`
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-items: center;
 
-    .ResultsInvoices {
+    /* .ResultsInvoices {
         border: 3px solid black;
         min-width: 500px;
         width: 50%;
-    }
+        background-color: pink;
+    } */
 
     .ResultsArticles {
         border: 3px solid black;
@@ -46,3 +47,34 @@ export const ResultsContainer = styled.div`
     }
 `;
 
+
+export const AnalysisTable = styled.div`
+    padding: 1rem;
+    min-width: 500px;
+    width: 50%;
+
+    table {
+        border-spacing: 0;
+        border: 1px solid black;
+
+    tr {
+      :last-child {
+        td {
+          border-bottom: 0;
+        }
+      }
+    }
+
+    th,
+    td {
+      margin: 0;
+      padding: 0.5rem;
+      border-bottom: 1px solid black;
+      border-right: 1px solid black;
+
+      :last-child {
+        border-right: 0;
+      }
+    }
+  }
+`
