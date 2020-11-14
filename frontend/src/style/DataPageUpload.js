@@ -1,25 +1,33 @@
 import styled, { css } from 'styled-components';
 import {YellowButton} from "./Button";
-import {Input2} from "./Inputs";
-import { StandardWindow } from "../style/Container";
+import { StandardWindow } from "./Container";
 import { colors } from "./Theme";
-import { Label2, FormGroup} from "./Inputs";
-import SearchIcon from '../assets/svgs/icon-search-yellow.svg'
+import { Label2 } from "./Inputs";
 
 
-export const StandardWindowDataEdit = styled(StandardWindow)`
+
+export const StandardWindowDataUpload = styled(StandardWindow)`
   width: 100%;
 `
 
-export const SearchPart = styled.div``
+///////////////// TOP ////////////////////////////////////////////////////////////////
 
-export const TitleDiv = styled.div``
+export const TopGroup = styled.div`
+  width: 100%;
+  gap: 30px;
+`
 
-export const FormGroupSearch = styled.div`
+export const UploadPart = styled.div`
+  display: flex;
+  gap: 30px;
+`
+
+export const FormGroupUpload = styled.div`
+  width: 50%;
   position: relative;
   margin-top: 20px;
   img{
-    width: 25px;
+    width: 30px;
     height: 25px;
     position: absolute;
     top: 15px;
@@ -28,20 +36,25 @@ export const FormGroupSearch = styled.div`
   }
 `
 
-export const SearchResults = styled.div``
+export const IconUpload = styled(Label2)``
 
-export const IconSearch = styled(Label2)`
-  :after{
-    background: src={"SearchIcon"};
-  }
+export const FormGroupComment = styled.div`
+  width: 50%;
 `
-
 
 export const ResultsText = styled.div`
   display: flex;
   height: 55px;
   align-items: center;
   margin-top: 20px;
+  width: 100%;
+  justify-content: space-between;
+  gap: 90px;
+`
+
+export const Results = styled.div`
+  width: 75%;
+  display: flex;
 `
 
 export const ResultsGreen = styled.div`
@@ -54,58 +67,15 @@ export const ResultsRed = styled.div`
   padding-left: 20px;
 `
 
-export const ResultsData = styled.div`
+export const ButtonUpload = styled.div`
+  width: 25%;
+`
+
+export const YellowButtonStyleUpload = styled(YellowButton)`
   width: 100%;
-  gap: 30px;
-  display: flex;
 `
 
-export const DataLeft = styled.div`
-  width: 50%;
-  display: flex;
-  justify-content: space-between;
-  gap: 30px;
-`
-
-export const FormGroupRight = styled(FormGroup)`
-    width: calc(100% - 70px);
-`
-
-export const DataRight = styled.div`
-  gap: 30px;
-  width: 50%;
-  display: flex;
-  align-items: center;
-  position: relative;
-  img{
-    height: 25px;
-    width: 25px;
-    //margin-top: 25px;
-    position: absolute;
-    bottom: 17.5px;
-    right: 20px;
-    transform: rotate(180deg)
-  }
-`
-
-export const OverviewPart = styled.div`
-  margin-top: 20px;
-`
-
-
-export const TopGroup = styled.div`
-`
-
-export const TopLeft = styled.div`
-  width: 50%;
-  //margin: 0 15px 0 0;
-  display: flex;
-  justify-content: space-between;
-`
-
-export const TopRight = styled.div`
-  width: 50%;
-`
+///////////////// MIDDLE ////////////////////////////////////////////////////////////////
 
 export const MiddleGroup = styled.div`
   width: 100%;
@@ -114,6 +84,8 @@ export const MiddleGroup = styled.div`
   align-items: center;
   gap: 30px;
 `
+
+///////////////// BOTTOM ////////////////////////////////////////////////////////////////
 
 export const BottomGroup = styled.div`
   width: 100%;
@@ -125,4 +97,33 @@ export const BottomGroup = styled.div`
   margin-top: 20px;
 `
 
+export const SpaceLeft = styled.div`
+  width: 50%;
+`
 
+export const SpaceRight = styled.div`
+  width: 50%;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+`
+
+export const CheckPriceDiv = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`
+
+export const CheckDiv = styled.div`
+  padding-left: 20px;
+`
+
+export const PriceDiv = styled.div`
+  padding-right: 20px;
+  font-weight: bolder;
+`
+
+export const YellowButtonStyle = styled(YellowButton)`
+  width: 100%;
+`

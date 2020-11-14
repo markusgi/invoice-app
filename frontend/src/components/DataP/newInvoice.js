@@ -1,9 +1,12 @@
 import React, { Fragment } from 'react';
-import { StandardWindow, TitleDiv } from '../../style/Container';
-import { NiceInput, InvoiceForm } from '../../style/Form';
 import { Password, EmailAddress, FormGroup, Label2, Input2 } from '../../style/Inputs';
-import {YellowButton} from "../../style/Button";
-import { TopGroup, TopLeft, TopRight, MiddleGroup, BottomGroup, SpaceLeft, SpaceRight, CheckPriceDiv, CheckDiv, PriceDiv, YellowButtonStyle } from "../../style/DataPageNew";
+import { StandardWindowDataEdit, TopGroup, TopLeft, TopRight, MiddleGroup,
+    BottomGroup, SpaceLeft, SpaceRight,
+    CheckPriceDiv, CheckDiv, PriceDiv, YellowButtonStyle } from "../../style/DataPageNew";
+import Titles from '../../components/BaseComponents/Titles'
+import {SearchPart} from "../../style/DataPageEdit";
+
+
 
 const NewInvoice = () => {
 
@@ -12,11 +15,10 @@ const NewInvoice = () => {
 
     return (
         <Fragment>
-            <StandardWindow>
-                <TitleDiv>
-                    <h2>New Invoice</h2>
-                </TitleDiv>
- 
+            <StandardWindowDataEdit>
+
+                <Titles title={"New Invoice"} />
+
                 <form>
                     <TopGroup>
                         <TopLeft>
@@ -70,7 +72,7 @@ const NewInvoice = () => {
                     </BottomGroup>
 
                 </form>
-            </StandardWindow>
+            </StandardWindowDataEdit>
         </Fragment>
     );
 };
