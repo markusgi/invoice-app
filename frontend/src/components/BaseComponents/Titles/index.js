@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import InfoIcon from '../../../assets/svgs/icon-info-grey.svg';
 import { TitleContainer, TitleLeft, TitleRight, Tooltip2, Tooltiptext } from "../../../style/Titles";
-import Tooltip from 'react-tooltip-lite';
 
 
 
