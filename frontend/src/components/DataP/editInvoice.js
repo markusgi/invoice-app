@@ -1,10 +1,15 @@
 import React, { Fragment } from 'react';
 import { StandardWindow, TitleDiv } from '../../style/Container';
-import { NiceInput } from '../../style/Form';
 import { FormGroup, Label2, Input2 } from '../../style/Inputs';
-import { IconSearch, FormGroupSearch, FormGroupRight, StandardWindowDataEdit, SearchPart, SearchResults, ResultsText, ResultsGreen, ResultsRed, ResultsData, DataLeft, DataRight, OverviewPart } from "../../style/DataPageEdit";
+import { FormGroupSearch, FormGroupRight, StandardWindowDataEdit,
+    SearchPart, SearchResults, Divider,
+    ResultsText, ResultsGreen, ResultsRed, ResultsData,
+    DataLeft, DataRight, OverviewPart } from "../../style/DataPageEdit";
 import SearchIcon from '../../assets/svgs/icon-search-yellow.svg';
 import GotoIcon from '../../assets/svgs/icon-goto-yellow.svg';
+import Titles from '../../components/BaseComponents/Titles'
+
+
 
 const EditInvoice = () => {
 
@@ -13,14 +18,12 @@ const EditInvoice = () => {
             <StandardWindowDataEdit>
                 <SearchPart>
 
-                    <TitleDiv>
-                        <h2>Edit Invoice</h2>
-                    </TitleDiv>
+                    <Titles title={"Edit Invoice"} />
 
                     <form>
                         <FormGroupSearch style={{width: "100%"}}>
                             <Input2 style={{width: "100%"}} type="text" name="Search" id="Search" />
-                            <IconSearch for="Search">Search</IconSearch>
+                            <Label2 for="Search">Search</Label2>
                             <img src={SearchIcon}/>
                         </FormGroupSearch>
                     </form>
@@ -52,16 +55,14 @@ const EditInvoice = () => {
                                     <Input2 type="text" name="Shop" id="Shop" />
                                     <Label2 for="Shop">Shop / Supplier</Label2>
                                 </FormGroupRight>
-                                <img src={SearchIcon} alt={"Search Icon"} />
+                                <img src={GotoIcon} alt={"Goto Icon"} />
                             </DataRight>
                         </ResultsData>
                     </SearchResults>
                 </SearchPart>
-
+                <Divider/>
                 <OverviewPart>
-                    <TitleDiv>
-                        <h2>Overview</h2>
-                    </TitleDiv>
+                    <Titles title={"Overview"} />
                     <ResultsData>
                         <DataLeft>
                             <FormGroup>
@@ -78,7 +79,7 @@ const EditInvoice = () => {
                                 <Input2 type="text" name="Shop" id="Shop" />
                                 <Label2 for="Shop">Shop / Supplier</Label2>
                             </FormGroupRight>
-                            <img src={SearchIcon} alt={"Search Icon"} />
+                            <img src={GotoIcon} alt={"Goto Icon"} />
                         </DataRight>
                     </ResultsData>
                 </OverviewPart>
