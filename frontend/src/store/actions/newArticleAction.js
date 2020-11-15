@@ -6,7 +6,7 @@ export const newArticleAction = (itemName, price2, quantity2, tag2, id2) => asyn
     const restaurant2 = '1'
     const id = '30'
     // const token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjA1NDM0MzYxLCJqdGkiOiI5MTY2MTBkMDNjZGU0YWNiOTYxYzk5Njk2MmFhOTUyZSIsInVzZXJfaWQiOjF9.RSsWyHlSTsuJ8Cmj-0raDP5465KcUS1BGDhJwKoUKqQ";
-    const accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjA1NDM0MzYxLCJqdGkiOiI5MTY2MTBkMDNjZGU0YWNiOTYxYzk5Njk2MmFhOTUyZSIsInVzZXJfaWQiOjF9.RSsWyHlSTsuJ8Cmj-0raDP5465KcUS1BGDhJwKoUKqQ";
+    const accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjA1ODgzNDA2LCJqdGkiOiJlOTRmNTA1NWJjNWM0MDllOTNhMTZjZDYxNDNjMmFmOSIsInVzZXJfaWQiOjF9.isLvJi1jPRcze2t3r0NAmFVv2LrY1VyLt0HPaHsb3DI";
     const url = `${baseUrl}articles/new/`;
 	const config = {
 		method: 'POST',

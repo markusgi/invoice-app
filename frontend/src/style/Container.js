@@ -32,7 +32,7 @@ export const Container = styled.section`
 
 export const StandardWindow = styled.section`
 	background-color: ${colors.white};
-	border-radius: 10px;
+	border-radius: 15px;
 	margin: 15px;
 	padding: 20px;
 	color: ${colors.blue};
@@ -68,6 +68,17 @@ export const MainBodyContainer = styled.div`
 			display: flex;
 			flex-direction: column;
 			width: 100%;
+	`}
+
+	${props => 
+		props.Login &&
+		css`
+			border-radius: 20px;
+			display: flex;
+			flex-direction: row;
+			width: 100%;
+			justify-content: center;
+			align-items: center;
 	`}
 `;
 

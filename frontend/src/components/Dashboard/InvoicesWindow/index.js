@@ -1,9 +1,23 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import getLatestAction from '../../../store/actions/getLatestAction';
+
 import { InvoiceTableCSS, TitleDiv } from './style';
 import getDate from '../../../helper/date_helper';
 
 const InvoiceTable = ( { props } ) => {
+    const [ latest, setlatest ] = useState([])
+    const dispatch = useDispatch();
+    const token = useSelector(state => state.user.token)
+    console.log(latest)
 
+    useEffect(() => {
+        const getData = async () => {
+            const data =  await dispatch(getLatestAction(token));
+            setlatest(data)
+        } 
+        getData();
+    }, [setlatest, dispatch]);
 
     return (
         <Fragment>
@@ -23,15 +37,23 @@ const InvoiceTable = ( { props } ) => {
                 </div>
             </TitleDiv>
             <InvoiceTableCSS>
-                <tbody>
-                    <tr>
-                        <th>Date</th>
-                        <th>Supplier</th>
-                        <th>Total</th>
+                <tbody style={{width:"100%"}}>
+                    <tr >
+                        <th style={{width:"20%", fontSize:"16px"}}>Date</th>
+                        <th style={{width:"65%", fontSize:"16px"}}>Supplier</th>
+                        <th style={{width:"20%", fontSize:"16px"}}>Total</th>
                     </tr>
-                    {props.invoices.map((inv) => {return <tr key={inv.id}><td key={inv.id}>{inv.date}</td><td>{inv.shop}</td><td amount>{inv.total_amount}</td></tr>})}   
+                    {latest.length > 0 
+                    ? latest.map((inv) => {
+                        return (
+                            <tr key={inv.id}>
+                                <td style={{textAlign:"right"}}>{inv.date}</td>
+                                <td style={{textAlign:"center"}}>{inv.shop}</td>
+                                <td style={{textAlign:"right"}}>{inv.total_amount}</td>
+                            </tr>)
+                            })
+                    : <p>no new Invoices</p>}   
                 </tbody>
-
             </InvoiceTableCSS>
         </Fragment>
     )
