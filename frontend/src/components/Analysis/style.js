@@ -18,7 +18,7 @@ export const groupBadgeStyles = styled.span`
     font-size: 12;
     font-weight: 'normal';
     line-height: '1';
-    min-width: 1;
+    /* min-width: 1; */
     padding: '0.16666666666667em 0.5em';
     text-align: 'center';
 `;
@@ -26,3 +26,23 @@ export const groupBadgeStyles = styled.span`
 export const TagsSelect = styled.div`
     background-color: pink;
 `
+
+export const ResultsContainer = styled.div`
+    border: 3px solid black;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+
+    /* .ResultsInvoices {
+        border: 3px solid black;
+        min-width: 500px;
+        width: 50%;
+        background-color: pink;
+    } */
+
+    .ResultsArticles {
+        border: 3px solid black;
+        width: 40%;
+    }
+`;

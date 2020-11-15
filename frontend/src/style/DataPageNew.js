@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components';
-import { YellowButton } from "./Button";
-import { StandardWindow } from "./Container";
+import {YellowButton} from "./Button";
+import {Input2} from "./Inputs";
+import { colors } from './Theme';
+import { StandardWindow } from './Container';
 
 
 
@@ -30,6 +32,9 @@ export const TopLeft = styled.div`
 `
 
 export const TopRight = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
   width: 50%;
 `
 

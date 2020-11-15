@@ -1,7 +1,7 @@
 import baseUrl from '../../helper/url_helper';
 
-export const getFilteredAction = ( start, end, tag, shop, article, token ) => async (dispatch, getState) => {
-    const url = `${baseUrl}invoices/date/${start}/${end}/`;
+export const getLatestAction = ( token ) => async (dispatch, getState) => {
+	let url = `${baseUrl}invoices/latest/8/`;
 	const config = {
 		method: 'GET',
 		headers: new Headers({
@@ -14,4 +14,4 @@ export const getFilteredAction = ( start, end, tag, shop, article, token ) => as
 	return data;
 };
 
-export default getFilteredAction;
+export default getLatestAction;
