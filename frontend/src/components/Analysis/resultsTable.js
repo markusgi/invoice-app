@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-import { ResultsContainer, AnalysisTable } from './style';
+import { ResultsContainer } from './style';
+import { ItemsTable } from '../../style/Tables';
 
 import { useTable, useRowSelect, useSortBy } from 'react-table';
 
@@ -203,13 +204,13 @@ const ResultsTable = ( { props }) => {
     return (
         <ResultsContainer>
 
-            <AnalysisTable>
+            <ItemsTable>
                 <Table columns={columns} data={data} setSelected={setSelected} />
-            </AnalysisTable>
+            </ItemsTable>
 
-            <AnalysisTable>
+            {/* <ItemsTable>
                 <Table columns={columns2} data={data2} setSelected={setSelectedItems} />
-            </AnalysisTable>
+            </ItemsTable> */}
 
 
         </ResultsContainer>

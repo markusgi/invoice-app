@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import {YellowButton} from "./Button";
 import {Input2} from "./Inputs";
+import { colors } from './Theme'
 
 export const TitleDiv = styled.div`
   display: flex;
@@ -25,6 +26,9 @@ export const TopLeft = styled.div`
 `
 
 export const TopRight = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
   width: 50%;
 `
 
