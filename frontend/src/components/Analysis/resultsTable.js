@@ -39,7 +39,7 @@ function Table({ columns, data, setSelected }) {
         data,
       },
       useSortBy,
-    //   useRowSelect,
+      // useRowSelect,
       hooks => {
         hooks.visibleColumns.push(columns => [
           // Let's make a column for selection
