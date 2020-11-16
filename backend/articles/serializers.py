@@ -13,7 +13,7 @@ class ArticleSerializer(serializers.ModelSerializer):
     author = SmallUserSerializer(required=False, read_only=True)
     total_price = serializers.SerializerMethodField()
     date = serializers.SerializerMethodField()
-    tag = TagSerializer(required=False, read_only=True)
+    tag = TagSerializer(read_only=True)
 
     def get_total_price(self, obj):
         return obj.quantity * obj.price
@@ -26,3 +26,7 @@ class ArticleSerializer(serializers.ModelSerializer):
         fields = ['id', 'created', 'updated', 'item', 'quantity', 'price', 'tag', 'invoice', 'author', 'date',
                   'total_price']
         read_only_fields = ['author']
+
+
+
+

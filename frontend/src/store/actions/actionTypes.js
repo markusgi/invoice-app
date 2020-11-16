@@ -4,17 +4,17 @@ export const SET_TOKEN = 'SET_TOKEN';
 // export const SET_TIMEFRAME = 'SET_TIMEFRAME';
 
 
-export const timeAction = (start, end) => {
+export const timeAction = (start, end, activeSub) => {
     return {
         type: "SET_TIMEFRAME",
-        payload: [start, end],
+        payload: [start, end, activeSub],
     };
 };
 
-export const filterAction = (filters) => {
+export const filterAction = (start, end, tag, shop, article) => {
     return {
         type: "SET_FILTER",
-        payload: filters,
+        payload: [start, end, tag, shop, article],
     };
 };
 

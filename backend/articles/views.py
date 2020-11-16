@@ -1,3 +1,4 @@
+from rest_framework import status
 from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveUpdateDestroyAPIView
 
 from articles.models import Article
@@ -5,6 +6,9 @@ from articles.serializers import ArticleSerializer
 
 
 # List all articles: api/articles/
+from rest_framework.response import Response
+
+
 class ArticleListAPIView(ListAPIView):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
@@ -15,8 +19,17 @@ class ArticleCreateAPIView(CreateAPIView):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
 
-    def perform_create(self, serializer):
-        serializer.save()
+    def post(self, request, *args, **kwargs):
+        article = Article(item=request.data["item"],
+                          quantity=request.data["quantity"],
+                          price=request.data["price"],
+                          tag_id=request.data["tag"],
+                          invoice_id=request.data["invoice"])
+        article.save()
+        return Response(status=status.HTTP_200_OK)
+
+    # def perform_create(self, serializer):
+    #     serializer.save()
 
 
 # Read-write-delete a article by id: api/articles/<int:id>/

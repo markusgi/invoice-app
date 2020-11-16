@@ -53,11 +53,6 @@ export const ResultsGreen = styled.div`
   padding-left: 20px;
 `
 
-export const ResultsRed = styled.div`
-  color: ${colors.red};
-  padding-left: 20px;
-`
-
 /////////////// MIDDLE //////////////////////////////////
 
 export const ResultsData = styled.div`

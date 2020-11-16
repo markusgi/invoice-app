@@ -1,11 +1,17 @@
 import React, { Fragment } from 'react';
+import LoginLogic from '../components/Login';
+import { MainBodyContainer } from '../style/Container';
 
+import LoginFooter from '../components/BaseComponents/Footer';
 
 const Login = () => {
 
 	return (
 		<Fragment>
-            <h1>Login page</h1>
+			<MainBodyContainer Login>
+				<LoginLogic/>
+			</MainBodyContainer>
+			<LoginFooter/>
 		</Fragment>
 	);
 };

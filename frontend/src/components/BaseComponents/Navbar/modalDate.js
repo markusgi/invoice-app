@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import { useDispatch } from 'react-redux';
-import { timeAction } from '../../../store/actions/actionTypes'
+import { timeAction } from '../../../store/actions/actionTypes';
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -10,7 +10,7 @@ import { FormGroup, Label2, Input2 } from '../../../style/Inputs'
 
 const DateModal = () => {
     const dispatch = useDispatch();
-
+    const [activeSub, setActiveSub] = useState('12');
     const [startDate, setStartDate] = useState(new Date());
     const InputStartDate = ({ value, onClick }) => (
         <Fragment>
@@ -33,7 +33,7 @@ const DateModal = () => {
 
 
     useEffect(() => {
-        dispatch(timeAction(startDate.toISOString().slice(0, 10), endDate.toISOString().slice(0, 10)));
+        dispatch(timeAction(startDate.toISOString().slice(0, 10), endDate.toISOString().slice(0, 10)), activeSub);
     }, [startDate, endDate, dispatch]);
 
     return (
