@@ -76,7 +76,7 @@ function Table({ columns, data }) {
 
 
 
-const NewInvoice = () => {
+const NewInvoice = ( { token } ) => {
     const [startDate, setStartDate] = useState(new Date());
     const [shopName, setShopName] = useState('');
     const [ articleName, setArticleName ] = useState();
@@ -136,7 +136,7 @@ const NewInvoice = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         const getData = async () => {
-            const data = await dispatch(newInvoiceAction(startDate.toISOString().slice(0, 10), shopName));
+            const data = await dispatch(newInvoiceAction(startDate.toISOString().slice(0, 10), shopName, token));
             setInvoice(data)
         };
 		getData();
@@ -145,13 +145,14 @@ const NewInvoice = () => {
     const handleSubmitItem = (event) => {
         event.preventDefault();
         const getData = async () => {
-            const data = await dispatch(newArticleAction(articleName, articlePrice, articleQuantity, articleTag, invoice.id));
+            const data = await dispatch(newArticleAction(articleName, articlePrice, articleQuantity, articleTag, invoice.id, token));
             console.log(data)
         };
 		getData();
     }
 
     console.log(startDate, shopName, invoice)
+    console.log(articleName, articlePrice, articleQuantity, articleTag, invoice.id)
 
     return (
         <Fragment>

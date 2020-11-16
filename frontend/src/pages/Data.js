@@ -12,14 +12,15 @@ import { MainBodyContainer } from '../style/Container';
 const Data = () => {
 
 	let currentlyActive = useSelector(state => state.subWindow.window)
+	let token = useSelector(state => state.user.token)
 
 	return (
 		<Fragment>
             <Navbar props={"data"} />
 			<MainBodyContainer Main>
-				{currentlyActive === 'new' ? <NewInvoice /> : null }
-				{currentlyActive === 'edit' ? <EditInvoice /> : null }
-				{currentlyActive === 'upload' ? <Upload /> : null }
+				{currentlyActive === 'new' ? <NewInvoice token={token}/> : null }
+				{currentlyActive === 'edit' ? <EditInvoice token={token}/> : null }
+				{currentlyActive === 'upload' ? <Upload token={token}/> : null }
 			</MainBodyContainer>
 		</Fragment>
 	);

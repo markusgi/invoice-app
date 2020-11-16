@@ -104,12 +104,15 @@ export const ItemsTable = styled.div`
 
 export const EditInvoiceDiv = styled.div`
     padding: 1rem 5rem 1rem 5rem;
-    min-width: 500px;
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
     table {
         border-spacing: 0;
-        width: 100%;
+        width: 45%;
+        text-align: center;
     
 
         tr {
@@ -140,11 +143,11 @@ export const EditInvoiceDiv = styled.div`
             font-weight: 300;
         }
         tr {     
-            &:nth-child(2n) { background-color: white; }
-            &:nth-child(2n+1) { background-color: lighten(#398B93, 55%) }
+            &:nth-child(2n) { background-color: ${colors.white}; }
+            &:nth-child(2n+1) { background-color: ${colors.blueLight} }
         }
         tr {
-            background-color: white !important;
+            /* background-color: white !important; */
             border: 1px solid lighten(#398B93, 20%);
             border-radius: 10px;
             box-shadow: 2px 2px 0 rgba(0,0,0,0.1);
