@@ -29,6 +29,7 @@ export const ButtonsContainer = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
+    border: 3px solid black;
 `;
 export const InputContainer = styled.div`
     display: flex;
@@ -37,6 +38,8 @@ export const InputContainer = styled.div`
     align-items: center;
 
     .loginButton {
-        width: 100%;
+        width: 90%;
+        margin-left: 20px;
+        /* margin-right: 20px; */
     }
 `;

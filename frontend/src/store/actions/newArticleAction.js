@@ -13,7 +13,6 @@ export const newArticleAction = (itemName, price2, quantity2, tag2, id2, token) 
 	};
 	const response = await fetch(url, config);
     const data = await response.json();
-    console.log(response)
 	return data;
 };
 

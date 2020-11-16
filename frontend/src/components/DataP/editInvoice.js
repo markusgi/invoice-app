@@ -16,7 +16,6 @@ import Titles from '../../components/BaseComponents/Titles'
 import { EditInvoiceTable } from './tables';
 
 
-
 const EditInvoice = () => {
     const [ results, setResults ] = useState([])
     const dispatch = useDispatch();
@@ -28,7 +27,6 @@ const EditInvoice = () => {
         const getData = async () => {
             const data = await dispatch(searchAllAction(event.target.value, token));
             setResults(data)
-            console.log(data)
         };
 		getData();
     }

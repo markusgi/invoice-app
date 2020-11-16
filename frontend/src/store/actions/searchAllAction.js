@@ -10,9 +10,7 @@ export const searchAllAction = ( search, token ) => async (dispatch, getState) =
 		}),
 	};
     const response = await fetch(url, config);
-    console.log(response)
 	const data = await response.json();
-	console.log(data)
 	return data;
 };
 

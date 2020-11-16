@@ -5,6 +5,7 @@ import { YellowButton } from '../../style/Button';
 import { Label2, Input2, FormGroup } from '../../style/Inputs';
 
 import logoBlue from '../../assets/images/logo-5aid-black.png';
+import PasswordField from '../BaseComponents/Password';
 
 
 
@@ -33,8 +34,7 @@ const LoginLogic = () => {
                         <Input2 placeholder="Email Address" name="email" id="email"/>
                     </FormGroup>
                     <FormGroup>
-                        <Label2 to="password">Password</Label2>
-                        <Input2 placeholder="Password" name="password" id="password"/>
+                        <PasswordField name="password" id="password" />
                     </FormGroup>
                     <FormGroup style={{width:"100%"}}>
                         <YellowButton className="loginButton">
