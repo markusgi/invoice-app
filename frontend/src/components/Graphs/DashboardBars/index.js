@@ -54,11 +54,10 @@ let getGroupedData = (invoices, from, until, groupByYear, colorByTagname) => {
   for (let invoice of filteredInvoices) {
     let dateKey;
     let year = invoice.date.substring(0, 4);
-    let month = invoice.date.substring(5, 7);
     if (groupByYear) {
       dateKey = year;
     } else {
-      dateKey = month;
+      dateKey = invoice.date.substring(5, 7);
     }
 
     if (groupedData[dateKey] == undefined) {
@@ -106,22 +105,28 @@ let addRevenueTag = (groupedData, revenues, from, until, groupByYear) => {
   for (let revenue of filteredRevenues) {
     let dateKey;
     let year = revenue.date.substring(0, 4);
-    let month = revenue.date.substring(0, 4);
     if (groupByYear) {
       dateKey = year;
     } else {
-      dateKey = month;
+      dateKey = revenue.date.substring(5, 7);
     }
-
-    let revenueName = "revenue" + dateKey;
+    let revenueName = "revenue" + year;
       if (groupedData[dateKey][revenueName] == undefined) {
         groupedData[dateKey][revenueName] = revenue.revenue;
       } else {
         groupedData[dateKey][revenueName] += revenue.revenue;
       }
+  
   }
   return groupedData;
 };
+
+// {
+//  '11': {
+//    food: 12312
+//  }
+//}
+
 
 let getBarData = (groupedData, stackId) => {
 
@@ -136,11 +141,13 @@ let getBarData = (groupedData, stackId) => {
   // console.log('sortedNames: ', sortedNames);
   
   let barData = [];
+  var i = 0;
   for (let element of sortedNames) {
     barData.push({
       name: element,
       stack: stackId
     });
+    i++;
   }
   // console.log("barData: ", barData);
   return barData;
@@ -225,6 +232,7 @@ const DashboardBarsChart = (props) => {
     setBar(bar);
     // console.log('bar: ', bar);
 
+
     // merge the data
     let mergedData = currentData;
     for (let dataKey in lastData) {
@@ -237,8 +245,8 @@ const DashboardBarsChart = (props) => {
         );
       }
     }
-    // console.log("mergedData", mergedData);
 
+    // console.log("mergedData", mergedData);
     let arrayData = [];
     for (let dataKey of Object.keys(mergedData).sort()) {
       arrayData.push({ name: dataKey, ...mergedData[dataKey] });
@@ -249,7 +257,7 @@ const DashboardBarsChart = (props) => {
 
     setData(arrayData);
     setColorByTagname(colorByTagname);
-    console.log("arrayData: ", arrayData);
+    // console.log("arrayData: ", arrayData);
   }, [activeSub]);
 
   // console.log("bar", bar);
