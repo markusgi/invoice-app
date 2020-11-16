@@ -35,9 +35,9 @@ const getDates = (activeSub) => {
         case '2': {
             return [
                 isoDate(new Date(date.getFullYear(), date.getMonth() - 1, 1)),
-                isoDate(new Date(date.getFullYear(), date.getMonth() + 1, 0)),
+                isoDate(new Date(date.getFullYear(), date.getMonth(), 0)),
                 isoDate(new Date(date.getFullYear() - 1, date.getMonth() - 1, 1)),
-                isoDate(new Date(date.getFullYear() - 1, date.getMonth() + 1, 0)),
+                isoDate(new Date(date.getFullYear() - 1, date.getMonth(), 0)),
             ];
         }
         case '1': {
