@@ -5,8 +5,8 @@ const initialState = {
 	timeFrameEnd: getDate('0'),
 	activeSub: '12',
     tag: null,
-    articleName: null,
-	invoiceNr: null,
+    shop: null,
+	article: null,
 };
 
 const filterReducer = (state = initialState, action) => {
@@ -22,6 +22,15 @@ const filterReducer = (state = initialState, action) => {
 			}
 			newState.activeSub = action.payload[2];
 
+			return newState;
+		}
+		case 'SET_FILTER': {
+			const newState = { ...state };
+			newState.timeFrameStart = action.payload[0];
+			newState.timeFrameEnd = action.payload[1];
+			newState.tag = action.payload[2];
+			newState.shop = action.payload[3];
+			newState.article = action.payload[4];
 			return newState;
 		}
 		default:

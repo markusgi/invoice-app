@@ -1,54 +1,92 @@
 import React, { Fragment } from 'react';
 import { StandardWindow, TitleDiv } from '../../style/Container';
-
 import { NiceInput } from '../../style/Form';
-
 import { FormGroup, Label2, Input2 } from '../../style/Inputs';
+import Titles from '../../components/BaseComponents/Titles'
+import GotoIcon from '../../assets/svgs/icon-goto-yellow.svg';
+import UploadIcon from '../../assets/svgs/icon-upload-yellow.svg';
+import { StandardWindowDataUpload, TopGroup, UploadPart, FormGroupUpload, IconUpload, FormGroupComment,
+    ResultsText, ResultsGreen, ResultsRed, YellowButtonStyleUpload, Results, ButtonUpload,
+    MiddleGroup, BottomGroup, SpaceLeft, SpaceRight,
+    CheckPriceDiv, CheckDiv, PriceDiv, YellowButtonStyle} from "../../style/DataPageUpload";
+
+
 
 const Upload = () => {
 
     return (
         <Fragment>
-            <StandardWindow>
-                <TitleDiv>
-                    <h2>Upload</h2>
-                </TitleDiv>
- 
-                <form>
+            <StandardWindowDataUpload>
+                <TopGroup>
+
+                    <Titles
+                        title={"Upload data"}
+                        tooltiptext={"This is a first Tooltip Test"}
+                    />
+
+                    <form>
+                        <UploadPart>
+                            <FormGroupUpload style={{width: "100%"}}>
+                                <Input2 style={{width: "100%"}} type="text" name="Upload" id="Upload" />
+                                <IconUpload for="Upload">Upload</IconUpload>
+                                <img src={UploadIcon}/>
+                            </FormGroupUpload>
+                            <FormGroup style={{width: "100%"}}>
+                                <Input2 style={{width: "100%"}} type="text" name="Comment" id="Comment" />
+                                <Label2 for="Comment">Comment</Label2>
+                            </FormGroup>
+                        </UploadPart>
+                        <ResultsText>
+                            <Results>
+                                <ResultsGreen>
+                                    <p>Upload succeeded - please check it and add your tags</p>
+                                </ResultsGreen>
+                                <ResultsRed>
+                                    <p>Upload failed - please try it again</p>
+                                </ResultsRed>
+                            </Results>
+                            <ButtonUpload>
+                                 <YellowButtonStyleUpload>
+                                    Upload data
+                                </YellowButtonStyleUpload>
+                            </ButtonUpload>
+                        </ResultsText>
+                    </form>
+                </TopGroup>
+
+                <MiddleGroup>
                     <FormGroup>
-                        <Label2 for="Date">Date</Label2>
-                        <Input2 type="text" name="Date" id="Date" />
+                        <Input2 type="text" name="Item" id="Item" />
+                        <Label2 for="Item">Item</Label2>
                     </FormGroup>
                     <FormGroup>
-
-                        <Label2 for="Shop">Shop / Supplier</Label2>
-                        <Input2 type="text" name="Shop" id="Shop" />
+                        <Input2 type="text" name="Quantity" id="Quantity" />
+                        <Label2 for="Quantity">Quantity</Label2>
                     </FormGroup>
+                    <FormGroup>
+                        <Input2 type="text" name="Price" id="Price" />
+                        <Label2 for="Price">Price</Label2>
+                    </FormGroup>
+                    <FormGroup>
+                        <Input2 type="text" name="Tag" id="Tag" />
+                        <Label2 for="Tag">Tag</Label2>
+                    </FormGroup>
+                </MiddleGroup>
 
-                    <label for="invoice">Invoice</label>
-                    <NiceInput type="text" name="invoice" id="invoice" />
+                <BottomGroup>
+                    <SpaceLeft/>
+                    <SpaceRight>
+                        <CheckPriceDiv>
+                            <CheckDiv>Check total price</CheckDiv>
+                            <PriceDiv>38.85</PriceDiv>
+                        </CheckPriceDiv>
+                        <YellowButtonStyle>
+                            Save changes
+                        </YellowButtonStyle>
+                    </SpaceRight>
+                </BottomGroup>
 
-                    <label for="item">Item</label>
-                    <NiceInput type="text" name="item" id="item" />
-
-                    <label for="quantity">Quantity</label>
-                    <NiceInput type="text" name="quantity" id="quantity" />
-
-                    <label for="price">Price</label>
-                    <NiceInput type="text" name="price" id="price" />
-
-                    <label for="tag">Tag</label>
-                    <NiceInput type="text" name="tag" id="tag" />
-                    
-                </form>
-
-                <FormGroup>
-                    <Label2>First Name</Label2>
-                    <Input2 type="text" />
-                </FormGroup>
-
-            </StandardWindow>
-
+            </StandardWindowDataUpload>
         </Fragment>
     );
 };

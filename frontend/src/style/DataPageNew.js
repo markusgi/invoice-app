@@ -1,11 +1,18 @@
 import styled, { css } from 'styled-components';
 import {YellowButton} from "./Button";
 import {Input2} from "./Inputs";
+import { colors } from './Theme';
+import { StandardWindow } from './Container';
 
-export const TitleDiv = styled.div`
-  display: flex;
-  width: 20%;
+
+
+/////////////// GENERAL //////////////////////////////////
+
+export const StandardWindowDataEdit = styled(StandardWindow)`
+  width: 100%;
 `
+
+/////////////// TOP //////////////////////////////////
 
 export const TopGroup = styled.div`
   width: 100%;
@@ -25,8 +32,13 @@ export const TopLeft = styled.div`
 `
 
 export const TopRight = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
   width: 50%;
 `
+
+/////////////// MIDDLE //////////////////////////////////
 
 export const MiddleGroup = styled.div`
   width: 100%;
@@ -35,6 +47,8 @@ export const MiddleGroup = styled.div`
   align-items: center;
   gap: 30px;
 `
+
+/////////////// BOTTOM //////////////////////////////////
 
 export const BottomGroup = styled.div`
   width: 100%;
