@@ -1,21 +1,20 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { useDispatch } from 'react-redux';
 
 import newInvoiceAction from './../../store/actions/newInvoiceAction';
 import newArticleAction from './../../store/actions/newArticleAction';
+import getInvoiceAction from '../../store/actions/getInvoiceAction';
 
 import { MainBodyContainer, StandardWindow, TitleDiv } from '../../style/Container';
-import { NiceInput, InvoiceForm } from '../../style/Form';
-import { Password, EmailAddress, FormGroup, Label2, Input2 } from '../../style/Inputs';
-import {YellowButton} from "../../style/Button";
+import { FormGroup, Label2, Input2, Password } from '../../style/Inputs';
 import { TopGroup, TopLeft, TopRight, MiddleGroup, BottomGroup, SpaceLeft, SpaceRight, CheckPriceDiv, CheckDiv, PriceDiv, YellowButtonStyle } from "../../style/DataPageNew";
-import { ItemsTable } from '../../style/Tables';
+import { NewInvoiceTable } from '../../style/Tables';
+import PasswordField from '../BaseComponents/Password';
 
 import { useTable, useSortBy } from 'react-table';
 
 function Table({ columns, data }) {
-    // Use the state and functions returned from useTable to build your UI
     const {
       getTableProps,
       getTableBodyProps,
@@ -74,9 +73,7 @@ function Table({ columns, data }) {
 }
 
 
-
-
-const NewInvoice = () => {
+const NewInvoice = ( { token } ) => {
     const [startDate, setStartDate] = useState(new Date());
     const [shopName, setShopName] = useState('');
     const [ articleName, setArticleName ] = useState();
@@ -106,7 +103,7 @@ const NewInvoice = () => {
                 accessor: 'date',
                 },
                 {
-                    Header: 'Name.',
+                    Header: 'Name',
                     accessor: 'item',
                 },
                 {
@@ -136,22 +133,25 @@ const NewInvoice = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         const getData = async () => {
-            const data = await dispatch(newInvoiceAction(startDate.toISOString().slice(0, 10), shopName));
+            const data = await dispatch(newInvoiceAction(startDate.toISOString().slice(0, 10), shopName, token));
             setInvoice(data)
         };
-		getData();
+        getData();
     }
 
     const handleSubmitItem = (event) => {
         event.preventDefault();
-        const getData = async () => {
-            const data = await dispatch(newArticleAction(articleName, articlePrice, articleQuantity, articleTag, invoice.id));
-            console.log(data)
+        const setItem = async () => {
+            const data = await dispatch(newArticleAction(articleName, articlePrice, articleQuantity, articleTag, invoice.id, token));
         };
-		getData();
-    }
+        setItem();
+        const getData = async () => {
+            const data = await dispatch(getInvoiceAction(invoice.id, token));
+            setInvoice(data);
 
-    console.log(startDate, shopName, invoice)
+          };
+        getData();
+    }
 
     return (
         <Fragment>
@@ -210,7 +210,7 @@ const NewInvoice = () => {
                             <SpaceRight>
                                 <CheckPriceDiv>
                                     <CheckDiv>Check total price</CheckDiv>
-                                    <PriceDiv>38.85</PriceDiv>
+                                    <PriceDiv>{invoice ? invoice.total_amount : "0.0"}</PriceDiv>
                                 </CheckPriceDiv>
                                 <YellowButtonStyle onClick={handleSubmitItem}>
                                     Add Item
@@ -225,11 +225,11 @@ const NewInvoice = () => {
                 <StandardWindow>
                         <h2>Overview</h2>
                         <TitleDiv>
-                            <ItemsTable>
+                            <NewInvoiceTable>
                                 {invoice.length != 0 
                                 ? <Table columns={columns} data={data} /> 
                                 : <h3>Please add Articles to your Invoice</h3>}  
-                            </ItemsTable>
+                            </NewInvoiceTable>
 
                         </TitleDiv>
 

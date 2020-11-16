@@ -1,47 +1,35 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import { useDispatch } from 'react-redux';
 import { EditInvoiceDiv } from '../../style/Tables';
 
-import { useTable, useSortBy } from 'react-table';
+import { useTable, useSortBy, useRowSelect } from 'react-table';
 
-const dummyData = [
-    {
-        id: "1",
-        date: '2020-10-10',
-        shop: "Dummy",
-        articles: [
-            {id: "10", item: "tomatoes"}
-        ],
-        number_of_articles: "3",
-        total_amount: "992"
-    },
-    {
-        id: "2",
-        date: '2020-10-10',
-        shop: "Dummy",
-        articles: [
-            {id: "10", item: "tomatoes"}
-        ],
-        number_of_articles: "3",
-        total_amount: "992"
-    },
-    {
-        id: "3",
-        date: '2020-10-10',
-        shop: "Dummy",
-        articles: [
-            {id: "10", item: "tomatoes"}
-        ],
-        number_of_articles: "3",
-        total_amount: "992"
+const IndeterminateCheckbox = React.forwardRef(
+    ({ indeterminate, ...rest }, ref) => {
+      const defaultRef = React.useRef()
+      const resolvedRef = ref || defaultRef
+  
+      React.useEffect(() => {
+        resolvedRef.current.indeterminate = indeterminate
+      }, [resolvedRef, indeterminate])
+  
+      return (
+        <>
+          <input type="checkbox" ref={resolvedRef} {...rest} />
+        </>
+      )
     }
-]
+)
 
 
-export const EditInvoiceTable = (results) => {
+export const EditInvoiceTable = ({results}) => {
 
-    function Table({ columns, data }) {
+  const [ selected, setSelected ] = useState('0');
+  const [ selected2, setSelected2 ] = useState(null);
+  console.log(selected)
+
+    function Table({ columns, data, setIndex }) {
         // Use the state and functions returned from useTable to build your UI
         const {
           getTableProps,
@@ -49,18 +37,47 @@ export const EditInvoiceTable = (results) => {
           headerGroups,
           rows,
           prepareRow,
+          selectedFlatRows,
+          state: { selectedRowIds },
         } = useTable(
           {
             columns,
             data,
           },
           useSortBy,
+          useRowSelect,
           hooks => {
             hooks.visibleColumns.push(columns => [
+            {
+              id: 'selection',
+              // The header can use the table's getToggleAllRowsSelectedProps method
+              // to render a checkbox
+              Header: ({ getToggleAllRowsSelectedProps }) => (
+                <div>
+                  <IndeterminateCheckbox {...getToggleAllRowsSelectedProps()} />
+                </div>
+              ),
+              // The cell can use the individual row's getToggleRowSelectedProps method
+              // to the render a checkbox
+              Cell: ({ row }) => (
+                <div>
+                  <IndeterminateCheckbox {...row.getToggleRowSelectedProps()} />
+                </div>
+              ),
+            },
               ...columns,
             ])
           }
         )
+
+        // const onclickHandler = (event) => {
+        //   event.preventDefault();
+        //   console.log(event.target.value)
+        // }
+
+        // useEffect(() => {
+        //   setIndex(Object.keys(selectedRowIds))
+        // }, [selectedRowIds])
     
         return (
           <>
@@ -89,7 +106,7 @@ export const EditInvoiceTable = (results) => {
                   return (
                     <tr {...row.getRowProps()}>
                       {row.cells.map(cell => {
-                        return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                        return <td {...cell.getCellProps()} >{cell.render('Cell')}</td>
                       })}
                     </tr>
                   )
@@ -117,11 +134,6 @@ export const EditInvoiceTable = (results) => {
                 Header: 'Shop',
                 accessor: 'shop',
               },
-            ],
-          },
-          {
-            Header: 'Details',
-            columns: [
               {
                 Header: 'Nr. Items',
                 accessor: 'number_of_articles',
@@ -136,14 +148,65 @@ export const EditInvoiceTable = (results) => {
         []
     )
 
-
+    const columns2 = React.useMemo(
+      () => [
+        {
+          Header: 'Articles',
+          columns: [
+            {
+              Header: 'Nr.',
+              accessor: 'id',
+            },
+            {
+              Header: 'Item',
+              accessor: 'item',
+            },
+            {
+              Header: 'Price',
+              accessor: 'price',
+            },
+            {
+              Header: 'Quantity',
+              accessor: 'quantity',
+            },
+            {
+              Header: 'Total',
+              accessor: 'total_price',
+            },
+            {
+              Header: 'Tag',
+              accessor: 'tag.title',
+            },
+          ],
+        },
+      ],
+      []
+  )
 
     return (
         <Fragment>
             <EditInvoiceDiv>
-                <Table columns={columns} data={dummyData} />
+                {(results.length >= 1)
+                ? <Table columns={columns} data={results} setIndex={setSelected}/>
+                : <p>No results</p>
+                }
+                {(results.length >= 1 && selected) ? 
+                (
+                  <table>
+                    <tr>
+                       <th>Somethinf</th>
+                      <th>Somethinf</th>
+                      <th>Somethinf</th>
+                    </tr>
+                    <tr>else
+                      <td>item</td>
+                      <td>item</td>
+                    </tr>
+                  </table>
+                )
+                : <p>No results</p>
+                }
             </EditInvoiceDiv>
-
         </Fragment>
     )
 };
