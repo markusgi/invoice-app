@@ -1,18 +1,13 @@
 import React, { Fragment } from 'react';
-import { Password, EmailAddress, FormGroup, Label2, Input2 } from '../../style/Inputs';
+import { FormGroup, Label2, Input2 } from '../../style/Inputs';
 import { StandardWindowDataEdit, TopGroup, TopLeft, TopRight, MiddleGroup,
     BottomGroup, SpaceLeft, SpaceRight,
     CheckPriceDiv, CheckDiv, PriceDiv, YellowButtonStyle } from "../../style/DataPageNew";
 import Titles from '../../components/BaseComponents/Titles'
-import {SearchPart} from "../../style/DataPageEdit";
 
 
 
 const NewInvoice = () => {
-
-    // let emailOnChangeHandler;
-
-
     return (
         <Fragment>
             <StandardWindowDataEdit>

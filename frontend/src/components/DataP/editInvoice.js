@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import { StandardWindow, TitleDiv } from '../../style/Container';
 import { FormGroup, Label2, Input2 } from '../../style/Inputs';
 import { FormGroupSearch, FormGroupRight, StandardWindowDataEdit,
     SearchPart, SearchResults, Divider,
@@ -12,7 +11,6 @@ import Titles from '../../components/BaseComponents/Titles'
 
 
 const EditInvoice = () => {
-
     return (
         <Fragment>
             <StandardWindowDataEdit>

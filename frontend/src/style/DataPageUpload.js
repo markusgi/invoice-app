@@ -82,6 +82,7 @@ export const MiddleGroup = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   gap: 30px;
 `
 

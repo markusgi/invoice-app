@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 import { colors } from "./Theme";
-import InfoIcon from '../assets/svgs/icon-info-grey.svg';
 
 
 

@@ -1,9 +1,6 @@
 import React, { Fragment } from 'react';
-import { StandardWindow, TitleDiv } from '../../style/Container';
-import { NiceInput } from '../../style/Form';
 import { FormGroup, Label2, Input2 } from '../../style/Inputs';
 import Titles from '../../components/BaseComponents/Titles'
-import GotoIcon from '../../assets/svgs/icon-goto-yellow.svg';
 import UploadIcon from '../../assets/svgs/icon-upload-yellow.svg';
 import { StandardWindowDataUpload, TopGroup, UploadPart, FormGroupUpload, IconUpload, FormGroupComment,
     ResultsText, ResultsGreen, ResultsRed, YellowButtonStyleUpload, Results, ButtonUpload,
@@ -13,7 +10,6 @@ import { StandardWindowDataUpload, TopGroup, UploadPart, FormGroupUpload, IconUp
 
 
 const Upload = () => {
-
     return (
         <Fragment>
             <StandardWindowDataUpload>

@@ -17,7 +17,7 @@ export const EmailAddress = styled.input`
 
 
 export const FormGroup = styled.div`
-  //width: 100%;
+  width: 100%;
   position:relative;
   //display: inline-block;
   display: flex;
