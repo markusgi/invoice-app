@@ -215,7 +215,7 @@ const DashboardBarsChart = (props) => {
 
   console.log("activeSub", activeSub);
 
-  let groupByYear = activeSub == "12";
+  let groupByYear = activeSub == "12" || activeSub == "2" || activeSub == "1";
 
   let [startDate, endDate, startDateLastYear, endDateLastYear] = getDates(
     activeSub
