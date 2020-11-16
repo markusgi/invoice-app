@@ -5,41 +5,41 @@ import { EditInvoiceDiv } from '../../style/Tables';
 
 import { useTable, useSortBy } from 'react-table';
 
-const dummyData = [
-    {
-        id: "1",
-        date: '2020-10-10',
-        shop: "Dummy",
-        articles: [
-            {id: "10", item: "tomatoes"}
-        ],
-        number_of_articles: "3",
-        total_amount: "992"
-    },
-    {
-        id: "2",
-        date: '2020-10-10',
-        shop: "Dummy",
-        articles: [
-            {id: "10", item: "tomatoes"}
-        ],
-        number_of_articles: "3",
-        total_amount: "992"
-    },
-    {
-        id: "3",
-        date: '2020-10-10',
-        shop: "Dummy",
-        articles: [
-            {id: "10", item: "tomatoes"}
-        ],
-        number_of_articles: "3",
-        total_amount: "992"
-    }
-]
+// const dummyData = [
+//     {
+//         id: "1",
+//         date: '2020-10-10',
+//         shop: "Dummy",
+//         articles: [
+//             {id: "10", item: "tomatoes"}
+//         ],
+//         number_of_articles: "3",
+//         total_amount: "992"
+//     },
+//     {
+//         id: "2",
+//         date: '2020-10-10',
+//         shop: "Dummy",
+//         articles: [
+//             {id: "10", item: "tomatoes"}
+//         ],
+//         number_of_articles: "3",
+//         total_amount: "992"
+//     },
+//     {
+//         id: "3",
+//         date: '2020-10-10',
+//         shop: "Dummy",
+//         articles: [
+//             {id: "10", item: "tomatoes"}
+//         ],
+//         number_of_articles: "3",
+//         total_amount: "992"
+//     }
+// ]
 
 
-export const EditInvoiceTable = (results) => {
+export const EditInvoiceTable = ({results}) => {
 
     function Table({ columns, data }) {
         // Use the state and functions returned from useTable to build your UI
@@ -135,13 +135,14 @@ export const EditInvoiceTable = (results) => {
         ],
         []
     )
-
-
-
+    console.log(results, "---------------------", results.length)
     return (
         <Fragment>
             <EditInvoiceDiv>
-                <Table columns={columns} data={dummyData} />
+                {(results.length >= 1)
+                ? <Table columns={columns} data={results} />
+                : <p>No results</p>
+                }
             </EditInvoiceDiv>
 
         </Fragment>

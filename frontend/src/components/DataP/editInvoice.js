@@ -18,7 +18,7 @@ import { EditInvoiceTable } from './tables';
 
 
 const EditInvoice = () => {
-    const [ results, setResults ] = useState()
+    const [ results, setResults ] = useState([])
     const dispatch = useDispatch();
 
     const token = useSelector(state => state.user.token)
@@ -26,7 +26,8 @@ const EditInvoice = () => {
     const handleSearch = (event) => {
         event.preventDefault();
         const getData = async () => {
-            const data = await dispatch(searchAllAction(0, 0, "tomato", token));
+            const data = await dispatch(searchAllAction(event.target.value, token));
+            setResults(data)
             console.log(data)
         };
 		getData();
