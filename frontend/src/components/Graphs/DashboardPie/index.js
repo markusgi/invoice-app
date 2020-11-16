@@ -97,6 +97,7 @@ const DashboardPieChart = ( { props } ) => {
 		}
 		getData();
 		setPieData(data)
+		console.log('pieData: ', data);
     }, [currentTimeFrameStart, currentTimeFrameEnd, props.invoices]);
 
   	return (
