@@ -2,9 +2,7 @@ import baseUrl from '../../helper/url_helper';
 import { InvoiceForm } from '../../style/Form';
 
 export const getFilteredAction = ( start, end, tag, token ) => async (dispatch, getState) => {
-	const url = `${baseUrl}invoices/date/${start}/${end}/`;
-	
-	// invoices/date/start/end/tag/2
+	const url = `${baseUrl}invoices/date/${start}/${end}/tag/${tag}`;
 	const config = {
 		method: 'GET',
 		headers: new Headers({

@@ -1,4 +1,4 @@
-// import { colors, fontSizes } from "../../style/Theme";
+import { colors, fontSizes } from "../../style/Theme";
 import styled, { css } from 'styled-components';
 
 export const groupStyles = styled.div`
@@ -11,16 +11,26 @@ export const groupStyles = styled.div`
 
 
 export const groupBadgeStyles = styled.span`
-    background-color: '#EBECF0';
-    border-radius: '2em';
-    color: '#172B4D';
-    display: 'inline-block';
-    font-size: 12;
-    font-weight: 'normal';
-    line-height: '1';
-    /* min-width: 1; */
-    padding: '0.16666666666667em 0.5em';
-    text-align: 'center';
+    height: 55px;
+    width: 100%;
+    border-radius: 18px;
+    border: solid 2px ${colors.gray};
+    box-sizing: border-box;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    color: ${colors.blueDark};
+    padding-left: 20px;
+    transition: linear 0.5s;
+    :focus{
+        outline: none;
+        border: solid 2px ${colors.blue};
+        transition: linear 0.5s;
+        + label{
+            color: ${colors.blue};
+            outline: none;
+        }
+    }
 `;
 
 export const TagsSelect = styled.div`

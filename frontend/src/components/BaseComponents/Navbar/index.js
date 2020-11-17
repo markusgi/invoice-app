@@ -181,12 +181,6 @@ const Navbar = ( {props} ) => {
                 {active === 'settings' ?
                     <NavbarBottom>
                         <Link
-                            className={activeSubWindow === 'userInfo' ? 'timeLink active' : 'timeLink'}
-                            onClick={() => setActiveSubWindow('userInfo')}
-                        >
-                            User Profile
-                        </Link>
-                        <Link
                             className={activeSubWindow === 'resInfo' ? 'timeLink active' : 'timeLink'}
                             onClick={() => setActiveSubWindow('resInfo')}
                         >

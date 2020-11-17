@@ -6,8 +6,8 @@ import getFilteredAction from '../../store/actions/getFilteredAction';
 
 import ResultsTable from './resultsTable';
 import SpecificTable from './specificTable';
-// import Select from 'react-select';
-// import { groupStyles, groupBadgeStyles, TagsSelect, FiltersDiv } from './style';
+import Select from 'react-select';
+import { groupStyles, groupBadgeStyles, TagsSelect, FiltersDiv } from './style';
 
 import { YellowButton } from '../../style/Button';
 import { FormGroup, Label2, Input2 } from '../../style/Inputs';
@@ -15,25 +15,32 @@ import { FormGroup, Label2, Input2 } from '../../style/Inputs';
 import { MainBodyContainer, StandardWindow, TitleDiv } from '../../style/Container';
 
 
-// const options = [
-// 	{ value: 'chocolate', label: 'Chocolate' },
-// 	{ value: 'strawberry', label: 'Strawberry' },
-// 	{ value: 'vanilla', label: 'Vanilla' }
-// ]
+const options = [
+    { value: '1', label: 'Food & Beverages' },
+    { value: '2', label: 'Energy & Waste' },
+    { value: '3', label: 'Maintenance' },
+    { value: '4', label: 'Other' }
+]
 
 
 
-// const formatGroupLabel = data => (
-//     <div style={groupStyles}>
-//     <span>{data.label}</span>
-//     <span style={groupBadgeStyles}>{data.options.length}</span>
-//     </div>
-// );
+const formatGroupLabel = data => (
+    <div style={groupStyles}>
+        {/* <Label2 for="tag">Tag</Label2>
+        <Input2 type="text" name="tag" id="tag"/> */}
+        <span>{data.label}</span>
+        <span style={groupBadgeStyles}>{data.options.length}</span>
+    </div>
+);
 
 
 const FiltersAnalysis = () => {
     const [ filteredData, setFilteredData ] = useState([]);
-    // const [selectedOption, setSelectedOption] = useState(null);
+    const [ shop, setShop ] = useState();
+    const [ article, setArticle] = useState();
+    const [ tag, setTag ] = useState(null);
+
+    const [selectedOption, setSelectedOption] = useState(null);
     const dispatch = useDispatch();
     const token = useSelector(state => state.user.token)
 
@@ -57,10 +64,6 @@ const FiltersAnalysis = () => {
         </Fragment>
     );
 
-
-    // useEffect(() => {
-    //     dispatch(filterAction(startDate.toISOString().slice(0, 10), endDate.toISOString().slice(0, 10)));
-    // }, [startDate, endDate, dispatch]);
 
 
     useEffect(() => {
@@ -92,6 +95,18 @@ const FiltersAnalysis = () => {
                                     onChange={date => setEndDate(date)}
                                     customInput={<InputEndDate />}
                                 />
+                                {/* <TagsSelect> */}
+                                    <FormGroup>
+                                        <Select
+                                            defaultValue={selectedOption}
+                                            onChange={setSelectedOption}
+                                            options={options}
+                                            formatGroupLabel={formatGroupLabel}
+                                        />
+                                        <Label2 for="tag">Tag</Label2>
+                                        <Input2 type="text" name="tag" id="tag"/>
+                                    </FormGroup>
+                                {/* </TagsSelect> */}
                                 <FormGroup>
                                     <Label2 for="tag">Tag</Label2>
                                     <Input2 type="text" name="tag" id="tag"/>
@@ -117,14 +132,14 @@ const FiltersAnalysis = () => {
                     <form>
 
 
-                        {/* <TagsSelect>
+                        <TagsSelect>
                             <Select
                                 defaultValue={selectedOption}
                                 onChange={setSelectedOption}
                                 options={options}
                                 formatGroupLabel={formatGroupLabel}
                             />
-                        </TagsSelect> */}
+                        </TagsSelect>
                     </form>
 
 

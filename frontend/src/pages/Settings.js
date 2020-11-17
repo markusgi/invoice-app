@@ -4,7 +4,7 @@ import Navbar from '../components/BaseComponents/Navbar';
 
 import TagsInfo from '../components/Settings/tagsInfo';
 import ResInfo from '../components/Settings/resInfo';
-import UserInfo from '../components/Settings/userInfo';
+
 
 import { MainBodyContainer } from '../style/Container';
 
@@ -19,7 +19,6 @@ const Settings = () => {
 			<MainBodyContainer Main>
 				{currentlyActive === 'tags' ? <TagsInfo /> : null }
 				{currentlyActive === 'resInfo' ? <ResInfo /> : null }
-				{currentlyActive === 'userInfo' ? <UserInfo /> : null }
 			</MainBodyContainer>
 		</Fragment>
 	);
