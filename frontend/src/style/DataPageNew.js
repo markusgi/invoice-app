@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import {YellowButton} from "./Button";
-import {Input2} from "./Inputs";
-import { colors } from './Theme';
+// import {Input2} from "./Inputs";
+// import { colors } from './Theme';
 import { StandardWindow } from './Container';
 
 

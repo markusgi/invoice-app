@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import {YellowButton} from "./Button";
 import { StandardWindow } from "./Container";
 import { colors } from "./Theme";
@@ -82,6 +82,7 @@ export const MiddleGroup = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   gap: 30px;
 `
 

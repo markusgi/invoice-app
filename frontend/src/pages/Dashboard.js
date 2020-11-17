@@ -25,7 +25,7 @@ const Dashboard = () => {
       setAllInfo(data);
     };
     getData();
-  }, [setAllInfo, dispatch]);
+  }, [setAllInfo, dispatch, token]);
 
   return (
     <Fragment>
