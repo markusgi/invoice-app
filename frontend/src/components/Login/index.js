@@ -1,27 +1,32 @@
 import React, { Fragment } from 'react';
-
-import { StandardWindowLogin, ContainerLogo, ButtonsContainer, InputContainer } from './style';
+import { LoginFragment, StandardWindowLaptop, StandardWindowPhone, StandardWindowLogin,
+    ContainerLogo, ButtonsContainer, InputContainer } from '../../style/Login';
 import { YellowButton } from '../../style/Button';
 import { Label2, Input2, FormGroup } from '../../style/Inputs';
-
-import logoBlue from '../../assets/images/logo-5aid-black.png';
+import logoBlue from '../../assets/images/logo-5aid-blue-text.png';
+import BtnGoogle from '../../assets/images/btn-google.png'
+import BtnApple from '../../assets/images/btn-apple.png'
+import PicLaptop from '../../assets/images/mockup-laptop.png'
+import PicMobile from '../../assets/images/mockup-mobile.png'
 
 
 
 const LoginLogic = () => {
 
 	return (
-		<Fragment>
-            <StandardWindowLogin>
-                <p>Something</p>
-            </StandardWindowLogin>
-            <StandardWindowLogin>
-                <p>Something</p>
-            </StandardWindowLogin>
+		<LoginFragment>
+            <StandardWindowLaptop>
+                <img src={PicLaptop} alt="Laptop"></img>
+            </StandardWindowLaptop>
+            <StandardWindowPhone>
+                <img src={PicMobile} alt="Mobilephone"></img>
+                <p>Install App</p>
+                <img src={BtnGoogle} className={"google"} alt="GooglePlay"></img>
+                <img src={BtnApple} alt="AppStore"></img>
+            </StandardWindowPhone>
 			<StandardWindowLogin>
                 <ContainerLogo>				
                     <img src={logoBlue} alt="logo" className="logo"></img>
-                    <h3>5min analyzing invoice dashboard</h3>
                 </ContainerLogo>
                 <ButtonsContainer>
                     <button>Login</button>
@@ -30,11 +35,11 @@ const LoginLogic = () => {
                 <InputContainer>
                     <FormGroup>
                         <Label2 to="email">Email Address</Label2>
-                        <Input2 placeholder="Email Address" name="email" id="email"/>
+                        <Input2 name="email" id="email"/>
                     </FormGroup>
                     <FormGroup>
                         <Label2 to="password">Password</Label2>
-                        <Input2 placeholder="Password" name="password" id="password"/>
+                        <Input2 name="password" id="password"/>
                     </FormGroup>
                     <FormGroup style={{width:"100%"}}>
                         <YellowButton className="loginButton">
@@ -44,7 +49,7 @@ const LoginLogic = () => {
                 </InputContainer>
 
 			</StandardWindowLogin>
-		</Fragment>
+		</LoginFragment>
 	);
 };
 

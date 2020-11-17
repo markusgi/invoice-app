@@ -13,6 +13,7 @@ import { YellowButton } from '../../style/Button';
 import { FormGroup, Label2, Input2 } from '../../style/Inputs';
 
 import { MainBodyContainer, StandardWindow, TitleDiv } from '../../style/Container';
+import Titles25 from "../BaseComponents/Titles/Titles25";
 
 
 // const options = [
@@ -78,7 +79,7 @@ const FiltersAnalysis = () => {
             <MainBodyContainer LeftColumn>
 
                 <StandardWindow>
-                    <h2>Filters</h2>
+                    <Titles25 title={"Filters"} />
                     <TitleDiv>
                         <div className="leftColumn">
                             <form style={{width:"100%"}}>

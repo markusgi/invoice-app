@@ -1,13 +1,7 @@
-<<<<<<< HEAD
-import React, { Fragment } from 'react';
-=======
 import React, { Fragment, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import DatePicker from 'react-datepicker';
-
 import searchAllAction from '../../store/actions/searchAllAction';
-
->>>>>>> Dev
 import { FormGroup, Label2, Input2 } from '../../style/Inputs';
 import { FormGroupSearch, FormGroupRight, StandardWindowDataEdit,
     SearchPart, SearchResults, Divider,
@@ -15,15 +9,13 @@ import { FormGroupSearch, FormGroupRight, StandardWindowDataEdit,
     DataLeft, DataRight, OverviewPart } from "../../style/DataPageEdit";
 import SearchIcon from '../../assets/svgs/icon-search-yellow.svg';
 import GotoIcon from '../../assets/svgs/icon-goto-yellow.svg';
-import Titles from '../../components/BaseComponents/Titles'
-
+import Titles100 from "../BaseComponents/Titles/Titles100";
 import { EditInvoiceTable } from './tables';
 
 
 
 const EditInvoice = () => {
-<<<<<<< HEAD
-=======
+
     const [ results, setResults ] = useState()
     const dispatch = useDispatch();
 
@@ -37,15 +29,13 @@ const EditInvoice = () => {
         };
 		getData();
     }
-    
 
->>>>>>> Dev
     return (
         <Fragment>
             <StandardWindowDataEdit>
                 <SearchPart>
 
-                    <Titles title={"Edit Invoice"} />
+                    <Titles100 title={"Edit Invoice"} />
 
                     <form>
                         <FormGroupSearch style={{width: "100%"}}>
@@ -90,7 +80,7 @@ const EditInvoice = () => {
                     </SearchPart>
 
                     <OverviewPart>
-                        <Titles title={"Overview"} />
+                        <Titles100 title={"Overview"} />
                         <ResultsData>
                             <EditInvoiceTable results={results}/>
 
