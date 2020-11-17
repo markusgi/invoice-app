@@ -19,33 +19,34 @@ const getDates = (activeSub) => {
         case '6': {
             return [
                 isoDate(new Date(date.getFullYear(), date.getMonth() - 5, 1)),
-                isoDate(new Date(date.getFullYear(), date.getMonth() + 1, 0)),
+                isoDate(new Date(date.getFullYear(), date.getMonth() + 1, 1)),
                 isoDate(new Date(date.getFullYear() - 1, date.getMonth() - 5, 1)),
-                isoDate(new Date(date.getFullYear() - 1, date.getMonth() + 1, 0)),
+                isoDate(new Date(date.getFullYear() - 1, date.getMonth() + 1, 1)),
             ];
         }
         case '3': {
             return [
                 isoDate(new Date(date.getFullYear(), date.getMonth() - 2, 1)),
-                isoDate(new Date(date.getFullYear(), date.getMonth() + 1, 0)),
+                isoDate(new Date(date.getFullYear(), date.getMonth() + 1, 1)),
                 isoDate(new Date(date.getFullYear() - 1, date.getMonth() - 2, 1)),
-                isoDate(new Date(date.getFullYear() - 1, date.getMonth() + 1, 0)),
+                isoDate(new Date(date.getFullYear() - 1, date.getMonth() + 1, 1)),
             ];
         }
         case '2': {
             return [
                 isoDate(new Date(date.getFullYear(), date.getMonth() - 1, 1)),
-                isoDate(new Date(date.getFullYear(), date.getMonth() + 1, 0)),
+                isoDate(new Date(date.getFullYear(), date.getMonth(), 1)),
                 isoDate(new Date(date.getFullYear() - 1, date.getMonth() - 1, 1)),
-                isoDate(new Date(date.getFullYear() - 1, date.getMonth() + 1, 0)),
+                isoDate(new Date(date.getFullYear() - 1, date.getMonth(), 1)),
             ];
         }
+
         case '1': {
             return [
                 isoDate(new Date(date.getFullYear(), date.getMonth(), 1)),
-                isoDate(new Date(date.getFullYear(), date.getMonth() + 1, 0)),
+                isoDate(new Date(date.getFullYear(), date.getMonth() + 1, 1)),
                 isoDate(new Date(date.getFullYear() - 1, date.getMonth(), 1)),
-                isoDate(new Date(date.getFullYear() - 1, date.getMonth() + 1, 0)),
+                isoDate(new Date(date.getFullYear() - 1, date.getMonth() + 1, 1)),
             ];
         }
     }
