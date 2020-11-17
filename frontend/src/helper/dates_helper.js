@@ -1,7 +1,7 @@
 
 
 const getDates = (activeSub) => {
-    let yearly = activeSub == "12";
+    // let yearly = activeSub == "12";
 
     let isoDate = (date) => date.toISOString().slice(0, 10);
 
@@ -48,6 +48,9 @@ const getDates = (activeSub) => {
                 isoDate(new Date(date.getFullYear() - 1, date.getMonth(), 1)),
                 isoDate(new Date(date.getFullYear() - 1, date.getMonth() + 1, 1)),
             ];
+        }
+        default: {
+            return date
         }
     }
     

@@ -1,14 +1,12 @@
 import React, { Fragment } from 'react';
-import { StandardWindow, TitleDiv } from '../../style/Container';
 
 import {
   Container5050, TopGroup, UploadPart, MiddleGroup, MiddleGroupLeft, BottomGroup,
   SpaceLeft, SpaceRight, StandardWindowUserProfile,
   StandardWindowRestaurant, YellowButtonStyle
 } from "./style";
-import Titles50 from "../BaseComponents/Titles";
+import Titles50 from "../BaseComponents/Titles/Titles50";
 import {FormGroup, Input2, Label2} from "../../style/Inputs";
-import {TopLeft} from "../../style/DataPageNew";
 import {Group1, Group2, Group3, Group4} from "./style";
 
 

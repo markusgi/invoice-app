@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { LoginFragment, StandardWindowLaptop, StandardWindowPhone, StandardWindowLogin,
     ContainerLogo, ButtonsContainer, InputContainer } from '../../style/Login';
 import { YellowButton } from '../../style/Button';

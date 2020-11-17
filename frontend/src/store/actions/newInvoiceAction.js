@@ -1,7 +1,6 @@
 import baseUrl from '../../helper/url_helper';
 
 export const newInvoiceAction = (date2, shop2, token) => async (dispatch, getState) => {
-    const restaurant2 = '1'
     const url = `${baseUrl}invoices/new/`;
 	const config = {
 		method: 'POST',

@@ -1,5 +1,5 @@
 import { colors, fontSizes } from "./Theme";
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 
 export const AnalysisTable = styled.div`

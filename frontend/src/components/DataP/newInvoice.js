@@ -9,7 +9,7 @@ import getInvoiceAction from '../../store/actions/getInvoiceAction';
 import { MainBodyContainer, StandardWindow, TitleDiv } from '../../style/Container';
 import { FormGroup, Label2, Input2, Password } from '../../style/Inputs';
 import { TopGroup, TopLeft, TopRight, MiddleGroup, BottomGroup, SpaceLeft, SpaceRight, CheckPriceDiv, CheckDiv, PriceDiv, YellowButtonStyle } from "../../style/DataPageNew";
-import { ItemsTable } from '../../style/Tables';
+import { NewInvoiceTable } from '../../style/Tables';
 import Titles100 from "../BaseComponents/Titles/Titles100";
 import { useTable, useSortBy } from 'react-table';
 

@@ -1,8 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import DatePicker from 'react-datepicker';
-import { useDispatch } from 'react-redux';
-import { EditInvoiceDiv } from '../../style/Tables';
 
+import { EditInvoiceDiv } from '../../style/Tables';
 import { useTable, useSortBy, useRowSelect } from 'react-table';
 
 const IndeterminateCheckbox = React.forwardRef(
@@ -26,7 +24,7 @@ const IndeterminateCheckbox = React.forwardRef(
 export const EditInvoiceTable = ({results}) => {
 
   const [ selected, setSelected ] = useState('0');
-  const [ selected2, setSelected2 ] = useState(null);
+  // const [ selected2, setSelected2 ] = useState(null);
   console.log(selected)
 
     function Table({ columns, data, setIndex }) {
