@@ -73,9 +73,9 @@ let getGroupedData = (invoices, from, until, groupByYear, colorByTagname) => {
   var groupedData = {};
 
   let filteredInvoices = invoices.filter((invoice) => {
-    return invoice.date > from && invoice.date < until;
+    return invoice.date > from && invoice.date <= until;
   });
-  console.log("filteredInvoices: ", filteredInvoices);
+  // console.log("filteredInvoices: ", filteredInvoices);
   for (let invoice of filteredInvoices) {
     let dateKey;
     let year = invoice.date.substring(0, 4);
@@ -117,7 +117,7 @@ let getGroupedData = (invoices, from, until, groupByYear, colorByTagname) => {
     //   }
     // }
   }
-  console.log("groupedData: ", groupedData);
+  // console.log("groupedData: ", groupedData);
   return groupedData;
 };
 
@@ -129,14 +129,10 @@ let addRevenueTag = (
   groupByYear,
   colorByTagname
 ) => {
-  console.log("addRevenueTag");
-  console.log("groupedData", groupedData);
-  console.log("revenues", revenues);
-
   let filteredRevenues = revenues.filter((revenue) => {
     return revenue.date >= from && revenue.date < until;
   });
-  console.log("filteredRevenues: ", filteredRevenues);
+  // console.log("filteredRevenues: ", filteredRevenues);
 
   for (let revenue of filteredRevenues) {
     let dateKey;
@@ -181,7 +177,7 @@ let getBarData = (groupedData, stackId) => {
   }
 
   let sortedNames = Array.from(uniqueNames).sort();
-  console.log("sortedNames: ", sortedNames);
+  // console.log("sortedNames: ", sortedNames);
 
   let barData = [];
   var i = 0;
@@ -192,7 +188,7 @@ let getBarData = (groupedData, stackId) => {
     });
     i++;
   }
-  console.log("barData: ", barData);
+  // console.log("barData: ", barData);
   return barData;
 };
 
@@ -200,7 +196,7 @@ let getBarData = (groupedData, stackId) => {
 const DashboardBarsChart = (props) => {
   let { allInfo, withRevenue } = props;
   // const DashboardBarsChart = ({ allInfo }) => {
-  console.log("allInfo: ", allInfo);
+  // console.log("allInfo: ", allInfo);
 
   /*
   let currentTimeFrameStart = useSelector(
@@ -212,8 +208,7 @@ const DashboardBarsChart = (props) => {
   */
 
   let activeSub = useSelector((state) => state.filter.activeSub);
-
-  console.log("activeSub", activeSub);
+  // console.log("activeSub", activeSub);
 
   let groupByYear = activeSub == "12" || activeSub == "2" || activeSub == "1";
 
@@ -221,11 +216,11 @@ const DashboardBarsChart = (props) => {
     activeSub
   );
 
-  console.log("getDates() result ####################");
-  console.log(startDate);
-  console.log(endDate);
-  console.log(startDateLastYear);
-  console.log(endDateLastYear);
+  // console.log("getDates() result ####################");
+  // console.log(startDate);
+  // console.log(endDate);
+  // console.log(startDateLastYear);
+  // console.log(endDateLastYear);
 
   const [data, setData] = useState([]);
   const [currentData, setCurrentData] = useState([]);
@@ -250,8 +245,8 @@ const DashboardBarsChart = (props) => {
       colorByTagname
     );
 
-    console.log("currentData: ", currentData);
-    console.log("lastData: ", lastData);
+    // console.log("currentData: ", currentData);
+    // console.log("lastData: ", lastData);
 
     if (withRevenue) {
       currentData = addRevenueTag(
@@ -277,7 +272,7 @@ const DashboardBarsChart = (props) => {
     bar = bar.concat(getBarData(lastData, "a"));
     bar = bar.concat(getBarData(currentData, groupByYear ? "a" : "b"));
     setBar(bar);
-    console.log("bar: ", bar);
+    // console.log("bar: ", bar);
 
     // merge the data
     let mergedData = { ...currentData };
@@ -293,7 +288,7 @@ const DashboardBarsChart = (props) => {
     }
 
     setCurrentData(currentData);
-    console.log("mergedData: ", mergedData);
+    // console.log("mergedData: ", mergedData);
 
     // let dataTable = {};
     // for (let key in mergedData) {
@@ -319,18 +314,15 @@ const DashboardBarsChart = (props) => {
 
     let arrayData = objectToSortedArray(mergedData);
 
-    console.log("arrayData", arrayData);
-
     setData(arrayData);
     setColorByTagname(colorByTagname);
-    console.log("arrayData: ", arrayData);
+    // console.log("arrayData: ", arrayData);
   }, [activeSub]);
 
-  console.log("bar", bar);
-  console.log('total: ', total);
+  // console.log("bar", bar);
+  // console.log('total: ', total);
 
   let legendByValue = {};
-
   for (let tagname in colorByTagname) {
     let shortTagname = tagname.substring(0, tagname.length - 4);
     legendByValue[shortTagname] = {
@@ -340,10 +332,10 @@ const DashboardBarsChart = (props) => {
       value: shortTagname,
     };
   }
-  console.log("legendByValue: ", legendByValue);
+  // console.log("legendByValue: ", legendByValue);
 
   let legendPayload = Object.values(legendByValue);
-  console.log("legendPayload: ", legendPayload);
+  // console.log("legendPayload: ", legendPayload);
 
   return (
     <Fragment>
