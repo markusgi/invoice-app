@@ -2,9 +2,9 @@ import { PercentageTable, TableWrapper, Title } from "./style";
 
 export const Table = (props) => {
   let data = props.data;
-  console.log('Table: data: ', data);
+//   console.log('Table: data: ', data);
   let total = props.total;
-  console.log('Table: total: ', total);
+//   console.log('Table: total: ', total);
   let withRevenue = props.withRevenue;
   
 
@@ -26,7 +26,7 @@ export const Table = (props) => {
       }
     }
   }
-  console.log('Table: rows: ', rows);
+//   console.log('Table: rows: ', rows);
 
   return (
     <TableWrapper>
@@ -41,7 +41,7 @@ export const Table = (props) => {
           </tr>
         </thead>
         <tbody>
-          {Array.from(rows).map((r) => {
+          {Array.from(rows).sort().map((r) => {
             return (
               <tr>
                 <td>{r}</td>
