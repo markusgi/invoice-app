@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import { useSelector } from 'react-redux';
 import Navbar from '../components/BaseComponents/Navbar';
-
 import NewInvoice from '../components/DataP/newInvoice';
 import EditInvoice from '../components/DataP/editInvoice';
 import Upload from '../components/DataP/upload';
@@ -17,6 +16,7 @@ const Data = () => {
 	return (
 		<Fragment>
             <Navbar props={"data"} />
+            <div>asdfasdfasdfasdf</div>
 			<MainBodyContainer Main>
 				{currentlyActive === 'new' ? <NewInvoice token={token}/> : null }
 				{currentlyActive === 'edit' ? <EditInvoice token={token}/> : null }

@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { StandardWindow } from "./Container";
 import { colors } from "./Theme";
-import { Label2, FormGroup} from "./Inputs";
+import { FormGroup} from "./Inputs";
 
 
 

@@ -1,10 +1,11 @@
 import styled, { css } from 'styled-components';
 import { colors } from "./Theme";
-import InfoIcon from '../assets/svgs/icon-info-grey.svg';
 
 
 
-export const TitleContainer = styled.div`
+/////////////////// 100% ////////////////////////////////
+
+export const TitleContainer100 = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -15,7 +16,7 @@ export const TitleContainer = styled.div`
   padding-top: 5px;
 `
 
-export const TitleLeft = styled.div`
+export const TitleLeft100 = styled.div`
   width: 25%;
   display: flex;
   position: relative;
@@ -31,7 +32,34 @@ export const TitleLeft = styled.div`
   };
 `
 
-export const TitleRight = styled.div`
+export const TitleRight100 = styled.div`
   width: 75%;
 `
 
+/////////////////// 50% ////////////////////////////////
+
+export const TitleContainer50 = styled(TitleContainer100)`
+    gap: 30px;
+`
+
+export const TitleLeft50 = styled(TitleLeft100)`
+    width: 50%;
+`
+
+export const TitleRight50 = styled(TitleRight100)`
+    width: 50%;
+`
+
+/////////////////// 25% ////////////////////////////////
+
+export const TitleContainer25 = styled(TitleContainer100)`
+    gap: 0px;
+`
+
+export const TitleLeft25 = styled(TitleLeft100)`
+    width: 100%;
+`
+
+export const TitleRight25 = styled(TitleRight100)`
+    width: 0px;
+`
