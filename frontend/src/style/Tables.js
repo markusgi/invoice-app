@@ -56,18 +56,11 @@ export const ItemsTable = styled.div`
 
     table {
         border-spacing: 0;
-        width: 45%;
+        width: 100%;
         text-align: center;
-
 
         tr {
             background-color: ${colors.grey};
-
-            :last-child {
-                td {
-                border-bottom: 0;
-                }
-            }
         }
 
         th,
@@ -100,7 +93,7 @@ export const ItemsTable = styled.div`
             padding: 0;
         }
     
-}
+    }
 `
 
 export const NewInvoiceTable = styled.div`

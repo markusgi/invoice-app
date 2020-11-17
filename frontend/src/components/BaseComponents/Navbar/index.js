@@ -51,7 +51,8 @@ const Navbar = ( {props} ) => {
                             className={active === 'data' ? 'dataLink active' : 'dataLink'}
                             onClick={() => {
                                 setActive('data')
-                                setActiveSubWindow('new')}}
+                                setActiveSubWindow('new')
+                            }}
                             to='/data'
                         >
                             Data
@@ -167,13 +168,7 @@ const Navbar = ( {props} ) => {
                             className={activeSubWindow === 'filter' ? 'timeLink active' : 'timeLink'}
                             onClick={() => setActiveSubWindow('filter')}
                         >
-                            Filter
-                        </Link>
-                        <Link
-                            className={activeSubWindow === 'graphs' ? 'timeLink active' : 'timeLink'}
-                            onClick={() => setActiveSubWindow('graphs')}
-                        >
-                            Graphs
+                            Filters
                         </Link>
                     </NavbarBottom>
                     : null }

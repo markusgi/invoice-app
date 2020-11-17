@@ -1,17 +1,13 @@
 import React, { Fragment } from 'react';
 import { StandardWindow, TitleDiv } from '../../style/Container';
 
-import PasswordInput from "../components/Inputs/Password"
-import FirstName from "../components/Inputs/FirstName";
-import LastName from "../components/Inputs/LastName";
-import EmailAddress from "../components/Inputs/EmailAddress";
 import {
   Container5050, TopGroup, UploadPart, MiddleGroup, MiddleGroupLeft, BottomGroup,
   SpaceLeft, SpaceRight, StandardWindowUserProfile,
   StandardWindowRestaurant, YellowButtonStyle
 } from "./style";
-import Titles50 from "../components/BaseComponents/Titles";
-import {FormGroup, Input2, Label2} from "../style/Inputs";
+import Titles50 from "../BaseComponents/Titles";
+import {FormGroup, Input2, Label2} from "../../style/Inputs";
 import {TopLeft} from "../../style/DataPageNew";
 import {Group1, Group2, Group3, Group4} from "./style";
 
@@ -20,15 +16,9 @@ const ResInfo = () => {
 
     return (
         <Fragment>
-            <StandardWindow>
-                <TitleDiv>
-                    <h2>Restaurant Information</h2>
-                </TitleDiv>
-                <div>
-                    <p>Something</p>
-                </div>
+            {/* <StandardWindow>
 
-            </StandardWindow>
+            </StandardWindow> */}
 
             <Container5050>
             <StandardWindowUserProfile>
@@ -42,8 +32,13 @@ const ResInfo = () => {
                 </form>
             </TopGroup>
             <MiddleGroupLeft>
-                <EmailAddress/>
-                <PasswordInput/>
+                {/* <FormGroup>
+                    <Input2 type="email" name="email" id="email"/>
+                    <Label2 for="email">Email</Label2>
+                </FormGroup>
+              
+                <Input2 type="password" name="password" id="password"/>
+                <Label2 for="password">Password</Label2> */}
             </MiddleGroupLeft>
             <BottomGroup>
                 <SpaceLeft/>
@@ -90,7 +85,6 @@ const ResInfo = () => {
                 </FormGroup>
                 </Group3>
                 <Group4>
-                <EmailAddress/>
                 <FormGroup>
                     <Input2 type="Phone" name="Phone" id="Phone"/>
                     <Label2 for="Phone">Phone</Label2>
