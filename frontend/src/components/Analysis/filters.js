@@ -65,7 +65,7 @@ const FiltersAnalysis = () => {
 
     useEffect(() => {
         const getData = async () => {
-            const data = await dispatch(getFilteredAction(startDate.toISOString().slice(0, 10), endDate.toISOString().slice(0, 10),null, null, null, token));
+            const data = await dispatch(getFilteredAction(startDate.toISOString().slice(0, 10), endDate.toISOString().slice(0, 10), '1', token));
             setFilteredData(data);
         };
 		getData();
@@ -94,7 +94,7 @@ const FiltersAnalysis = () => {
                                 />
                                 <FormGroup>
                                     <Label2 for="tag">Tag</Label2>
-                                    <Input2 type="text" name="tag" id="tag" />
+                                    <Input2 type="text" name="tag" id="tag"/>
                                 </FormGroup>
                                 <FormGroup>
                                     <Label2 for="shop">Shop / Supplier</Label2>
