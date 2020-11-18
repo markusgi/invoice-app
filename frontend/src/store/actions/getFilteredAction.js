@@ -11,9 +11,7 @@ export const getFilteredAction = ( start, end, tag, token, search ) => async (di
 	};
 	const response = await fetch(url, config);
 	const data = await response.json();
-	const res = data.filter((art) => art.item == search)
-	console.log(data)
-	return data;
+	return data.filter((art) => art.item == search || search == "");
 };
 
 export default getFilteredAction;

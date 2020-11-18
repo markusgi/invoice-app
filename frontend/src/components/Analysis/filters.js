@@ -43,8 +43,8 @@ const formatGroupLabel = data => (
 const FiltersAnalysis = () => {
     const [ filteredData, setFilteredData ] = useState([]);
     const [ filteredInvoices, setFilteredInvoices ] = useState([]);
-    const [ shop, setShop ] = useState();
-    const [ article, setArticle] = useState();
+    const [ shop, setShop ] = useState("");
+    const [ article, setArticle] = useState("");
     const [ tag, setTag ] = useState(null);
 
     const [selectedOption, setSelectedOption] = useState(null);
@@ -79,15 +79,15 @@ const FiltersAnalysis = () => {
             setFilteredData(data);
         };
 		getData();
-    }, [startDate, endDate, dispatch]);
+    }, [startDate, endDate, dispatch, article]);
 
     useEffect(() => {
         const getData = async () => {
-            const data = await dispatch(getFilteredInvoiceAction(startDate.toISOString().slice(0, 10), endDate.toISOString().slice(0, 10), token));
+            const data = await dispatch(getFilteredInvoiceAction(startDate.toISOString().slice(0, 10), endDate.toISOString().slice(0, 10), token, shop));
             setFilteredInvoices(data);
         };
 		getData();
-    }, [startDate, endDate, dispatch]);
+    }, [startDate, endDate, dispatch, shop]);
 
 
     return (
