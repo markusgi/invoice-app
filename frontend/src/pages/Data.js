@@ -16,7 +16,6 @@ const Data = () => {
 	return (
 		<Fragment>
             <Navbar props={"data"} />
-            <div>asdfasdfasdfasdf</div>
 			<MainBodyContainer Main>
 				{currentlyActive === 'new' ? <NewInvoice token={token}/> : null }
 				{currentlyActive === 'edit' ? <EditInvoice token={token}/> : null }

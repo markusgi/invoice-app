@@ -115,9 +115,9 @@ const InvTable = ( { props }) => {
     const [ selectedItems, setSelectedItems ] = useState();
     
 
-    console.log(props)
+    // console.log(props)
     // console.log(props[0])
-    console.log(selected)
+    // console.log(selected)
 
 
 

@@ -1,6 +1,6 @@
 import baseUrl from '../../helper/url_helper';
 
-export const getFilteredAction = ( start, end, tag, token ) => async (dispatch, getState) => {
+export const getFilteredAction = ( start, end, tag, token, search ) => async (dispatch, getState) => {
 	const url = `${baseUrl}articles/date/${start}/${end}/tag/${tag}`;
 	const config = {
 		method: 'GET',
@@ -11,6 +11,8 @@ export const getFilteredAction = ( start, end, tag, token ) => async (dispatch, 
 	};
 	const response = await fetch(url, config);
 	const data = await response.json();
+	const res = data.filter((art) => art.item == search)
+	console.log(data)
 	return data;
 };
 

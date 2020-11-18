@@ -13,20 +13,18 @@ export const GraphContainerMain = styled.div`
 
 export const LeftContainer = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     min-width: 270px;
+    /* max-width: 310px; */
+    /* border: 3px solid black; */
 
 	.leftColumn {
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
 		align-items: flex-start;
-		min-width:  150px;
-		
-		div {
-			margin-top: 10px;
-			border-top: 2px solid ${colors.blue};
-			width: 240px;
-		}
+        justify-content: center;
+		min-width:  170px;
+        max-width: 240px; 
 	}
 	.rightColumn {
 		display: flex;
@@ -37,6 +35,15 @@ export const LeftContainer = styled.div`
 			margin-top: 10px;
 			border-top: 2px solid ${colors.blue};
 		}
+	}
+    .leftColumnSumm {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+        justify-content: center;
+        width: 100%;
+		min-width:  170px;
+        max-width: 280px; 
 	}
     .leftColumnAnalysis {
         width: 100%;
@@ -68,7 +75,6 @@ export const PieChartWrapper = styled.div`
 `;
 
 export const groupStyles = styled.div`
-
     display: 'flex';
     align-items: 'center';
     justify-content: 'space-between';
@@ -77,7 +83,7 @@ export const groupStyles = styled.div`
 
 
 export const groupBadgeStyles = styled.span`
-    height: 55px;
+    /* height: 55px;
     width: 100%;
     border-radius: 18px;
     border: solid 2px ${colors.gray};
@@ -96,7 +102,7 @@ export const groupBadgeStyles = styled.span`
             color: ${colors.blue};
             outline: none;
         }
-    }
+    } */
 `;
 
 export const TagsSelect = styled.div`

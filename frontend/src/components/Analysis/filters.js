@@ -75,7 +75,7 @@ const FiltersAnalysis = () => {
     
     useEffect(() => {
         const getData = async () => {
-            const data = await dispatch(getFilteredAction(startDate.toISOString().slice(0, 10), endDate.toISOString().slice(0, 10), '1/', token));
+            const data = await dispatch(getFilteredAction(startDate.toISOString().slice(0, 10), endDate.toISOString().slice(0, 10), '1/', token, article));
             setFilteredData(data);
         };
 		getData();
@@ -94,8 +94,8 @@ const FiltersAnalysis = () => {
         <Fragment>
             <MainBodyContainer LeftColumn>
                 <StandardWindow>
-                    <Titles25 title={"Filters"} />
-                    <TitleDiv>
+                    <LeftContainer>
+                        <Titles25 title={"Filters"} />
                         <div className="leftColumn">
                             <form style={{width:"100%"}}>
                                 <DatePicker
@@ -113,10 +113,8 @@ const FiltersAnalysis = () => {
                                         defaultValue={selectedOption}
                                         onChange={setSelectedOption}
                                         options={options}
-                                        formatGroupLabel={formatGroupLabel}
+                                        // formatGroupLabel={formatGroupLabel}
                                     />
-                                    <Label2 for="tag">Tag</Label2>
-                                    <Input2 type="text" name="tag" id="tag"/>
                                 </FormGroup>
                                 <FormGroup>
                                     <Label2 for="tag">Tag</Label2>
@@ -138,41 +136,42 @@ const FiltersAnalysis = () => {
                                 </FormGroup>
                             </form>
                         </div>
-                    </TitleDiv>
-
+                    </LeftContainer>
                 </StandardWindow>
 
                 <StandardWindow>
-                    <h2>Summary</h2>
-                    <TitleDiv>
-                        <LeftContainer>
+                    <Titles25 title={"Summary"} />
+                    <LeftContainer>
+                        
+                        <div className="leftColumnSumm">
+
                             { filteredData.length >= 1 ?
                                 <Fragment>
                                     <div className="leftColumnAnalysis">
                                         {filteredData.map((entry) => (
-                                        <h4>{entry.item.slice(0, 20)}</h4>
+                                        <h4>{entry.item.slice(0, 15)}</h4>
                                         ))}
                                         <div>
                                             <h2>Total</h2>
                                         </div>
                                     </div>
-
+                                </Fragment>
+                                : null}
+                        
+                                { filteredData.length >= 1 ?
+                                <Fragment>
                                     <div className="rightColumnAnalysis">
-                                        {filteredData.map((entry) => (
+                                    {filteredData.map((entry) => (
                                         <h4>{entry.total_price}</h4>
-                                        ))}
-                                        <div>
-                                        <h2>
-                                            {filteredData.reduce((sum, current) => {
+                                    ))}
+                                        <h2>{filteredData.reduce((sum, current) => {
                                             return sum + current.total_price;
-                                            }, 0)}
-                                        </h2>
-                                        </div>
+                                        }, 0)}</h2>
                                     </div>
                                 </Fragment>
-                            : null}
-                        </LeftContainer>
-                    </TitleDiv>
+                                : null}
+                        </div>
+                    </LeftContainer>
                 </StandardWindow>
 
             </MainBodyContainer>

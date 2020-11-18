@@ -8,7 +8,7 @@ import BtnGoogle from '../../assets/images/btn-google.png'
 import BtnApple from '../../assets/images/btn-apple.png'
 import PicLaptop from '../../assets/images/mockup-laptop.png'
 import PicMobile from '../../assets/images/mockup-mobile.png'
-
+import Passwordfield from '../BaseComponents/Password';
 
 
 const LoginLogic = () => {
@@ -38,8 +38,9 @@ const LoginLogic = () => {
                         <Input2 name="email" id="email"/>
                     </FormGroup>
                     <FormGroup>
-                        <Label2 to="password">Password</Label2>
-                        <Input2 name="password" id="password"/>
+                        <Passwordfield />
+                        {/* <Label2 to="password">Password</Label2>
+                        <Input2 name="password" id="password"/> */}
                     </FormGroup>
                     <FormGroup style={{width:"100%"}}>
                         <YellowButton className="loginButton">

@@ -155,6 +155,7 @@ const NewInvoice = ( { token } ) => {
     return (
         <Fragment>
             <MainBodyContainer RightColumn>
+                
                 <StandardWindow>
                     <Titles100 title={"New Invoice"} />
                     <form>
@@ -173,7 +174,7 @@ const NewInvoice = ( { token } ) => {
                                 </FormGroup>
                             </TopLeft>
                             <TopRight>
-                                <FormGroup style={{width:"47%"}}>
+                                <FormGroup>
                                     <YellowButtonStyle onClick={handleSubmit}>
                                         Create Invoice
                                     </YellowButtonStyle>
@@ -220,15 +221,14 @@ const NewInvoice = ( { token } ) => {
                 </StandardWindow>
 
                 <StandardWindow>
-                        <h2>Overview</h2>
-                        <TitleDiv>
+
+                    <Titles100 title={"Overview"} />
+
                             <NewInvoiceTable>
                                 {invoice.length != 0 
                                 ? <Table columns={columns} data={data} /> 
                                 : <h3>Please add Articles to your Invoice</h3>}  
                             </NewInvoiceTable>
-
-                        </TitleDiv>
 
                 </StandardWindow>
             </MainBodyContainer>
