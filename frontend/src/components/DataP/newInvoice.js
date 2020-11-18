@@ -10,8 +10,7 @@ import { MainBodyContainer, StandardWindow, TitleDiv } from '../../style/Contain
 import { FormGroup, Label2, Input2, Password } from '../../style/Inputs';
 import { TopGroup, TopLeft, TopRight, MiddleGroup, BottomGroup, SpaceLeft, SpaceRight, CheckPriceDiv, CheckDiv, PriceDiv, YellowButtonStyle } from "../../style/DataPageNew";
 import { NewInvoiceTable } from '../../style/Tables';
-import PasswordField from '../BaseComponents/Password';
-
+import Titles100 from "../BaseComponents/Titles/Titles100";
 import { useTable, useSortBy } from 'react-table';
 
 function Table({ columns, data }) {
@@ -157,8 +156,7 @@ const NewInvoice = ( { token } ) => {
         <Fragment>
             <MainBodyContainer RightColumn>
                 <StandardWindow>
-                    <h2>New Invoice</h2>
-                    <TitleDiv>
+                    <Titles100 title={"New Invoice"} />
                     <form>
                         <TopGroup>
                             <TopLeft>
@@ -219,7 +217,6 @@ const NewInvoice = ( { token } ) => {
                         </BottomGroup>
 
                     </form>
-                    </TitleDiv>
                 </StandardWindow>
 
                 <StandardWindow>

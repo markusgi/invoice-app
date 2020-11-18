@@ -1,39 +1,53 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
-import { useDispatch, useSelector, useStore } from 'react-redux';
-import { filterAction } from '../../store/actions/actionTypes';
+import { useDispatch, useSelector } from 'react-redux';
+
 import getFilteredAction from '../../store/actions/getFilteredAction';
+import getFilteredInvoiceAction from '../../store/actions/getFilteredInvoicesAction';
 
 import ResultsTable from './resultsTable';
-import SpecificTable from './specificTable';
-// import Select from 'react-select';
-// import { groupStyles, groupBadgeStyles, TagsSelect, FiltersDiv } from './style';
+import InvTable from './invoicesTable';
+
+import Select from 'react-select';
+import { LeftContainer } from "./style";
+import { groupStyles, groupBadgeStyles } from './style';
+
+import AnalysisPieChart from './pieAnalysis';
+import AnalysisInvoicePieChart from './pieAnalysisInvoices';
 
 import { YellowButton } from '../../style/Button';
 import { FormGroup, Label2, Input2 } from '../../style/Inputs';
 
 import { MainBodyContainer, StandardWindow, TitleDiv } from '../../style/Container';
+import Titles25 from "../BaseComponents/Titles/Titles25";
 
 
-// const options = [
-// 	{ value: 'chocolate', label: 'Chocolate' },
-// 	{ value: 'strawberry', label: 'Strawberry' },
-// 	{ value: 'vanilla', label: 'Vanilla' }
-// ]
+const options = [
+    { value: '1', label: 'Food & Beverages' },
+    { value: '2', label: 'Energy & Waste' },
+    { value: '3', label: 'Maintenance' },
+    { value: '4', label: 'Other' }
+]
 
 
-
-// const formatGroupLabel = data => (
-//     <div style={groupStyles}>
-//     <span>{data.label}</span>
-//     <span style={groupBadgeStyles}>{data.options.length}</span>
-//     </div>
-// );
+const formatGroupLabel = data => (
+    <div style={groupStyles}>
+        {/* <Label2 for="tag">Tag</Label2>
+        <Input2 type="text" name="tag" id="tag"/> */}
+        <span>{data.label}</span>
+        <span style={groupBadgeStyles}>{data.options.length}</span>
+    </div>
+);
 
 
 const FiltersAnalysis = () => {
     const [ filteredData, setFilteredData ] = useState([]);
-    // const [selectedOption, setSelectedOption] = useState(null);
+    const [ filteredInvoices, setFilteredInvoices ] = useState([]);
+    const [ shop, setShop ] = useState();
+    const [ article, setArticle] = useState();
+    const [ tag, setTag ] = useState(null);
+
+    const [selectedOption, setSelectedOption] = useState(null);
     const dispatch = useDispatch();
     const token = useSelector(state => state.user.token)
 
@@ -57,16 +71,20 @@ const FiltersAnalysis = () => {
         </Fragment>
     );
 
-
-    // useEffect(() => {
-    //     dispatch(filterAction(startDate.toISOString().slice(0, 10), endDate.toISOString().slice(0, 10)));
-    // }, [startDate, endDate, dispatch]);
-
+    console.log(shop, article, tag)
+    
+    useEffect(() => {
+        const getData = async () => {
+            const data = await dispatch(getFilteredAction(startDate.toISOString().slice(0, 10), endDate.toISOString().slice(0, 10), '1/', token));
+            setFilteredData(data);
+        };
+		getData();
+    }, [startDate, endDate, dispatch]);
 
     useEffect(() => {
         const getData = async () => {
-            const data = await dispatch(getFilteredAction(startDate.toISOString().slice(0, 10), endDate.toISOString().slice(0, 10),null, null, null, token));
-            setFilteredData(data);
+            const data = await dispatch(getFilteredInvoiceAction(startDate.toISOString().slice(0, 10), endDate.toISOString().slice(0, 10), token));
+            setFilteredInvoices(data);
         };
 		getData();
     }, [startDate, endDate, dispatch]);
@@ -74,11 +92,9 @@ const FiltersAnalysis = () => {
 
     return (
         <Fragment>
-
             <MainBodyContainer LeftColumn>
-
                 <StandardWindow>
-                    <h2>Filters</h2>
+                    <Titles25 title={"Filters"} />
                     <TitleDiv>
                         <div className="leftColumn">
                             <form style={{width:"100%"}}>
@@ -93,16 +109,26 @@ const FiltersAnalysis = () => {
                                     customInput={<InputEndDate />}
                                 />
                                 <FormGroup>
+                                    <Select
+                                        defaultValue={selectedOption}
+                                        onChange={setSelectedOption}
+                                        options={options}
+                                        formatGroupLabel={formatGroupLabel}
+                                    />
                                     <Label2 for="tag">Tag</Label2>
-                                    <Input2 type="text" name="tag" id="tag" />
+                                    <Input2 type="text" name="tag" id="tag"/>
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label2 for="tag">Tag</Label2>
+                                    <Input2 type="text" name="tag" id="tag"onChange={(event)=> setTag(event.target.value)}/>
                                 </FormGroup>
                                 <FormGroup>
                                     <Label2 for="shop">Shop / Supplier</Label2>
-                                    <Input2 type="text" name="shop" id="shop" />
+                                    <Input2 type="text" name="shop" id="shop" onChange={(event)=> setShop(event.target.value)}/>
                                 </FormGroup>
                                 <FormGroup>
                                     <Label2 for="article">Article</Label2>
-                                    <Input2 type="text" name="article" id="article" />
+                                    <Input2 type="text" name="article" id="article" onChange={(event)=> setArticle(event.target.value)}/>
                                 </FormGroup>
 
                                 <FormGroup style={{display:"flex", justifyContent:"center", width:"100%"}}>
@@ -114,55 +140,90 @@ const FiltersAnalysis = () => {
                         </div>
                     </TitleDiv>
 
-                    <form>
-
-
-                        {/* <TagsSelect>
-                            <Select
-                                defaultValue={selectedOption}
-                                onChange={setSelectedOption}
-                                options={options}
-                                formatGroupLabel={formatGroupLabel}
-                            />
-                        </TagsSelect> */}
-                    </form>
-
-
                 </StandardWindow>
+
+                <StandardWindow>
+                    <h2>Summary</h2>
+                    <TitleDiv>
+                        <LeftContainer>
+                            { filteredData.length >= 1 ?
+                                <Fragment>
+                                    <div className="leftColumnAnalysis">
+                                        {filteredData.map((entry) => (
+                                        <h4>{entry.item.slice(0, 20)}</h4>
+                                        ))}
+                                        <div>
+                                            <h2>Total</h2>
+                                        </div>
+                                    </div>
+
+                                    <div className="rightColumnAnalysis">
+                                        {filteredData.map((entry) => (
+                                        <h4>{entry.total_price}</h4>
+                                        ))}
+                                        <div>
+                                        <h2>
+                                            {filteredData.reduce((sum, current) => {
+                                            return sum + current.total_price;
+                                            }, 0)}
+                                        </h2>
+                                        </div>
+                                    </div>
+                                </Fragment>
+                            : null}
+                        </LeftContainer>
+                    </TitleDiv>
+                </StandardWindow>
+
             </MainBodyContainer>
 
             <MainBodyContainer RightColumn>
 
-                <StandardWindow>
-                    <FormGroup style={{display:"flex", flexDirection:"row"}}>
-                        <Label2 for="search">Search</Label2>
-                        <Input2 type="text" name="search" id="search" style={{marginRight:"30px"}} />
-                        <YellowButton type="submit" style={{width:"200px"}}>
-                            Search
-                        </YellowButton>
-                    </FormGroup>
-                </StandardWindow>
+                <MainBodyContainer LeftColumn>
+                    <StandardWindow>
+                        <h2>Invoices</h2>
+                        <TitleDiv>
+                            <InvTable props={filteredInvoices} />
+                        </TitleDiv>
+                    </StandardWindow>
+                </MainBodyContainer>
 
                 <MainBodyContainer LeftColumn>
                     <StandardWindow>
-                        <h2>Results</h2>
+                        <h2>Articles</h2>
                         <TitleDiv>
                             <ResultsTable props={filteredData} />
                         </TitleDiv>
                     </StandardWindow>
                 </MainBodyContainer>
 
-                <MainBodyContainer RightColumn>
+                <MainBodyContainer LeftColumn>
                     <StandardWindow>
-                        <h2>Analysis</h2>
+                        <h2>Invoices Summary</h2>
                         <TitleDiv>
-                            <SpecificTable props={filteredData}/>
+                            {filteredInvoices.length >= 1 ? 
+                                <AnalysisInvoicePieChart props={filteredInvoices} />
+                                : 
+                                <p>Please apply filters</p>
+                                }
+                        </TitleDiv>
+                    </StandardWindow>
+                </MainBodyContainer>
+
+                <MainBodyContainer LeftColumn>
+                    <StandardWindow>
+                        <h2>Articles Summary</h2>
+                        <TitleDiv>
+                            {filteredData.length >= 1 ? 
+                                <AnalysisPieChart props={filteredData} />
+                                : 
+                                <p>Please apply filters</p>
+                                }
                         </TitleDiv>
                     </StandardWindow>
                 </MainBodyContainer>
 
             </MainBodyContainer>
-
         </Fragment>
     );
 };

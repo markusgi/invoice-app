@@ -1,5 +1,4 @@
-import styled, { css } from 'styled-components';
-import { colors } from "../../style/Theme";
+import styled from 'styled-components';
 import { StandardWindow } from '../../style/Container';
 
 

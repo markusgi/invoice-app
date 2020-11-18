@@ -40,8 +40,10 @@ const getDate = (arg) => {
             let res = new Date(new Date());
             return res.toISOString().slice(0, 10)
         }
+        default: {
+            return date.toISOString().slice(0, 10);
+        }
     }
-    return date.toISOString().slice(0, 10);
 }
 
 export default getDate;
