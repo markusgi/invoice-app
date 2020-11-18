@@ -24,3 +24,7 @@ export const subWindowAction = (activeSubWindow) => {
         payload: activeSubWindow,
     };
 };
+
+export const logoutAction = {
+    type: "LOGOUT"
+}
