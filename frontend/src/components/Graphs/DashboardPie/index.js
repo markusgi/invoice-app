@@ -95,6 +95,7 @@ const DashboardPieChart = ({ props }) => {
   let currentTimeFrameStart = useSelector(
     (state) => state.filter.timeFrameStart
   );
+  console.log(props)
   let currentTimeFrameEnd = useSelector((state) => state.filter.timeFrameEnd);
 //   console.log('currentTimeFrameStart: ', currentTimeFrameStart);
 //   console.log('currentTimeFrameEnd: ', currentTimeFrameEnd);
