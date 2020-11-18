@@ -1,12 +1,20 @@
 import { SET_USER, SET_TOKEN } from '../actions/actionTypes';
 
 const initialState = {
-	token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjA1ODgzNDA2LCJqdGkiOiJlOTRmNTA1NWJjNWM0MDllOTNhMTZjZDYxNDNjMmFmOSIsInVzZXJfaWQiOjF9.isLvJi1jPRcze2t3r0NAmFVv2LrY1VyLt0HPaHsb3DI",
+	token: null,
 	user: null,
 };
 
 const authReducer = (state = initialState, action) => {
 	switch (action.type) {
+		case "USER_LOGIN": {
+			//   const newState = { ...state };
+			//   newState.token = action.payload;
+			//   return newState;
+			const token = action.payload;
+			console.log('in authReducer, token: ', token);
+			return { ...state, token: token };
+		  }
 		case SET_USER: {
 			const newState = { ...state };
 			newState.token = action.payload[0];
@@ -18,7 +26,6 @@ const authReducer = (state = initialState, action) => {
 			newState.token = action.payload;
 			return newState;
 		}
-
 		default:
 			return state;
 	}
