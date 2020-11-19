@@ -20,75 +20,43 @@ const InvoiceTable = ({ props }) => {
     getData();
   }, [setlatest, dispatch]);
 
-  return (
-    <Fragment>
-      <Titles25 title={"Invoices"} />
-      <TitleDiv>
-          <div className="leftColumn">
-            <h3>Year no.</h3>
-            <h3>Year total</h3>
-            <h3>Month no.</h3>
-            <h3>Month total</h3>
-          </div>
-          <div className="rightColumn">
-            <h3>
-              {
-                props.invoices.filter((inv) => {
-                  return inv.date >= getDate("12");
-                }).length
-              }
-            </h3>
-            <h3>
-              {props.invoices
-                .filter((inv) => {
-                  return inv.date >= getDate("12");
-                })
-                .reduce((sum, current) => {
-                  return sum + current.total_amount;
-                }, 0)}
-            </h3>
-            <h3>
-              {
-                props.invoices.filter((inv) => {
-                  return inv.date >= getDate("1");
-                }).length
-              }
-            </h3>
-            <h3>
-              {props.invoices
-                .filter((inv) => {
-                  return inv.date >= getDate("1");
-                })
-                .reduce((sum, current) => {
-                  return sum + current.total_amount;
-                }, 0)}
-            </h3>
-          </div>
-      </TitleDiv>
-      <InvoiceTableCSS>
-        <tbody style={{ width: "100%" }}>
-          <tr>
-            <th style={{ width: "20%", fontSize: "16px" }}>Date</th>
-            <th style={{ width: "65%", fontSize: "16px" }}>Supplier</th>
-            <th style={{ width: "20%", fontSize: "16px" }}>Total</th>
-          </tr>
-          {latest.length > 0 ? (
-            latest.map((inv) => {
-              return (
-                <tr key={inv.id}>
-                  <td style={{ textAlign: "right" }}>{inv.date}</td>
-                  <td style={{ textAlign: "center" }}>{inv.shop}</td>
-                  <td style={{ textAlign: "right" }}>{inv.total_amount}</td>
-                </tr>
-              );
-            })
-          ) : (
-            <p>no new Invoices</p>
-          )}
-        </tbody>
-      </InvoiceTableCSS>
-    </Fragment>
-  );
+    return (
+        <Fragment>
+            <TitleDiv>
+                <div className="leftColumn">
+                    <h3>Year no.</h3>
+                    <h3>Year total</h3>
+                    <h3>Month no.</h3>	
+                    <h3>Month total</h3>	
+                </div>
+                <div className="rightColumn">
+                    <h3>{props.invoices.filter(inv => {return inv.date >= getDate('12')}).length}</h3>
+                    <h3>{props.invoices.filter(inv => {return inv.date >= getDate('12')}).reduce((sum, current) => { return sum + current.total_amount}, 0)}</h3>
+                    <h3>{props.invoices.filter(inv => {return inv.date >= getDate('1')}).length}</h3>
+                    <h3>{props.invoices.filter(inv => {return inv.date >= getDate('1')}).reduce((sum, current) => { return sum + current.total_amount}, 0)}</h3>
+                </div>
+            </TitleDiv>
+            <InvoiceTableCSS style={{marginTop:"20px"}}>
+                <tbody style={{width:"100%"}}>
+                    <tr style={{borderBottom:"1px solid black"}}>
+                        <th style={{width:"20%", fontSize:"20px"}}>Date</th>
+                        <th style={{width:"65%", fontSize:"20px"}}>Supplier</th>
+                        <th style={{width:"20%", fontSize:"20px"}}>Total</th>
+                    </tr>
+                    {latest.length > 0 
+                    ? latest.map((inv) => {
+                        return (
+                            <tr key={inv.id}>
+                                <td style={{textAlign:"right"}}>{inv.date}</td>
+                                <td style={{textAlign:"center"}}>{inv.shop}</td>
+                                <td style={{textAlign:"right"}}>{inv.total_amount}</td>
+                            </tr>)
+                            })
+                    : <p>no new Invoices</p>}   
+                </tbody>
+            </InvoiceTableCSS>
+        </Fragment>
+    )
 };
 
 export default InvoiceTable;

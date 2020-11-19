@@ -20,7 +20,9 @@ import { FormGroup, Label2, Input2 } from '../../style/Inputs';
 
 import { MainBodyContainer, StandardWindow, TitleDiv } from '../../style/Container';
 import Titles25 from "../BaseComponents/Titles/Titles25";
-
+import Titles50 from "../BaseComponents/Titles/Titles50";
+import Titles100 from "../BaseComponents/Titles/Titles100";
+import Titles75 from "../BaseComponents/Titles/Titles75";
 
 const options = [
     { value: '1', label: 'Food & Beverages' },
@@ -108,18 +110,18 @@ const FiltersAnalysis = () => {
                                     onChange={date => setEndDate(date)}
                                     customInput={<InputEndDate />}
                                 />
-                                <FormGroup>
+                                {/* <FormGroup>
                                     <Select
                                         defaultValue={selectedOption}
                                         onChange={setSelectedOption}
                                         options={options}
                                         // formatGroupLabel={formatGroupLabel}
                                     />
-                                </FormGroup>
-                                <FormGroup>
+                                </FormGroup> */}
+                                {/* <FormGroup>
                                     <Label2 for="tag">Tag</Label2>
                                     <Input2 type="text" name="tag" id="tag"onChange={(event)=> setTag(event.target.value)}/>
-                                </FormGroup>
+                                </FormGroup> */}
                                 <FormGroup>
                                     <Label2 for="shop">Shop / Supplier</Label2>
                                     <Input2 type="text" name="shop" id="shop" onChange={(event)=> setShop(event.target.value)}/>
@@ -129,11 +131,11 @@ const FiltersAnalysis = () => {
                                     <Input2 type="text" name="article" id="article" onChange={(event)=> setArticle(event.target.value)}/>
                                 </FormGroup>
 
-                                <FormGroup style={{display:"flex", justifyContent:"center", width:"100%"}}>
+                                {/* <FormGroup style={{display:"flex", justifyContent:"center", width:"100%"}}>
                                     <YellowButton type="submit" style={{width:"200px"}}>
                                         Apply Filter
                                     </YellowButton>
-                                </FormGroup>
+                                </FormGroup> */}
                             </form>
                         </div>
                     </LeftContainer>
@@ -180,45 +182,37 @@ const FiltersAnalysis = () => {
 
                 <MainBodyContainer LeftColumn>
                     <StandardWindow>
-                        <h2>Invoices</h2>
-                        <TitleDiv>
-                            <InvTable props={filteredInvoices} />
-                        </TitleDiv>
+                        <Titles75 title={"Invoices"} />
+                        <InvTable props={filteredInvoices} />
                     </StandardWindow>
                 </MainBodyContainer>
 
                 <MainBodyContainer LeftColumn>
                     <StandardWindow>
-                        <h2>Articles</h2>
-                        <TitleDiv>
-                            <ResultsTable props={filteredData} />
-                        </TitleDiv>
+                        <Titles75 title={"Articles"} />
+                        <ResultsTable props={filteredData} />
                     </StandardWindow>
                 </MainBodyContainer>
 
                 <MainBodyContainer LeftColumn>
                     <StandardWindow>
-                        <h2>Invoices Summary</h2>
-                        <TitleDiv>
+                        <Titles75 title={"Invoices Summary"} />
                             {filteredInvoices.length >= 1 ? 
                                 <AnalysisInvoicePieChart props={filteredInvoices} />
                                 : 
                                 <p>Please apply filters</p>
                                 }
-                        </TitleDiv>
                     </StandardWindow>
                 </MainBodyContainer>
 
                 <MainBodyContainer LeftColumn>
                     <StandardWindow>
-                        <h2>Articles Summary</h2>
-                        <TitleDiv>
+                        <Titles75 title={"Articles Summary"} />
                             {filteredData.length >= 1 ? 
                                 <AnalysisPieChart props={filteredData} />
                                 : 
                                 <p>Please apply filters</p>
                                 }
-                        </TitleDiv>
                     </StandardWindow>
                 </MainBodyContainer>
 
