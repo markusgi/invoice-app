@@ -1,17 +1,24 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { timeAction, subWindowAction } from '../../../store/actions/actionTypes';
 import getDate from '../../../helper/date_helper';
-
-import { Link } from 'react-router-dom';
-import { NavbarWrapper, NavbarTopWrapper, NavbarLeft, NavbarTop, BtnsWrapper, NavbarBottom } from './style';
-import logo from '../../../assets/images/logo-5aid-white.png';
-import searchIcon from '../../../assets/images/searchIcon.png';
-import bellIcon from '../../../assets/images/bellIcon.png';
-import userIcon from '../../../assets/images/userIcon.png';
-
 import DateModal from './modalDate';
+
+import { NavbarWrapper, NavbarTopWrapper, NavbarLeft, NavbarMiddle, NavbarRight,
+    NavbarTop, BtnsWrapper, NavbarBottom } from './style';
+import logo from '../../../assets/images/logo-5aid-white.png';
+import IconDashboard from '../../../assets/svgs/icon-dashboard-white.svg';
+import IconData from '../../../assets/svgs/icon-data-white.svg';
+import IconAnalysis from '../../../assets/svgs/icon-analysis-white.svg';
+import IconSettings from '../../../assets/svgs/icon-settings-white.svg';
+import IconSearch from '../../../assets/svgs/icon-search-white.svg';
+import IconBell from '../../../assets/svgs/icon-bell-white.svg';
+import IconProfile from '../../../assets/svgs/icon-user-white.svg';
+
+
+
 
 const Navbar = ( {props} ) => {
     const [active, setActive] = useState(props);
@@ -33,18 +40,21 @@ const Navbar = ( {props} ) => {
 	return (
 		<Fragment>
 			<NavbarWrapper>
-                <NavbarTopWrapper>
-                    <NavbarLeft>
-                        <Link onClick={() => setActive('dashboard')} to='/dashboard'>
-                            <img className='logo' src={logo} alt='logo' />
-                        </Link>
-                    </NavbarLeft>
-                    <NavbarTop>
+
+                <NavbarLeft>
+                    <Link onClick={() => setActive('dashboard')} to='/dashboard'>
+                        <img className='logo' src={logo} alt='logo' />
+                    </Link>
+                </NavbarLeft>
+
+                <NavbarMiddle>
+                    <NavbarTopWrapper>
                         <Link
                             className={active === 'dashboard' ? 'dashboardLink active' : 'dashboardLink'}
                             onClick={() => setActive('dashboard')}
                             to='/dashboard'
                         >
+                            <img className='' src={IconDashboard} alt='Icon Dashboard' />
                             Dashboard
                         </Link>
                         <Link
@@ -55,6 +65,7 @@ const Navbar = ( {props} ) => {
                             }}
                             to='/data'
                         >
+                            <img className='' src={IconData} alt='Icon Data' />
                             Data
                         </Link>
                         <Link
@@ -65,6 +76,7 @@ const Navbar = ( {props} ) => {
                             }}
                             to='/analysis'
                         >
+                            <img className='' src={IconAnalysis} alt='Icon Analysis' />
                             Analysis
                         </Link>
                         <Link
@@ -75,71 +87,59 @@ const Navbar = ( {props} ) => {
                             }}
                             to='/settings'
                         >
+                            <img className='' src={IconSettings} alt='Icon Settings' />
                             Settings
                         </Link>
-                        <BtnsWrapper>
-                            <Link to='#'>
-                                <img className="Icon" src={searchIcon} alt="" />
-                            </Link>
-                            <Link to='#'>
-                                <img className="Icon" src={bellIcon} alt="" />
-                            </Link>
-                            <Link to='#'>
-                                <img className="Icon" src={userIcon} alt="" />
-                            </Link>
-                        </BtnsWrapper>
-                    </NavbarTop>
+                    </NavbarTopWrapper>
 
-                </NavbarTopWrapper>
-				
-                {active === 'dashboard' ? 
-                <NavbarBottom>
-                    <Link
-						className={activeSub === '12' ? 'timeLink active' : 'timeLink'}
-						onClick={() => setActiveSub('12')}
-					>
-						Year
-					</Link>
-                    <Link
-						className={activeSub === '6' ? 'timeLink active' : 'timeLink'}
-						onClick={() => setActiveSub('6')}
-					>
-						6 Months
-					</Link>
-                    <Link
-						className={activeSub === '3' ? 'timeLink active' : 'timeLink'}
-						onClick={() => setActiveSub('3')}
-					>
-						3 Months
-					</Link>
-                    <Link
-						className={activeSub === '2' ? 'timeLink active' : 'timeLink'}
-						onClick={() => setActiveSub('2')}
-					>
-						Last Month
-					</Link>
-                    <Link
-						className={activeSub === '1' ? 'timeLink active' : 'timeLink'}
-						onClick={() => setActiveSub('1')}
-					>
-						This Month
-					</Link>
-                    <Link
-						className={activeSubWindow === 'from' ? 'timeLink active' : 'timeLink'}
-						onClick={() => {
-                            setActiveModal(!activeModal)
-                            setActiveSubWindow('from')
-                            setActiveSub('from')
-                        }}
-					>
-						From - To
-					</Link>
-                </NavbarBottom>
-                : null }
+                    {active === 'dashboard' ?
+                    <NavbarBottom>
+                        <Link
+                            className={activeSub === '12' ? 'timeLink active' : 'timeLink'}
+                            onClick={() => setActiveSub('12')}
+                        >
+                            Year
+                        </Link>
+                        <Link
+                            className={activeSub === '6' ? 'timeLink active' : 'timeLink'}
+                            onClick={() => setActiveSub('6')}
+                        >
+                            6 Months
+                        </Link>
+                        <Link
+                            className={activeSub === '3' ? 'timeLink active' : 'timeLink'}
+                            onClick={() => setActiveSub('3')}
+                        >
+                            3 Months
+                        </Link>
+                        <Link
+                            className={activeSub === '2' ? 'timeLink active' : 'timeLink'}
+                            onClick={() => setActiveSub('2')}
+                        >
+                            Last Month
+                        </Link>
+                        <Link
+                            className={activeSub === '1' ? 'timeLink active' : 'timeLink'}
+                            onClick={() => setActiveSub('1')}
+                        >
+                            This Month
+                        </Link>
+                        <Link
+                            className={activeSubWindow === 'from' ? 'timeLink active' : 'timeLink'}
+                            onClick={() => {
+                                setActiveModal(!activeModal)
+                                setActiveSubWindow('from')
+                                setActiveSub('from')
+                            }}
+                        >
+                            From - To
+                        </Link>
+                    </NavbarBottom>
+                    : null }
 
-                {activeModal ? <DateModal /> : null}
-                
-                {active === 'data' ? 
+                    {activeModal ? <DateModal /> : null}
+
+                    {active === 'data' ?
                     <NavbarBottom>
                         <Link
                             className={activeSubWindow === 'new' ? 'timeLink active' : 'timeLink'}
@@ -162,7 +162,7 @@ const Navbar = ( {props} ) => {
                     </NavbarBottom>
                     : null }
 
-                {active === 'analysis' ? 
+                    {active === 'analysis' ?
                     <NavbarBottom>
                         <Link
                             className={activeSubWindow === 'filter' ? 'timeLink active' : 'timeLink'}
@@ -173,7 +173,7 @@ const Navbar = ( {props} ) => {
                     </NavbarBottom>
                     : null }
 
-                {active === 'settings' ?
+                    {active === 'settings' ?
                     <NavbarBottom>
                         <Link
                             className={activeSubWindow === 'resInfo' ? 'timeLink active' : 'timeLink'}
@@ -188,7 +188,22 @@ const Navbar = ( {props} ) => {
                             Tags
                         </Link>
                     </NavbarBottom>
-                    : null }    
+                    : null }
+
+                </NavbarMiddle>
+
+                <NavbarRight>
+                    <Link to='#'>
+                        <img className="Icon" src={IconSearch} alt="" />
+                    </Link>
+                    <Link to='#'>
+                        <img className="Icon" src={IconBell} alt="" />
+                    </Link>
+                    <Link to='#'>
+                        <img className="Icon" src={IconProfile} alt="" />
+                    </Link>
+                </NavbarRight>
+
 			</NavbarWrapper>
 		</Fragment>
 	);
