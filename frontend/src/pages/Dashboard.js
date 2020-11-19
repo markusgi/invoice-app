@@ -13,7 +13,7 @@ import KPITable from "../components/Dashboard/KPI";
 import Title75 from '../components/BaseComponents/Titles/Titles75';
 import Title25 from '../components/BaseComponents/Titles/Titles25';
 
-import { StandardWindow, MainBodyContainer } from "../style/Container";
+import { StandardWindow, MainBodyContainer, ContainerTop, WhiteBackground } from "../style/Container";
 
 
 const Dashboard = () => {
@@ -33,6 +33,9 @@ const Dashboard = () => {
   return (
     <Fragment>
       <Navbar props={"dashboard"} />
+      <WhiteBackground>
+      <ContainerTop />
+      </WhiteBackground>
       <MainBodyContainer Main>
         <MainBodyContainer LeftColumn>
           <StandardWindow>
@@ -84,6 +87,7 @@ const Dashboard = () => {
           </StandardWindow>
         </MainBodyContainer>
       </MainBodyContainer>
+      
     </Fragment>
   );
 };

@@ -1,23 +1,24 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import getLatestAction from '../../../store/actions/getLatestAction';
+import getLatestAction from "../../../store/actions/getLatestAction";
 
-import { InvoiceTableCSS, TitleDiv } from './style';
-import getDate from '../../../helper/date_helper';
+import { InvoiceTableCSS, TitleDiv } from "./style";
+import getDate from "../../../helper/date_helper";
+import Titles25 from "../../BaseComponents/Titles/Titles25";
 
-const InvoiceTable = ( { props } ) => {
-    const [ latest, setlatest ] = useState([])
-    const dispatch = useDispatch();
-    const token = useSelector(state => state.user.token)
-    console.log(latest)
+const InvoiceTable = ({ props }) => {
+  const [latest, setlatest] = useState([]);
+  const dispatch = useDispatch();
+  const token = useSelector((state) => state.user.token);
+  console.log(latest);
 
-    useEffect(() => {
-        const getData = async () => {
-            const data =  await dispatch(getLatestAction(token));
-            setlatest(data)
-        } 
-        getData();
-    }, [setlatest, dispatch]);
+  useEffect(() => {
+    const getData = async () => {
+      const data = await dispatch(getLatestAction(token));
+      setlatest(data);
+    };
+    getData();
+  }, [setlatest, dispatch]);
 
     return (
         <Fragment>

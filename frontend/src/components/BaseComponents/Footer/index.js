@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 import { FooterWrapper, FooterTop, FooterBottom,
     FooterLeft, FooterRight } from "../../../style/Footer";
+import logoPropulsion from "../../../assets/images/Propulsion_Logo.png";
 
 const LoginFooter = ( {props} ) => {
-
 
     return (
         <FooterWrapper>
@@ -20,6 +20,7 @@ const LoginFooter = ( {props} ) => {
                     <p>Language</p>
                 </FooterLeft>
                 <FooterRight>
+                    <img src={logoPropulsion} alt="logo" className="logo"></img>
                     <p>&copy; 5aid by M.L.V.T.</p>
                 </FooterRight>
             </FooterBottom>

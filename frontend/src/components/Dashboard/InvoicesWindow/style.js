@@ -6,6 +6,7 @@ export const InvoiceTableCSS = styled.table`
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 10px;
 `;
 
 export const TitleDiv = styled.div`
@@ -30,3 +31,4 @@ export const TitleDiv = styled.div`
         align-items: flex-end;
     }
 `;
+

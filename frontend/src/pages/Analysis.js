@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import Navbar from '../components/BaseComponents/Navbar';
 import FiltersAnalysis from '../components/Analysis/filters';
-import { MainBodyContainer } from '../style/Container';
+import { ContainerTop, MainBodyContainer, WhiteBackground } from '../style/Container';
 
 const Analysis = () => {
 
@@ -12,6 +12,9 @@ const Analysis = () => {
 	return (
 		<Fragment>
 			<Navbar props={"analysis"} />
+			<WhiteBackground>
+                <ContainerTop />
+            </WhiteBackground>
 			<MainBodyContainer Main>
 				{currentlyActive === 'filter' ? <FiltersAnalysis /> : null }
 			</MainBodyContainer>

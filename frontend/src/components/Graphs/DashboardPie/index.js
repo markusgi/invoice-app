@@ -1,9 +1,9 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-
 import { PieChartWrapper, LeftContainer } from "./style";
-
 import { PieChart, Pie, Cell, Legend, Sector } from "recharts";
+import Titles100 from "../../BaseComponents/Titles/Titles100";
+import Titles50 from "../../BaseComponents/Titles/Titles50";
 
 const dummydata = [
   { name: "Group A", value: 400 },

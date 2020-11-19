@@ -42,6 +42,7 @@ export const StandardWindow = styled.section`
 export const MainBodyContainer = styled.div`
 	display: flex;
 	flex-direction: row;
+	background-color: ${colors.blueLightBackground};
 
 	${props => 
 		props.Main &&
@@ -116,3 +117,15 @@ export const TitleDiv = styled.div`
         align-items: flex-end;
     }
 `;
+
+export const ContainerTop = styled.div`
+  width: 100%;
+  height: 25px;
+  background-color: ${colors.blueLightBackground};
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+`
+
+export const WhiteBackground = styled.div`
+  background-color: ${colors.white};
+`
