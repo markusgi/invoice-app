@@ -4,13 +4,11 @@ import getLatestAction from "../../../store/actions/getLatestAction";
 
 import { InvoiceTableCSS, TitleDiv } from "./style";
 import getDate from "../../../helper/date_helper";
-import Titles25 from "../../BaseComponents/Titles/Titles25";
 
 const InvoiceTable = ({ props }) => {
   const [latest, setlatest] = useState([]);
   const dispatch = useDispatch();
   const token = useSelector((state) => state.user.token);
-  console.log(latest);
 
   useEffect(() => {
     const getData = async () => {
@@ -36,7 +34,7 @@ const InvoiceTable = ({ props }) => {
                     <h3>{props.invoices.filter(inv => {return inv.date >= getDate('1')}).reduce((sum, current) => { return sum + current.total_amount}, 0)}</h3>
                 </div>
             </TitleDiv>
-            <InvoiceTableCSS style={{marginTop:"20px"}}>
+            <InvoiceTableCSS style={{marginTop:"10px"}}>
                 <tbody style={{width:"100%"}}>
                     <tr style={{borderBottom:"1px solid black"}}>
                         <th style={{width:"20%", fontSize:"20px"}}>Date</th>

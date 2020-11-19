@@ -9,7 +9,7 @@ import DashboardBarsChart from "../components/Graphs/DashboardBars/index";
 import Navbar from "../components/BaseComponents/Navbar";
 import InvoiceTable from "../components/Dashboard/InvoicesWindow";
 import RevenueDashboard from "../components/Dashboard/RevenueWindow";
-import KPITable from "../components/Dashboard/KPI";
+// import KPITable from "../components/Dashboard/KPI";
 import Title75 from '../components/BaseComponents/Titles/Titles75';
 import Title25 from '../components/BaseComponents/Titles/Titles25';
 
@@ -39,7 +39,7 @@ const Dashboard = () => {
       <MainBodyContainer Main>
         <MainBodyContainer LeftColumn>
           <StandardWindow>
-          <Title25 title={"Rvenues"}/>
+          <Title25 title={"Revenues"}/>
             {AllInfo.length !== 0 ? (
               <RevenueDashboard props={AllInfo} />
             ) : (
