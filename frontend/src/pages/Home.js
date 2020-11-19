@@ -6,7 +6,7 @@ const Home = () => {
 	const history = useHistory();
 
 	useEffect(() => {
-		history.push("/dashboard")
+		history.push("/login")
 	}, [history]);
 
 	return (

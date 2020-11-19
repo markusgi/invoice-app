@@ -69,6 +69,7 @@ export const SpaceRight = styled.div`
   display: flex;
   align-items: center;
   gap: 30px;
+  padding-right: 20px;
 `
 
 export const CheckPriceDiv = styled.div`
@@ -76,7 +77,7 @@ export const CheckPriceDiv = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  //padding: 0 20px;
+  /* padding: 0 20px; */
 `
 
 export const CheckDiv = styled.div`

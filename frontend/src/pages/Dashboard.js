@@ -48,9 +48,10 @@ const Dashboard = () => {
             )}
           </StandardWindow>
 
-          <StandardWindow>
+          {/* <StandardWindow>
             {AllInfo.length !== 0 ? <KPITable props={AllInfo} /> : <Spinner />}
-          </StandardWindow>
+          </StandardWindow> */}
+
         </MainBodyContainer>
         <MainBodyContainer RightColumn>
           <StandardWindow>

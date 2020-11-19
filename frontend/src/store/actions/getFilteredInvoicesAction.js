@@ -1,6 +1,6 @@
 import baseUrl from '../../helper/url_helper';
 
-export const getFilteredInvoiceAction = ( start, end, token ) => async (dispatch, getState) => {
+export const getFilteredInvoiceAction = ( start, end, token, shop ) => async (dispatch, getState) => {
 	const url = `${baseUrl}invoices/date/${start}/${end}/`;
 	const config = {
 		method: 'GET',
@@ -11,6 +11,10 @@ export const getFilteredInvoiceAction = ( start, end, token ) => async (dispatch
 	};
 	const response = await fetch(url, config);
 	const data = await response.json();
+	if (shop) {
+		data.filter((inv) => inv.shop == shop)
+	}
+	console.log(data)
 	return data;
 };
 

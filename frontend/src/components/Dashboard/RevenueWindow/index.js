@@ -5,7 +5,9 @@ import getDate from '../../../helper/date_helper';
 
 const RevenueDashboard = ( { props } ) => {
     
-
+    console.log(props.revenues, "--------------")
+    console.log(getDate('6'))
+    console.log(getDate('3'))
     return (
         <Fragment>
             <h2>Revenues</h2>
