@@ -16,10 +16,8 @@ export const BarChartWrapper = styled.div`
   flex-direction: row;
   width: 100%;
   min-height: 300px;
-  border-top: 2px solid ${colors.blue};
   padding-bottom: 5px;
   padding-top: 5px;
-  border-bottom: 2px solid ${colors.blue};
   .barchart {
     display: flex;
     flex-grow: 1;
@@ -40,7 +38,7 @@ export const LeftContainer = styled.div`
 
     div {
       margin-top: 10px;
-      border-top: 2px solid ${colors.blue};
+      // border-top: 2px solid ${colors.gray};
       width: 240px;
     }
   }
@@ -51,7 +49,7 @@ export const LeftContainer = styled.div`
     align-items: flex-end;
     div {
       margin-top: 10px;
-      border-top: 2px solid ${colors.blue};
+      // border-top: 2px solid ${colors.gray};
     }
   }
 `;
@@ -60,8 +58,8 @@ export const PercentageTable = styled.table`
   font-size: 1.17em;
   padding-bottom: 5px;
   padding-top: 5px;
-  border-bottom: 2px solid ${colors.blue};
-  border-top: 2px solid ${colors.blue};
+  border-bottom: 2px solid ${colors.gray};
+  border-top: 2px solid ${colors.gray};
 
   thead {
     tr {

@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 
 import { TitleDiv } from './style';
 import getDate from '../../../helper/date_helper';
+import Titles25 from '../../BaseComponents/Titles/Titles25';
 
 const RevenueDashboard = ( { props } ) => {
     
@@ -10,7 +11,7 @@ const RevenueDashboard = ( { props } ) => {
     console.log(getDate('3'))
     return (
         <Fragment>
-            <h2>Revenues</h2>
+            <Titles25 title={"Filters"} />
             <TitleDiv>
                 <div className="leftColumn">
                     <h3>This Year</h3>

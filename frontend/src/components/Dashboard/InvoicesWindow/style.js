@@ -6,16 +6,16 @@ export const InvoiceTableCSS = styled.table`
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 10px;
 `;
 
 export const TitleDiv = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
-    border-top: 2px solid ${colors.blue};
     padding-bottom: 5px;
     padding-top: 5px;
-    border-bottom: 2px solid ${colors.blue};
+    border-bottom: 2px solid ${colors.gray};
 
     .leftColumn {
         display: flex;
@@ -30,3 +30,4 @@ export const TitleDiv = styled.div`
         align-items: flex-end;
     }
 `;
+

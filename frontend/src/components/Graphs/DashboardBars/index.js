@@ -15,6 +15,7 @@ import getDates from "../../../helper/dates_helper";
 import { BarChartWrapper, LeftContainer } from "./style";
 import { colors } from "../../../style/Theme";
 import { Table } from "./table";
+import Titles100 from "../../BaseComponents/Titles/Titles100";
 
 const test = [
   {
@@ -339,7 +340,7 @@ const DashboardBarsChart = (props) => {
 
   return (
     <Fragment>
-      {withRevenue ? <h2>Revenues</h2> : <h2>Expenses</h2>}
+      {withRevenue ? <Titles100 title={"Revenues"} /> : <Titles100 title={"Expenses"} />}
       <BarChartWrapper>
         <LeftContainer>
           <Table data={ groupByYear ? removeYearFromObjectKeys(data) : removeYearFromObjectKeys(objectToSortedArray(currentData)) } total={total} withRevenue={withRevenue}/>

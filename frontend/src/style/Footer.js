@@ -39,9 +39,14 @@ export const FooterLeft = styled.div`
 `
 
 export const FooterRight = styled.div`
-  width: 100%;
+  width: 40%;
   display: flex;
   justify-content: flex-end;
   color: ${colors.white};
   margin-right: 30px;
+  align-items: center;
+  justify-content: space-around;
+  img {
+    max-width: 60%;
+  }
 `
