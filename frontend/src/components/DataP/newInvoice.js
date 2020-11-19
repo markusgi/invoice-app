@@ -147,7 +147,6 @@ const NewInvoice = ( { token } ) => {
         const getData = async () => {
             const data = await dispatch(getInvoiceAction(invoice.id, token));
             setInvoice(data);
-
           };
         getData();
     }

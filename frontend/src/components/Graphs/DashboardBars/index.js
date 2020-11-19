@@ -74,7 +74,7 @@ let getGroupedData = (invoices, from, until, groupByYear, colorByTagname) => {
   var groupedData = {};
 
   let filteredInvoices = invoices.filter((invoice) => {
-    return invoice.date > from && invoice.date <= until;
+    return invoice.date >= from && invoice.date <= until;
   });
   // console.log("filteredInvoices: ", filteredInvoices);
   for (let invoice of filteredInvoices) {
@@ -217,11 +217,11 @@ const DashboardBarsChart = (props) => {
     activeSub
   );
 
-  // console.log("getDates() result ####################");
-  // console.log(startDate);
-  // console.log(endDate);
-  // console.log(startDateLastYear);
-  // console.log(endDateLastYear);
+  console.log("getDates() result ####################");
+  console.log(startDate);
+  console.log(endDate);
+  console.log(startDateLastYear);
+  console.log(endDateLastYear);
 
   const [data, setData] = useState([]);
   const [currentData, setCurrentData] = useState([]);
