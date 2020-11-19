@@ -217,11 +217,11 @@ const DashboardBarsChart = (props) => {
     activeSub
   );
 
-  console.log("getDates() result ####################");
-  console.log(startDate);
-  console.log(endDate);
-  console.log(startDateLastYear);
-  console.log(endDateLastYear);
+  // console.log("getDates() result ####################");
+  // console.log(startDate);
+  // console.log(endDate);
+  // console.log(startDateLastYear);
+  // console.log(endDateLastYear);
 
   const [data, setData] = useState([]);
   const [currentData, setCurrentData] = useState([]);
