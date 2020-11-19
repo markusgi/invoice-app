@@ -74,7 +74,7 @@ let getGroupedData = (invoices, from, until, groupByYear, colorByTagname) => {
   var groupedData = {};
 
   let filteredInvoices = invoices.filter((invoice) => {
-    return invoice.date > from && invoice.date <= until;
+    return invoice.date >= from && invoice.date <= until;
   });
   // console.log("filteredInvoices: ", filteredInvoices);
   for (let invoice of filteredInvoices) {

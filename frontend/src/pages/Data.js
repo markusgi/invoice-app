@@ -5,7 +5,7 @@ import NewInvoice from '../components/DataP/newInvoice';
 import EditInvoice from '../components/DataP/editInvoice';
 import Upload from '../components/DataP/upload';
 
-import { ContainerTop, MainBodyContainer, WhiteBackground } from '../style/Container';
+import { ContainerTop, MainBodyContainer, NavyBackground } from '../style/Container';
 
 
 const Data = () => {
@@ -16,9 +16,9 @@ const Data = () => {
 	return (
 		<Fragment>
             <Navbar props={"data"} />
-			<WhiteBackground>
+			<NavyBackground>
                 <ContainerTop />
-            </WhiteBackground>
+            </NavyBackground>
 			<MainBodyContainer Main>
 				{currentlyActive === 'new' ? <NewInvoice token={token}/> : null }
 				{currentlyActive === 'edit' ? <EditInvoice token={token}/> : null }

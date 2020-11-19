@@ -9,12 +9,17 @@ import DashboardBarsChart from "../components/Graphs/DashboardBars/index";
 import Navbar from "../components/BaseComponents/Navbar";
 import InvoiceTable from "../components/Dashboard/InvoicesWindow";
 import RevenueDashboard from "../components/Dashboard/RevenueWindow";
-// import KPITable from "../components/Dashboard/KPI";
-import Title75 from '../components/BaseComponents/Titles/Titles75';
-import Title25 from '../components/BaseComponents/Titles/Titles25';
+import KPITable from "../components/Dashboard/KPI";
+import Title75 from "../components/BaseComponents/Titles/Titles75";
+import Title25 from "../components/BaseComponents/Titles/Titles25";
 
-import { StandardWindow, MainBodyContainer, ContainerTop, WhiteBackground } from "../style/Container";
-
+import {
+  StandardWindow,
+  MainBodyContainer,
+  ContainerTop,
+  NavyBackground,
+} from "../style/Container";
+import DateDashboard from "../components/Dashboard/DateWindow";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -33,13 +38,22 @@ const Dashboard = () => {
   return (
     <Fragment>
       <Navbar props={"dashboard"} />
-      <WhiteBackground>
-      <ContainerTop />
-      </WhiteBackground>
+      <NavyBackground>
+        <ContainerTop />
+      </NavyBackground>
       <MainBodyContainer Main>
         <MainBodyContainer LeftColumn>
           <StandardWindow>
-          <Title25 title={"Revenues"}/>
+            <Title25 title={"Date range"} />
+            {AllInfo.length !== 0 ? (
+              <DateDashboard props={AllInfo} />
+            ) : (
+              <Spinner />
+            )}
+          </StandardWindow>
+
+          <StandardWindow>
+            <Title25 title={"Revenues"} />
             {AllInfo.length !== 0 ? (
               <RevenueDashboard props={AllInfo} />
             ) : (
@@ -48,7 +62,7 @@ const Dashboard = () => {
           </StandardWindow>
 
           <StandardWindow>
-            <Title25 title={"Invoices"}/>
+            <Title25 title={"Invoices"} />
             {AllInfo.length !== 0 ? (
               <InvoiceTable props={AllInfo} />
             ) : (
@@ -59,11 +73,10 @@ const Dashboard = () => {
           {/* <StandardWindow>
             {AllInfo.length !== 0 ? <KPITable props={AllInfo} /> : <Spinner />}
           </StandardWindow> */}
-
         </MainBodyContainer>
         <MainBodyContainer RightColumn>
           <StandardWindow>
-            <Title75 title={"Expenses"}/>
+            <Title75 title={"Expenses"} />
             {AllInfo.length !== 0 ? (
               <DashboardPieChart props={AllInfo} />
             ) : (
@@ -73,21 +86,20 @@ const Dashboard = () => {
 
           <StandardWindow>
             {AllInfo.length !== 0 ? (
-                <DashboardBarsChart allInfo={AllInfo} withRevenue={false} />
+              <DashboardBarsChart allInfo={AllInfo} withRevenue={false} />
             ) : (
               <Spinner />
             )}
           </StandardWindow>
           <StandardWindow>
             {AllInfo.length !== 0 ? (
-                <DashboardBarsChart allInfo={AllInfo} withRevenue={true} />
+              <DashboardBarsChart allInfo={AllInfo} withRevenue={true} />
             ) : (
               <Spinner />
             )}
           </StandardWindow>
         </MainBodyContainer>
       </MainBodyContainer>
-      
     </Fragment>
   );
 };

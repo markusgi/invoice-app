@@ -6,47 +6,47 @@ const getDates = (activeSub) => {
     let isoDate = (date) => date.toISOString().slice(0, 10);
 
     let date = new Date();
-
+    
     switch(activeSub) {
         case '12': {
             return [
-                isoDate(new Date(date.getFullYear(), 0, 1)),
-                isoDate(new Date(date.getFullYear() + 1, 0, 1)),
-                isoDate(new Date(date.getFullYear() - 1, 0, 1)),
-                isoDate(new Date(date.getFullYear(), 0, 1)),
+                isoDate(new Date(Date.UTC(date.getFullYear(), 0, 1))),
+                isoDate(date),
+                isoDate(new Date(Date.UTC(date.getFullYear() - 1, 0, 1))),
+                isoDate(new Date(Date.UTC(date.getFullYear() -1, 11, 31))),
             ];
         }
         case '6': {
             return [
-                isoDate(new Date(date.getFullYear(), date.getMonth() - 5, 1)),
-                isoDate(new Date(date.getFullYear(), date.getMonth() + 1, 1)),
-                isoDate(new Date(date.getFullYear() - 1, date.getMonth() - 5, 1)),
-                isoDate(new Date(date.getFullYear() - 1, date.getMonth() + 1, 1)),
+                isoDate(new Date(Date.UTC(date.getFullYear(), date.getMonth() - 5, 1))),
+                isoDate(date),
+                isoDate(new Date(Date.UTC(date.getFullYear() - 1, date.getMonth() - 5, 1))),
+                isoDate(new Date(Date.UTC(date.getFullYear() - 1, date.getMonth() + 1, 0))),
             ];
         }
         case '3': {
             return [
-                isoDate(new Date(date.getFullYear(), date.getMonth() - 2, 1)),
-                isoDate(new Date(date.getFullYear(), date.getMonth() + 1, 1)),
-                isoDate(new Date(date.getFullYear() - 1, date.getMonth() - 2, 1)),
-                isoDate(new Date(date.getFullYear() - 1, date.getMonth() + 1, 1)),
+                isoDate(new Date(Date.UTC(date.getFullYear(), date.getMonth() - 2, 1))),
+                isoDate(date),
+                isoDate(new Date(Date.UTC(date.getFullYear() - 1, date.getMonth() - 2, 1))),
+                isoDate(new Date(Date.UTC(date.getFullYear() - 1, date.getMonth() + 1, 0))),
             ];
         }
         case '2': {
             return [
-                isoDate(new Date(date.getFullYear(), date.getMonth() - 1, 1)),
-                isoDate(new Date(date.getFullYear(), date.getMonth(), 1)),
-                isoDate(new Date(date.getFullYear() - 1, date.getMonth() - 1, 1)),
-                isoDate(new Date(date.getFullYear() - 1, date.getMonth(), 1)),
+                isoDate(new Date(Date.UTC(date.getFullYear(), date.getMonth() - 1, 1))),
+                isoDate(new Date(Date.UTC(date.getFullYear(), date.getMonth(), 0))),
+                isoDate(new Date(Date.UTC(date.getFullYear() - 1, date.getMonth() - 1, 1))),
+                isoDate(new Date(Date.UTC(date.getFullYear() - 1, date.getMonth(), 0))),
             ];
         }
 
         case '1': {
             return [
-                isoDate(new Date(date.getFullYear(), date.getMonth(), 1)),
-                isoDate(new Date(date.getFullYear(), date.getMonth() + 1, 1)),
-                isoDate(new Date(date.getFullYear() - 1, date.getMonth(), 1)),
-                isoDate(new Date(date.getFullYear() - 1, date.getMonth() + 1, 1)),
+                isoDate(new Date(Date.UTC(date.getFullYear(), date.getMonth(), 1))),
+                isoDate(date),
+                isoDate(new Date(Date.UTC(date.getFullYear() - 1, date.getMonth(), 1))),
+                isoDate(new Date(Date.UTC(date.getFullYear() - 1, date.getMonth() + 1, 0))),
             ];
         }
         default: {

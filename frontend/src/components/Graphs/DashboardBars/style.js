@@ -6,11 +6,6 @@ export const TableWrapper = styled.div`
   flex-direction: column;
 `;
 
-export const Title = styled.h3`
-  padding-top: 5px;
-  align-self: flex-start;
-`;
-
 export const BarChartWrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -61,7 +56,6 @@ export const PercentageTable = styled.table`
   padding-bottom: 5px;
   padding-top: 5px;
   border-bottom: 2px solid ${colors.gray};
-  border-top: 2px solid ${colors.gray};
 
   thead {
     tr {

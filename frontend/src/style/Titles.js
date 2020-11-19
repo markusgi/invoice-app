@@ -34,6 +34,7 @@ export const TitleLeft100 = styled.div`
 
 export const TitleRight100 = styled.div`
   width: 75%;
+  
 `
 
 /////////////////// 75% ////////////////////////////////

@@ -126,6 +126,6 @@ export const ContainerTop = styled.div`
   border-top-right-radius: 25px;
 `
 
-export const WhiteBackground = styled.div`
-  background-color: ${colors.white};
+export const NavyBackground = styled.div`
+  background-color: ${colors.blueDark};
 `
