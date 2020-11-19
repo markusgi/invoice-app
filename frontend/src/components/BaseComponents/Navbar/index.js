@@ -16,8 +16,6 @@ import {
   NavbarLeft,
   NavbarMiddle,
   NavbarRight,
-  NavbarTop,
-  BtnsWrapper,
   NavbarBottom,
 } from "./style";
 import logo from "../../../assets/images/logo-5aid-white.png";
@@ -28,6 +26,7 @@ import IconSettings from "../../../assets/svgs/icon-settings-white.svg";
 import IconSearch from "../../../assets/svgs/icon-search-white.svg";
 import IconBell from "../../../assets/svgs/icon-bell-white.svg";
 import IconProfile from "../../../assets/svgs/icon-user-white.svg";
+import logout from "../../../assets/images/logout.png";
 
 const Navbar = ({ props }) => {
   const [active, setActive] = useState(props);
