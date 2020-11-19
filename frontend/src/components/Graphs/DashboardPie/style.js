@@ -8,13 +8,12 @@ export const GraphContainerMain = styled.div`
 	display: flex;
 	align-items: center;
 	background: #fff !important;
-	/* background-color: red; */
 `;
 
 export const LeftContainer = styled.div`
     display: flex;
     flex-direction: row;
-    min-width: 280px;
+    min-width: 32%;
 
 	.leftColumn {
 		display: flex;
@@ -25,7 +24,7 @@ export const LeftContainer = styled.div`
 		div {
 			margin-top: 10px;
 			border-top: 2px solid ${colors.gray};
-			width: 240px;
+			width: 290px;
 		}
 	}
 	.rightColumn {
@@ -35,7 +34,7 @@ export const LeftContainer = styled.div`
 		align-items: flex-end;
 		div {
 			margin-top: 10px;
-			border-top: 2px solid ${colors.gray};
+			border-top: 2px solid ${colors.gray};	
 		}
 	}
 `;
@@ -46,7 +45,6 @@ export const PieChartWrapper = styled.div`
     flex-direction: row;
     width: 100%;
 	min-height: 400px;
-    // border-top: 2px solid ${colors.gray};
     padding-bottom: 5px;
     padding-top: 5px;
 

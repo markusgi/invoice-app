@@ -1,4 +1,3 @@
-import { colors } from "../../../style/Theme";
 import styled from 'styled-components';
 
 
@@ -6,7 +5,6 @@ export const TitleDiv = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
-    /* border-top: 2px solid ${colors.blue}; */
     padding-top: 5px;
 
     .leftColumn {

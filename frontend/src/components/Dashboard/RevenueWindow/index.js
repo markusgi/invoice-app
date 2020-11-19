@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 
 import { TitleDiv } from './style';
 import getDate from '../../../helper/date_helper';
-import Titles25 from '../../BaseComponents/Titles/Titles25';
 
 const RevenueDashboard = ( { props } ) => {
     

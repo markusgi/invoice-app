@@ -1,12 +1,11 @@
 import { colors, fontSizes } from "../../../style/Theme";
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const InvoiceTableCSS = styled.table`
     font-size: ${fontSizes.small};
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 10px;
 `;
 
 export const TitleDiv = styled.div`
