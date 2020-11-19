@@ -30,7 +30,6 @@ export const Table = (props) => {
 
   return (
     <TableWrapper>
-      {withRevenue ? <Title>(Amount / Revenues)</Title> : <Title>(Amount / Expenses)</Title>}
       <PercentageTable>
         <thead>
           <tr>

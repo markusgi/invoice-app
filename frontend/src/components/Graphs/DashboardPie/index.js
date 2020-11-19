@@ -109,10 +109,14 @@ const DashboardPieChart = ({ props }) => {
   const [activeIndex, setactiveIndex] = useState();
 
   let currentTimeFrameStart = useSelector(
+    
     (state) => state.filter.timeFrameStart
   );
   let currentTimeFrameEnd = useSelector((state) => state.filter.timeFrameEnd);
 
+  // console.log('In the piechart');
+  // console.log('currentTimeFrameStart: ', currentTimeFrameStart);
+  // console.log('currentTimeFrameEnd: ', currentTimeFrameEnd);
 
   const onPieEnter = (data, index) => {
     setactiveIndex(index);
@@ -125,7 +129,7 @@ const DashboardPieChart = ({ props }) => {
       props.invoices
         .filter((inv) => {
           return (
-            inv.date >= currentTimeFrameStart && inv.date <= currentTimeFrameEnd
+            inv.date > currentTimeFrameStart && inv.date <= currentTimeFrameEnd
           );
         })
         .map((inv) => {
