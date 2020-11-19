@@ -10,7 +10,7 @@ const InvoiceTable = ({ props }) => {
   const [latest, setlatest] = useState([]);
   const dispatch = useDispatch();
   const token = useSelector((state) => state.user.token);
-  console.log(latest);
+//   console.log(latest);
 
   useEffect(() => {
     const getData = async () => {
