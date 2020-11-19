@@ -14,6 +14,22 @@ const dummydata = [
 ];
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#523234"];
+const COLORSTHEME = ["#0088FE", "#20BF69", "#4D7593", "#FFC74D", "#2BD8D7", "#BC67FE"];
+
+const RADIAN = Math.PI / 180;
+const renderCustomizedLabel = ({
+  cx, cy, midAngle, innerRadius, outerRadius, percent, index,
+}) => {
+   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+  const x = cx + radius * Math.cos(-midAngle * RADIAN);
+  const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+  return (
+    <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+      {`${(percent * 100).toFixed(0)}%`}
+    </text>
+  );
+};
 
 const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
@@ -95,10 +111,8 @@ const DashboardPieChart = ({ props }) => {
   let currentTimeFrameStart = useSelector(
     (state) => state.filter.timeFrameStart
   );
-  console.log(props)
   let currentTimeFrameEnd = useSelector((state) => state.filter.timeFrameEnd);
-//   console.log('currentTimeFrameStart: ', currentTimeFrameStart);
-//   console.log('currentTimeFrameEnd: ', currentTimeFrameEnd);
+
 
   const onPieEnter = (data, index) => {
     setactiveIndex(index);
@@ -147,7 +161,6 @@ const DashboardPieChart = ({ props }) => {
 
   return (
     <Fragment>
-      <h2>Expenses</h2>
       <PieChartWrapper>
         <LeftContainer>
           <div className="leftColumn">
@@ -184,6 +197,8 @@ const DashboardPieChart = ({ props }) => {
               cy={230}
               innerRadius={70}
               outerRadius={150}
+              labelLine={false}
+              label={renderCustomizedLabel}
               fill="#8884d8"
               dataKey="value"
               onMouseEnter={onPieEnter}

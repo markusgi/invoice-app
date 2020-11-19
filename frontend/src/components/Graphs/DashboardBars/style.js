@@ -16,10 +16,10 @@ export const BarChartWrapper = styled.div`
   flex-direction: row;
   width: 100%;
   min-height: 300px;
-  border-top: 2px solid ${colors.blue};
+  /* border-top: 2px solid ${colors.blue}; */
   padding-bottom: 5px;
   padding-top: 5px;
-  border-bottom: 2px solid ${colors.blue};
+  /* border-bottom: 2px solid ${colors.blue}; */
   .barchart {
     display: flex;
     flex-grow: 1;

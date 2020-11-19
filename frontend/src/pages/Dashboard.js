@@ -10,8 +10,11 @@ import Navbar from "../components/BaseComponents/Navbar";
 import InvoiceTable from "../components/Dashboard/InvoicesWindow";
 import RevenueDashboard from "../components/Dashboard/RevenueWindow";
 import KPITable from "../components/Dashboard/KPI";
+import Title75 from '../components/BaseComponents/Titles/Titles75';
+import Title25 from '../components/BaseComponents/Titles/Titles25';
 
 import { StandardWindow, MainBodyContainer } from "../style/Container";
+
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -33,6 +36,7 @@ const Dashboard = () => {
       <MainBodyContainer Main>
         <MainBodyContainer LeftColumn>
           <StandardWindow>
+          <Title25 title={"Rvenues"}/>
             {AllInfo.length !== 0 ? (
               <RevenueDashboard props={AllInfo} />
             ) : (
@@ -41,6 +45,7 @@ const Dashboard = () => {
           </StandardWindow>
 
           <StandardWindow>
+            <Title25 title={"Invoices"}/>
             {AllInfo.length !== 0 ? (
               <InvoiceTable props={AllInfo} />
             ) : (
@@ -55,6 +60,7 @@ const Dashboard = () => {
         </MainBodyContainer>
         <MainBodyContainer RightColumn>
           <StandardWindow>
+            <Title75 title={"Expenses"}/>
             {AllInfo.length !== 0 ? (
               <DashboardPieChart props={AllInfo} />
             ) : (

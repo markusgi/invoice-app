@@ -21,7 +21,6 @@ const InvoiceTable = ( { props } ) => {
 
     return (
         <Fragment>
-            <h2>Invoices</h2>
             <TitleDiv>
                 <div className="leftColumn">
                     <h3>Year no.</h3>
@@ -36,12 +35,12 @@ const InvoiceTable = ( { props } ) => {
                     <h3>{props.invoices.filter(inv => {return inv.date >= getDate('1')}).reduce((sum, current) => { return sum + current.total_amount}, 0)}</h3>
                 </div>
             </TitleDiv>
-            <InvoiceTableCSS>
+            <InvoiceTableCSS style={{marginTop:"20px"}}>
                 <tbody style={{width:"100%"}}>
-                    <tr >
-                        <th style={{width:"20%", fontSize:"16px"}}>Date</th>
-                        <th style={{width:"65%", fontSize:"16px"}}>Supplier</th>
-                        <th style={{width:"20%", fontSize:"16px"}}>Total</th>
+                    <tr style={{borderBottom:"1px solid black"}}>
+                        <th style={{width:"20%", fontSize:"20px"}}>Date</th>
+                        <th style={{width:"65%", fontSize:"20px"}}>Supplier</th>
+                        <th style={{width:"20%", fontSize:"20px"}}>Total</th>
                     </tr>
                     {latest.length > 0 
                     ? latest.map((inv) => {

@@ -46,10 +46,8 @@ export const PieChartWrapper = styled.div`
     flex-direction: row;
     width: 100%;
 	min-height: 400px;
-    border-top: 2px solid ${colors.blue};
     padding-bottom: 5px;
     padding-top: 5px;
-    border-bottom: 2px solid ${colors.blue};
 
     .piechart {
         display: flex;

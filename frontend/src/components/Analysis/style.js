@@ -105,9 +105,6 @@ export const groupBadgeStyles = styled.span`
     } */
 `;
 
-export const TagsSelect = styled.div`
-    background-color: pink;
-`
 
 export const ResultsContainer = styled.div`
     width: 100%;
