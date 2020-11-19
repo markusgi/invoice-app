@@ -14,7 +14,7 @@ export const GraphContainerMain = styled.div`
 export const LeftContainer = styled.div`
     display: flex;
     flex-direction: row;
-    min-width: 270px;
+    min-width: 280px;
 
 	.leftColumn {
 		display: flex;
