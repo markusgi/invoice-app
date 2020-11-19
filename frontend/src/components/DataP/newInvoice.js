@@ -208,8 +208,10 @@ const NewInvoice = ( { token } ) => {
                             <SpaceLeft/>
                             <SpaceRight>
                                 <CheckPriceDiv>
-                                    <CheckDiv>Check total price</CheckDiv>
-                                    <PriceDiv>{invoice ? invoice.total_amount : "0.0"}</PriceDiv>
+                                    <CheckDiv>
+                                        <p>Check Total:    </p>
+                                        <h2 style={{paddingLeft:"20px", fontWeight:"600"}}>{invoice ? invoice.total_amount : "0.0"} </h2>
+                                    </CheckDiv>
                                 </CheckPriceDiv>
                                 <YellowButtonStyle onClick={handleSubmitItem}>
                                     Add Item

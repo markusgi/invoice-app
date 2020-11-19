@@ -36,6 +36,21 @@ export const TitleRight100 = styled.div`
   width: 75%;
 `
 
+/////////////////// 75% ////////////////////////////////
+
+export const TitleContainer75 = styled(TitleContainer100)`
+    gap: 30px;
+`
+
+export const TitleLeft75 = styled(TitleLeft100)`
+    width: 35%;
+`
+
+export const TitleRight75 = styled(TitleRight100)`
+    width: 70%;
+`
+
+
 /////////////////// 50% ////////////////////////////////
 
 export const TitleContainer50 = styled(TitleContainer100)`

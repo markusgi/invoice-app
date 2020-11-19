@@ -6,12 +6,8 @@ import Titles25 from '../../BaseComponents/Titles/Titles25';
 
 const RevenueDashboard = ( { props } ) => {
     
-    console.log(props.revenues, "--------------")
-    console.log(getDate('6'))
-    console.log(getDate('3'))
     return (
         <Fragment>
-            <Titles25 title={"Filters"} />
             <TitleDiv>
                 <div className="leftColumn">
                     <h3>This Year</h3>

@@ -54,41 +54,43 @@ export const BottomGroup = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
-  gap: 30px;
   margin-top: 20px;
 `
 
 export const SpaceLeft = styled.div`
-  width: 50%;
+  min-width: 50%;
 `
 
 export const SpaceRight = styled.div`
-  width: 50%;
+  min-width: 50%;
   display: flex;
   align-items: center;
-  gap: 30px;
+  padding-left: 20px;
   padding-right: 20px;
 `
 
 export const CheckPriceDiv = styled.div`
-  width: 100%;
+  min-width: 57%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  /* padding: 0 20px; */
+
 `
 
 export const CheckDiv = styled.div`
+  min-width: 60%;
+  display: flex;
+  flex-direction: row;
   padding-left: 20px;
+  align-items: center;
 `
 
 export const PriceDiv = styled.div`
   padding-right: 20px;
-  font-weight: bolder;
+  font-weight: bold;
 `
 
 export const YellowButtonStyle = styled(YellowButton)`
   width: 100%;
+
 `

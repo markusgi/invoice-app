@@ -11,11 +11,7 @@ export const getFilteredInvoiceAction = ( start, end, token, shop ) => async (di
 	};
 	const response = await fetch(url, config);
 	const data = await response.json();
-	if (shop) {
-		data.filter((inv) => inv.shop == shop)
-	}
-	console.log(data)
-	return data;
+	return data.filter((inv) => inv.shop == shop || shop == "");
 };
 
 export default getFilteredInvoiceAction;
