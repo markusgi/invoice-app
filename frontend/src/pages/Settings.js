@@ -6,7 +6,7 @@ import TagsInfo from '../components/Settings/tagsInfo';
 import ResInfo from '../components/Settings/resInfo';
 
 
-import { ContainerTop, MainBodyContainer, WhiteBackground } from '../style/Container';
+import { ContainerTop, MainBodyContainer, NavyBackground } from '../style/Container';
 
 
 const Settings = () => {
@@ -16,9 +16,9 @@ const Settings = () => {
 	return (
 		<Fragment>
 			<Navbar props={"settings"} />
-			<WhiteBackground>
+			<NavyBackground>
                 <ContainerTop />
-            </WhiteBackground>
+            </NavyBackground>
 			<MainBodyContainer Main>
 				{currentlyActive === 'tags' ? <TagsInfo /> : null }
 				{currentlyActive === 'resInfo' ? <ResInfo /> : null }

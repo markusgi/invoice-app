@@ -11,7 +11,7 @@ import InvoiceTable from "../components/Dashboard/InvoicesWindow";
 import RevenueDashboard from "../components/Dashboard/RevenueWindow";
 import KPITable from "../components/Dashboard/KPI";
 
-import { StandardWindow, MainBodyContainer, ContainerTop, WhiteBackground } from "../style/Container";
+import { StandardWindow, MainBodyContainer, ContainerTop, NavyBackground } from "../style/Container";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -30,9 +30,9 @@ const Dashboard = () => {
   return (
     <Fragment>
       <Navbar props={"dashboard"} />
-      <WhiteBackground>
+      <NavyBackground>
       <ContainerTop />
-      </WhiteBackground>
+      </NavyBackground>
       <MainBodyContainer Main>
         <MainBodyContainer LeftColumn>
           <StandardWindow>
