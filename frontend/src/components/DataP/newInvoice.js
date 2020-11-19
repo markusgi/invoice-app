@@ -140,7 +140,6 @@ const NewInvoice = ( { token } ) => {
 
     const handleSubmitItem = (event) => {
         event.preventDefault();
-
         const doActions = async () => {
             await dispatch(newArticleAction(articleName, articlePrice, articleQuantity, articleTag, invoice.id, token));
             const data = await dispatch(getInvoiceAction(invoice.id, token));
