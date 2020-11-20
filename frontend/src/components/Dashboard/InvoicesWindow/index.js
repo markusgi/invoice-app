@@ -45,7 +45,7 @@ const InvoiceTable = ({ props }) => {
                     ? latest.map((inv) => {
                         return (
                             <tr key={inv.id}>
-                                <td style={{textAlign:"right"}}>{inv.date}</td>
+                                <td style={{textAlign:"right"}}>{inv.date.slice(2)}</td>
                                 <td style={{textAlign:"center"}}>{inv.shop}</td>
                                 <td style={{textAlign:"right"}}>{inv.total_amount}</td>
                             </tr>)
