@@ -4,8 +4,8 @@ import styled from 'styled-components';
 export const InvoiceTableCSS = styled.table`
     font-size: ${fontSizes.small};
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
 `;
 
 export const TitleDiv = styled.div`
