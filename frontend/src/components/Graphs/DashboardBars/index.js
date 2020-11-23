@@ -153,7 +153,7 @@ let addRevenueTag = (
     // let revenueName = "Revenue" + year;
     colorByTagname[profitName] = `${colors.gray}`;
     if (groupedData[dateKey][profitName] == undefined) {
-      groupedData[dateKey][profitName] = rev - expenses;
+      groupedData[dateKey][profitName] = Math.abs(rev - expenses);
       // groupedData[dateKey][revenueName] = revenue.revenue;
     } else {
       groupedData[dateKey][profitName] += rev;
