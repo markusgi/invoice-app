@@ -3,7 +3,7 @@
 Screenshots
 add gifs
 
-Project Pinocchio
+Project 5aid
 add purpose
 
 Setup Guide
@@ -36,20 +36,8 @@ PyCharm settings > Build, Execution, Deployment > Docker > virtual path "/backen
 PyCharm settings > Project > Add Interpreter > Docker Compose > Service: "backend" + Python interpreter path "/opt/conda/envs/backend/bin/python"
 Make PyCharm Run/Debug configurations >
 
-Script path: "C:\Users\MyUser\PycharmProjects\project-name\backend\manage.py"
 Command: runserver 0.0.0.0:8000
 
-Path mapping: "C:/Users/alex_/PycharmProjects/project-name/backend=/backend"
-
-
-Make PyCharm Run/Debug configurations > Same as above with command makemigrations
-
-Make PyCharm Run/Debug configurations > Same as above with command migrate
-
-
-
-Test if the server is running correctly by accessing "http://localhost:8000/backend/api/admin/"
-Start the frontend React app $ cd frontend/ $ npm start and access it on "https://localhost:3000/"
 
 
 Architecture
