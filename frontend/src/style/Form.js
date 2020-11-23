@@ -69,27 +69,4 @@ export const NiceInput = styled.input`
 		}
 	}}
 
-	${props => {
-		if (props.restaurantProfile) {
-			return `
-			width: 70%;
-			padding: .8rem;
-			margin: .8rem;
-			background: #fff;
-			font-size: ${props.theme.fontNormal};
-			font-weight: bold;
-			height: 35px;
-			letter-spacing: .04rem;
-			border: 1px solid rgba(0, 0, 0, .15);
-			color: rgba(0, 0, 0, .75);
-				::placeholder {
-					color: rgba(0,0,0,.35);
-				}
-				&.hide-on-focus:focus {
-				::-webkit-input-placeholder {
-				color: white;
-  				}
-			`;
-		}
-	}}
 `;

@@ -1,13 +1,23 @@
 import React, { Fragment } from 'react';
-import Navbar from '../components/BaseComponents/Navbar';
+import { useSelector } from 'react-redux';
 
+import Navbar from '../components/BaseComponents/Navbar';
+import FiltersAnalysis from '../components/Analysis/filters';
+import { ContainerTop, MainBodyContainer, NavyBackground } from '../style/Container';
 
 const Analysis = () => {
+
+	let currentlyActive = useSelector(state => state.subWindow.window);
 
 	return (
 		<Fragment>
 			<Navbar props={"analysis"} />
-            <h1>a nice title</h1>
+			<NavyBackground>
+                <ContainerTop />
+            </NavyBackground>
+			<MainBodyContainer Main>
+				{currentlyActive === 'filter' ? <FiltersAnalysis /> : null }
+			</MainBodyContainer>
 		</Fragment>
 	);
 };

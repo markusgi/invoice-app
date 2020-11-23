@@ -1,39 +1,28 @@
 import React, { Fragment } from 'react';
+import { useSelector } from 'react-redux';
 import Navbar from '../components/BaseComponents/Navbar';
+import NewInvoice from '../components/DataP/newInvoice';
+import EditInvoice from '../components/DataP/editInvoice';
+import Upload from '../components/DataP/upload';
 
-import DataPage from '../components/DataP';
-import { Btn, YellowButton } from '../style/Button';
-
-import { MainBodyContainer, StandardWindow } from '../style/Container';
+import { ContainerTop, MainBodyContainer, NavyBackground } from '../style/Container';
 
 
 const Data = () => {
 
+	let currentlyActive = useSelector(state => state.subWindow.window)
+	let token = useSelector(state => state.user.token)
+
 	return (
 		<Fragment>
             <Navbar props={"data"} />
-
+			<NavyBackground>
+                <ContainerTop />
+            </NavyBackground>
 			<MainBodyContainer Main>
-				<StandardWindow>
-					<h2>Options</h2>
-					<br></br>
-					<h3>New Invoice</h3>
-					<br></br>
-					<h3>New Item</h3>
-					<br></br>
-            		<h3>New Tag</h3>
-					<Btn>
-						Somethong
-					</Btn>
-					<YellowButton>
-						else
-					</YellowButton>
-				</StandardWindow>
-
-				<StandardWindow>
-					<DataPage />
-				</StandardWindow>
-				
+				{currentlyActive === 'new' ? <NewInvoice token={token}/> : null }
+				{currentlyActive === 'edit' ? <EditInvoice token={token}/> : null }
+				{currentlyActive === 'upload' ? <Upload token={token}/> : null }
 			</MainBodyContainer>
 		</Fragment>
 	);

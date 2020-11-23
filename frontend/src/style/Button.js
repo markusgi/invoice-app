@@ -1,87 +1,88 @@
 import styled from 'styled-components';
-
+import {colors} from "./Theme";
 
 export const YellowButton = styled.button`
     height: 55px;
-    width: 130px;
-    background-color: #efba46;
+    background-color: ${colors.yellow};
     border-radius: 18px;
-    border: solid 2px #efba46;
+    border: solid 2px ${colors.yellow};
     box-sizing: border-box;
     font-style: normal;
     font-weight: bold;
     font-size: 20px;
-    color: #234e6f;
+    color: ${colors.blueDark};
     text-align: center;
+    transition: linear 0.5s;
     :hover {
-    	border: solid 2px #234E6F;
+    	border: solid 2px ${colors.blueDark};
 	    transition: linear 0.5s;
 	 	}
 `;
 
 
-export const Btn = styled.button`
-	appearance: none;
-	outline: none;
-	font-size: ${props => props.theme.fontMedium};
-	padding: 12px 28px;
-	border-radius: 100px;
-	border: 2px solid ${props => props.theme.orangeMain};
-	cursor: pointer;
+// export const Btn = styled.button`
+// 	appearance: none;
+// 	outline: none;
+// 	font-size: ${props => props.theme.fontMedium};
+// 	padding: 12px 28px;
+// 	border-radius: 100px;
+// 	border: 2px solid ${props => props.theme.orangeMain};
+// 	cursor: pointer;
+//
+// 	${props => {
+// 		if (props.showcase) {
+// 			return `
+// 			color: ${colors.white};
+// 			background: ${props.theme.orangeMain};
+// 			position: relative;
+// 			padding: 12px 46px;
+// 			z-index: 1;
+// 			margin-left: 12px;
+// 			`;
+// 		}
+// 	}}
+//
+// 	${props => {
+// 		if (props.btnLike) {
+// 			return `
+// 			background: #b3b3b3;
+// 			font-size: 1rem;
+// 			color: #fff;
+// 			border: 1px solid ${colors.white};
+// 			padding: 8px 15px;
+// 			border-top-right-radius: 0;
+// 			border-bottom-right-radius: 0;
+// 			`;
+// 		}
+// 	}}
+//
+// 	${props => {
+// 		if (props.btnComment) {
+// 			return `
+// 			background: #b3b3b3;
+// 			font-size: 1rem;
+// 			color: #fff;
+// 			padding: 8px 15px;
+// 			border: 1px solid ${colors.white};
+// 			outline: none;
+// 			border-top-left-radius: 0;
+// 			border-bottom-left-radius: 0;
+// 			cursor: pointer;
+// 			`;
+// 		}
+// 	}}
+//
+// 	${props => {
+// 		if (props.restaurantProfile) {
+// 			return `
+// 			color: #fff;
+// 			background: ${props.theme.orangeMain};
+// 			position: relative;
+// 			padding: 8px 32px;
+// 			letter-spacing: 1px;
+// 			font-size: ${props.theme.fontNormal};
+// 			`;
+// 		}
+// 	}}
+// `;
 
-	${props => {
-		if (props.showcase) {
-			return `
-			color: #fff;
-			background: ${props.theme.orangeMain};
-			position: relative;
-			padding: 12px 46px;
-			z-index: 1;
-			margin-left: 12px;
-			`;
-		}
-	}}
-
-	${props => {
-		if (props.btnLike) {
-			return `
-			background: #b3b3b3;
-			font-size: 1rem;
-			color: #fff;
-			border: 1px solid #fff;
-			padding: 8px 15px;
-			border-top-right-radius: 0;
-			border-bottom-right-radius: 0;
-			`;
-		}
-	}}
-
-	${props => {
-		if (props.btnComment) {
-			return `
-			background: #b3b3b3;
-			font-size: 1rem;
-			color: #fff;
-			padding: 8px 15px;
-			border: 1px solid #fff;
-			outline: none;
-			border-top-left-radius: 0;
-			border-bottom-left-radius: 0;
-			cursor: pointer;
-			`;
-		}
-	}}
-	
-	${props => {
-		if (props.restaurantProfile) {
-			return `
-			color: #fff;
-			background: ${props.theme.orangeMain};
-			position: relative;
-			padding: 8px 32px;
-			letter-spacing: 1px;
-			font-size: ${props.theme.fontNormal};
-			`;
-		}
-	}}
-`;

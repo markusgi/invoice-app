@@ -1,41 +1,54 @@
 import { colors, fontSizes } from "../../../style/Theme";
 import styled from 'styled-components';
 
+
+
+///////////////////////// GENERAL/////////////////////////
+
 export const NavbarWrapper = styled.nav`
 	width: 100%;
-	padding: 0 15px;
+	padding: 0 60px;
 	height: 140px;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
+	justify-content: space-between;
 	align-items: center;
 	background: ${colors.blueDark} !important;
 `;
 
-export const NavbarTopWrapper = styled.nav`
-	width: 100%;
-	padding-top: 35px;
-	height: 80px;
-	display: flex;
-	align-items: center;
-`;
-
-
+///////////////////////// LEFT ///////////////////////////
 
 export const NavbarLeft = styled.nav`
-	width: 30%;
+	width: 17%;
 	.logo {
 		width: 180px;
-		margin-top: 20px;
-	}
+	};
 `;
 
-export const NavbarTop = styled.nav`
-	width: 40%;
+///////////////////////// MIDDLE /////////////////////////
+
+export const NavbarMiddle = styled.nav`
+
+`;
+
+// export const NavbarTopWrapper = styled.nav`
+// 	width: 100%;
+// 	padding-top: 35px;
+// 	height: 80px;
+// 	display: flex;
+// 	align-items: center;
+// `;
+
+export const NavbarTopWrapper = styled.nav`
+	width: 100%;
 	min-width: 500px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	height: 100%;
+	img{
+	    padding-right: 12px;
+	}
 
 	.dashboardLink,
 	.dataLink,
@@ -46,7 +59,7 @@ export const NavbarTop = styled.nav`
 		font-size: ${fontSizes.large};
 		color: ${colors.white};
 		margin: 15px;
-		padding: 5px;
+		//padding: 5px;
 		height: 100%;
 		border-bottom: 3px solid transparent;
 	}
@@ -64,11 +77,40 @@ export const NavbarTop = styled.nav`
 	}
 `;
 
+///////////////////////// RIGHT //////////////////////////
+
+export const NavbarRight = styled.nav`
+    width: 17%;
+    .Icon {
+		width: 25px;
+		height: 25px;
+		margin-left: 40px;
+	}
+`;
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
 export const NavbarBottom = styled.nav`
-	width: 40%;
+	/* width: 50%; */
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: center;
+	font-size: ${fontSizes.normal};
+	margin-top: 5px;
 	height: 50px;
 
 	.timeLink:hover {
@@ -77,6 +119,7 @@ export const NavbarBottom = styled.nav`
 	}
 	.timeLink {
 		display: flex;
+		margin-left: 20px;
 		justify-content: center;
 		align-items: center;
 		font-size: ${fontSizes.normal};
@@ -85,6 +128,11 @@ export const NavbarBottom = styled.nav`
 		height: 100%;
 		border-bottom: 3px solid transparent;
 		min-width: 80px;
+	}
+
+	.active {
+		background-color: ${colors.blue};
+		border-radius: 7px;
 	}
 
 `;
@@ -102,3 +150,30 @@ export const BtnsWrapper = styled.div`
 	}
 
 `;
+
+export const DateModalDiv = styled.div`
+	margin-top: 0;
+	padding-left: 60px;
+	width: 198px;
+	min-height: 155px;
+	border: 2px solid ${colors.blue};
+	border-radius: 10px;
+	background-color: ${colors.white};
+	position: relative;
+	top: 6px;
+	left: 350px;
+	z-index: 2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	.dates {
+		width: 220px;
+		margin-left: 13px;
+		margin-top: 17px;
+		margin-bottom: 0;
+	}
+
+`;
+
